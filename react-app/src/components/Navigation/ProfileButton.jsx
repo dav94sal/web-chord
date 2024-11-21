@@ -51,10 +51,11 @@ function ProfileButton() {
         <ul className={"profile-dropdown"} ref={ulRef}>
           {user ? (
             <>
+              <li>Welcome to WebChord!</li>
               <li>{user.username}</li>
-              <li>{user.email}</li>
               <li>
-                <button onClick={logout}>Log Out</button>
+                <button onClick={logout} className="buttons">Manage Site</button>
+                <button onClick={logout} className="buttons">Log Out</button>
               </li>
             </>
           ) : (
@@ -64,13 +65,13 @@ function ProfileButton() {
                 itemText="Log In"
                 onItemClick={closeMenu}
                 modalComponent={<LoginFormModal />}
-                setClassName="session-buttons"
+                setClassName="buttons"
               />
               <OpenModalMenuItem
                 itemText="Sign Up"
                 onItemClick={closeMenu}
                 modalComponent={<SignupFormModal />}
-                setClassName="session-buttons"
+                setClassName="buttons"
               />
             </>
           )}

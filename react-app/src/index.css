@@ -48,3 +48,15 @@ form {
     padding: 20px;
     width: 300px;
 }
+
+
+.buttons {
+    background-color: #3e3e3e;
+    border: unset;
+    border-radius: 10px;
+    color: white;
+    height: 25px;
+    margin: 10px 5px;
+    /* margin-bottom: 20px; */
+    width: 100px;
+  }
