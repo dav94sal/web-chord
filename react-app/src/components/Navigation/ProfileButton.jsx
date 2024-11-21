@@ -59,7 +59,7 @@ function ProfileButton() {
             </>
           ) : (
             <>
-              <li><h2>Welcome to Web Chord</h2></li>
+              <li><h3>Welcome to Web Chord</h3></li>
               <OpenModalMenuItem
                 itemText="Log In"
                 onItemClick={closeMenu}
