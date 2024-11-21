@@ -1,3 +1,45 @@
+.navigation {
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 160px;
+}
+
 .profile-dropdown {
+  background-color: #aa401dc5;
+  border-radius: 10px;
   position: absolute;
+  right: 5px;
+  top: 150px;
+  height: auto;
+  width: 275px;
+}
+
+.profile-dropdown li {
+  list-style-type: none;
+}
+
+.nav-buttons {
+  height: 160px;
+}
+
+.nav-but {
+  background-color: unset;
+  border: unset;
+  height: 160px;
+}
+
+.session-buttons {
+  background-color: #3e3e3e;
+  border: unset;
+  border-radius: 10px;
+  color: white;
+  height: 25px;
+  margin: 5px;
+  margin-bottom: 20px;
+  width: 100px;
 }

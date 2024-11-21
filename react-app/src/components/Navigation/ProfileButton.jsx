@@ -41,8 +41,11 @@ function ProfileButton() {
 
   return (
     <>
-      <button onClick={toggleMenu}>
-        <FaUserCircle />
+      <button onClick={toggleMenu} className="nav-but">
+        <img
+          src="https://i.ibb.co/LYJd0Qy/Design-2.png"
+          className="nav-buttons"
+        />
       </button>
       {showMenu && (
         <ul className={"profile-dropdown"} ref={ulRef}>
@@ -56,15 +59,18 @@ function ProfileButton() {
             </>
           ) : (
             <>
+              <li><h1>Welcome to Web Chord</h1></li>
               <OpenModalMenuItem
                 itemText="Log In"
                 onItemClick={closeMenu}
                 modalComponent={<LoginFormModal />}
+                setClassName="session-buttons"
               />
               <OpenModalMenuItem
                 itemText="Sign Up"
                 onItemClick={closeMenu}
                 modalComponent={<SignupFormModal />}
+                setClassName="session-buttons"
               />
             </>
           )}
