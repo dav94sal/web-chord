@@ -13,10 +13,10 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    isArtist = db.Column(db.Boolean, nullable=False)
-    artistName = db.Column(db.String(40))
+    is_artist = db.Column(db.Boolean, nullable=False)
+    artist_name = db.Column(db.String(40))
 
-    img = db.relationship("Images", back_populates="type")
+    img = db.relationship("Image", back_populates="ids")
 
     @property
     def password(self):
