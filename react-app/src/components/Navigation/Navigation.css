@@ -9,6 +9,11 @@
   height: 160px;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+}
+
 .profile-dropdown {
   background-color: #aa401dc5;
   border-radius: 10px;

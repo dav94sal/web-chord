@@ -2,3 +2,10 @@
 /* logo color:
     hex: #aa401d,
     rgb: 170, 64, 29 */
+
+
+h1 {
+    color: white;
+    font-size: 60px;
+    margin: unset;
+}
