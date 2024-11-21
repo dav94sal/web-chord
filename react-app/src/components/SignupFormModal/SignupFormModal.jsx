@@ -10,6 +10,8 @@ function SignupFormModal() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [isArtist, setIsArtist] = useState(false);
+  const [artistName, setArtistName] = useState("");
   const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
 
@@ -28,6 +30,8 @@ function SignupFormModal() {
         email,
         username,
         password,
+        isArtist,
+        artistName
       })
     );
 
@@ -63,6 +67,24 @@ function SignupFormModal() {
           />
         </label>
         {errors.username && <p>{errors.username}</p>}
+        <label>
+          Artist?
+          <input
+            type="checkbox"
+            // value={isArtist}
+            onChange={() => setIsArtist(!isArtist)}
+          />
+        </label>
+        {errors.isArtist && <p>{errors.isArtist}</p>}
+        <label>
+          Artist Name
+          <input
+            type="text"
+            value={artistName}
+            onChange={(e) => setArtistName(e.target.value)}
+          />
+        </label>
+        {errors.artistName && <p>{errors.artistName}</p>}
         <label>
           Password
           <input
