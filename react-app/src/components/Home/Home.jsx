@@ -14,9 +14,9 @@ function Home() {
     return (
         <div className="home-content-layout">
             <div className="home-content-container">
-                {arrayMaker().map(() => {
-                    return <ArtistTile />
-                })}
+                {arrayMaker().map((num) => (
+                    <ArtistTile key={num}/>
+                ))}
             </div>
         </div>
     )
