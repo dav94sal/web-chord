@@ -3,7 +3,6 @@ from app.models import User, db
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
-from .aws_helpers import upload_file_to_s3, get_unique_filename
 
 auth_routes = Blueprint('auth', __name__)
 
@@ -52,19 +51,6 @@ def sign_up():
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    image = form.data["image"]
-    image.filename = get_unique_filename
-    upload = upload_file_to_s3(image)
-    print(upload)
-
-    if "url" not in upload:
-        # if the dictionary doesn't have a url key
-        # it means that there was an error when you tried to upload
-        # so you send back that error message (and you printed it above)
-            return {"errors": upload}
-
-    url = upload["url"]
-
     if form.validate_on_submit():
         user = User(
             username=form.data['username'],
@@ -72,7 +58,6 @@ def sign_up():
             password=form.data['password'],
             is_artist=form.data["is_artist"],
             artist_name=form.data["artist_name"],
-            img_url=url
         )
         db.session.add(user)
         db.session.commit()
