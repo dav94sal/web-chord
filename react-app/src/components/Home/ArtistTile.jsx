@@ -1,15 +1,15 @@
 import "./Home.css"
 
-function ArtistTile() {
+function ArtistTile({ artist }) {
     return (
         <div className="artist-tile-container">
             <div className="artist-tile">
                 <img
-                    src="https://i.ibb.co/sv3NyY3/board-2450236-1280.jpg"
+                    src={artist.imgUrl}
                     className="artist-img"
                 />
             </div>
-            <p className="name-artist">Artist Name</p>
+            <p className="name-artist">{artist.artistName}</p>
 
         </div>
     )

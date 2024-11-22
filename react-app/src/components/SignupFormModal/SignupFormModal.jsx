@@ -11,8 +11,6 @@ function SignupFormModal() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isArtist, setIsArtist] = useState(false);
   const [artistName, setArtistName] = useState("");
-  const [image, setImage] = useState(null)
-  const [imageLoading, setImageLoading] = useState(false)
   const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
   const dispatch = useDispatch();
