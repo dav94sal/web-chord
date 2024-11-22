@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { FaUserCircle } from 'react-icons/fa';
 import { thunkLogout } from "../../redux/session";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
@@ -41,30 +40,37 @@ function ProfileButton() {
 
   return (
     <>
-      <button onClick={toggleMenu}>
-        <FaUserCircle />
+      <button onClick={toggleMenu} className="nav-but">
+        <img
+          src="https://i.ibb.co/LYJd0Qy/Design-2.png"
+          className="nav-buttons"
+        />
       </button>
       {showMenu && (
         <ul className={"profile-dropdown"} ref={ulRef}>
           {user ? (
             <>
+              <li>Welcome to WebChord!</li>
               <li>{user.username}</li>
-              <li>{user.email}</li>
               <li>
-                <button onClick={logout}>Log Out</button>
+                <button onClick={logout} className="buttons">Manage Site</button>
+                <button onClick={logout} className="buttons">Log Out</button>
               </li>
             </>
           ) : (
             <>
+              <li><h3>Welcome to Web Chord</h3></li>
               <OpenModalMenuItem
                 itemText="Log In"
                 onItemClick={closeMenu}
                 modalComponent={<LoginFormModal />}
+                setClassName="buttons"
               />
               <OpenModalMenuItem
                 itemText="Sign Up"
                 onItemClick={closeMenu}
                 modalComponent={<SignupFormModal />}
+                setClassName="buttons"
               />
             </>
           )}
