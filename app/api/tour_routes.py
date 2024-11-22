@@ -1,10 +1,12 @@
 from flask import Blueprint, jsonify
-from flask_login import login_required
+from flask_login import login_required, current_user
 from app.models import Tour
 
 tour_routes = Blueprint('tours', __name__)
 
-
-@tour_routes.route('/<int:id>')
+# Get all artist tours
+@tour_routes.route('/')
+@login_required
 def tour():
-    pass
+    tours = Tour.query.filter_by(artist_id = current_user.id).all()
+    return [tour.to_dict() for tour in tours]

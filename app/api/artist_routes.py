@@ -4,6 +4,7 @@ from app.models import User, Tour
 
 artist_routes = Blueprint('artists', __name__)
 
-@artist_routes.route('/<int:id>/tours')
-def all_tours():
+# Get one tour
+@artist_routes.route('/<int:artist_id>/tours/<int:tour_id>')
+def all_tours(artist_id, tour_id):
     pass
