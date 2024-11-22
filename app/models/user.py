@@ -15,6 +15,7 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
     is_artist = db.Column(db.Boolean)
     artist_name = db.Column(db.String(40))
+    img_url = db.Column(db.String(40))
 
     img = db.relationship("Image", back_populates="ids")
 
@@ -34,4 +35,11 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email
+        }
+
+    def artist(self):
+        return {
+            'id': self.id,
+            'artistName': self.artist_name,
+            'imgUrl': self.img_url
         }

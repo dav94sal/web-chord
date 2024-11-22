@@ -4,7 +4,13 @@ from app.models import User, Tour
 
 artist_routes = Blueprint('artists', __name__)
 
-# Get one tour
-@artist_routes.route('/<int:artist_id>/tours/<int:tour_id>')
-def all_tours(artist_id, tour_id):
+# Get all artists
+@artist_routes.route('/')
+def artists():
+    users = User.query.filter_by(is_artist = True).all()
+    return { "users": [user.artist() for user in users]}
+
+# Get latest tour
+@artist_routes.route('/<int:artist_id>/latest-tour/')
+def all_tours(artist_id):
     pass
