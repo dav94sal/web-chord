@@ -8,7 +8,9 @@ class Image(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     imageable_type = db.Column(db.String, nullable=False)
-    imageable_id = db.Column(db.Integer, db.ForeignKey("users.id" or "merchandise.id"), nullable=False)
+    imageable_id = db.Column(db.Integer, db.ForeignKey(
+        add_prefix_for_prod("users.id") or
+        add_prefix_for_prod("merchandise.id")), nullable=False)
     url = db.Column(db.String, nullable=False)
 
     ids = db.relationship("User", back_populates="img")
