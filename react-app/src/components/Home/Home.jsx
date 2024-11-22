@@ -1,5 +1,8 @@
+import { useDispatch } from "react-redux"
+import { getAllArtists } from "../../redux/artist";
 import ArtistTile from "./ArtistTile";
 import "./Home.css"
+import { useEffect, useState } from "react";
 
 // For Testing
 const arrayMaker = (num=10) => {
@@ -11,13 +14,21 @@ const arrayMaker = (num=10) => {
 }
 
 function Home() {
+    const [isLoading, setIsLoading] = useState(true)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getAllArtists())
+            .then(() => setIsLoading(false))
+    }, [dispatch])
+
     return (
         <div className="home-content-layout">
-            <div className="home-content-container">
+            {!isLoading && <div className="home-content-container">
                 {arrayMaker().map((num) => (
                     <ArtistTile key={num}/>
                 ))}
-            </div>
+            </div>}
         </div>
     )
 }

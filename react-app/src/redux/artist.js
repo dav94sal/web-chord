@@ -13,14 +13,33 @@ const removeArtists = () => ({
 
 
 // Thunks
+export const getAllArtists = () => async dispatch => {
+    const response = await fetch("/api/artists");
+    // console.log("Fetch response: ", await response.json())
+
+    if(response.ok) {
+      const data = await response.json();
+      dispatch(setArtists(data.users));
+    } else if (response.status < 500) {
+        const errorMessages = await response.json();
+        return {
+            errors: errorMessages
+        }
+    } else {
+        return {
+            errors: { server: "Something went wrong. Please try again" }
+        }
+    }
+}
+
 export const addImage = (image) => async dispatch => {
-    console.log("Image: ", image)
+    // console.log("Image: ", image)
     const response = await fetch("/api/images", {
         method: "POST",
         // headers: { "Content-Type": "application/json" },
         body: image
     });
-    console.log("Fetch response: ", response)
+    // console.log("Fetch response: ", response)
 
     if(response.ok) {
         const data = await response.json();

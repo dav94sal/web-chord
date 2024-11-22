@@ -8,7 +8,8 @@ artist_routes = Blueprint('artists', __name__)
 @artist_routes.route('/')
 def artists():
     users = User.query.filter_by(is_artist = True).all()
-    return { "users": [user.artist() for user in users]}
+    print("Users: ", users)
+    return { "users": [user.artist() for user in users] }
 
 # Get latest tour
 @artist_routes.route('/<int:artist_id>/latest-tour/')
