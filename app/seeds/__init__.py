@@ -1,6 +1,8 @@
 from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .images import seed_images, undo_images
+from .tours import seed_tours, undo_tours
+from .shows import seed_shows, undo_shows
 
 from app.models.db import db, environment, SCHEMA
 
@@ -19,8 +21,12 @@ def seed():
         # Make sure to add all your other model's undo functions below
         undo_users()
         undo_images()
+        undo_tours()
+        undo_shows()
     seed_users()
     seed_images()
+    seed_tours()
+    seed_shows()
     # Add other seed functions here
 
 
@@ -29,4 +35,6 @@ def seed():
 def undo():
     undo_users()
     undo_images()
+    undo_tours()
+    undo_shows()
     # Add other undo functions here
