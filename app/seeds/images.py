@@ -1,11 +1,13 @@
 from app.models import db, Image, environment, SCHEMA
 from sqlalchemy.sql import text
-from .data import images
+from .img_data import UserImages
 
 
 # Adds a demo user, you can add other users here if you want
 def seed_images():
-    for img in images:
+    user_imgs = UserImages()
+    print("---------Image: ", user_imgs.images, "------------")
+    for img in user_imgs.images:
         db.session.add(Image(
             imageable_id=img["id"],
             imageable_type=img["type"],

@@ -11,7 +11,7 @@ def artists():
     users = User.query.filter_by(is_artist = True).options(
         joinedload(User.img)
     ).all()
-    print("Users: ", users[0].artist())
+    print("----------Users: ", [user.artist() for user in users], "-----------")
     return { "users": [user.artist() for user in users] }
 
 # Get latest tour

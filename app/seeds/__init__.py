@@ -23,6 +23,7 @@ def seed():
         undo_images()
         undo_tours()
         undo_shows()
+        
     seed_users()
     seed_images()
     seed_tours()
