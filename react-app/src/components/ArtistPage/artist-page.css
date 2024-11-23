@@ -19,6 +19,38 @@
 
 .shows-container {
     display: flex;
+    flex-direction: column;
     margin: 0 auto;
+}
 
+.show-tile {
+    background-color: rgba(237, 232, 228, 0.193);
+    display: grid;
+    grid-template-columns: 350px 350px 300px;
+    margin: 5px;
+    height: 100px;
+    width: 1000px;
+}
+
+.location {
+    align-self: center;
+}
+
+.tickets {
+    align-self: center;
+    color: white;
+    padding: 10px;
+    text-align: end;
+}
+
+.show-button {
+    background-color: black;
+    color: white;
+    height: 25px;
+    margin: 5px;
+    width: 100px;
+}
+
+.shows {
+    margin: 5px 10px;
 }

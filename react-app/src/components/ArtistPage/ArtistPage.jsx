@@ -3,6 +3,7 @@ import { getLatestTour } from "../../redux/tour";
 import { getArtistById } from "../../redux/artist";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import ShowTile from "./ShowTile";
 import "./artist-page.css"
 
 function ArtistPage() {
@@ -18,17 +19,6 @@ function ArtistPage() {
             .then(() => setIsLoading(false))
     }, [dispatch,artistId])
 
-    const formatShow = show => {
-        const datetime = show.datetime.split(' ')
-        const day = datetime[1]
-        const month = datetime[2]
-        const year = datetime[3]
-
-        const location = `${show.city}, ${show.state}`
-
-        return `${location} - ${month} ${day}, ${year}`
-    }
-
     return (
         <div className="artist-page-layout">
             <div className="band-pic">
@@ -43,9 +33,9 @@ function ArtistPage() {
                     <h3 id="tour-head">{tour.name}</h3>
                     <div className="shows-container">
                         {tour && tour.shows.map(show => (
-                            <p className="shows" key={`show${show.id}`} >
-                                {formatShow(show)}
-                            </p>
+                            <div className="show-tile" key={`show${show.id}`}>
+                                <ShowTile show={show} />
+                            </div>
                         ))}
                     </div>
                 </div>
