@@ -11,3 +11,14 @@ class Show(db.Model):
     location = db.Column(db.String, nullable=False)
     tour_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("tours.id")), nullable=False)
     artist_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
+
+    tour = db.relationship("Tour", back_populates="shows")
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "datetime": self.datetime,
+            "location": self.location,
+            "tour_id": self.tour_id,
+            "artist_id": self.artist_id,
+        }

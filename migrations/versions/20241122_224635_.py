@@ -1,8 +1,8 @@
-"""Create Tours, Shows, Users
+"""empty message
 
-Revision ID: 68a3d50185a0
-Revises:
-Create Date: 2024-11-21 21:07:51.865820
+Revision ID: 7d9131cedf8c
+Revises: 
+Create Date: 2024-11-22 22:46:35.398049
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '68a3d50185a0'
+revision = '7d9131cedf8c'
 down_revision = None
 branch_labels = None
 depends_on = None

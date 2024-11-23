@@ -11,10 +11,16 @@ def artists():
     users = User.query.filter_by(is_artist = True).options(
         joinedload(User.img)
     ).all()
-    print("----------Users: ", [user.artist() for user in users], "-----------")
+    # print("----------Users: ", [user.artist() for user in users], "-----------")
     return { "users": [user.artist() for user in users] }
 
 # Get latest tour
 @artist_routes.route('/<int:artist_id>/latest-tour/')
-def all_tours(artist_id):
-    pass
+def latest_tour(artist_id):
+    tours = Tour.query.filter_by(artist_id = artist_id).options(
+        joinedload(Tour.shows)
+    ).all()
+
+    tour = sorted(tours, reverse=True)[0]
+
+    return tour.to_dict()
