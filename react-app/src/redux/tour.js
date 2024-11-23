@@ -7,7 +7,7 @@ const setTours = (tours) => ({
     tours // an array of tours
 })
 
-const removeTours = () => ({
+export const removeTours = () => ({
     type: REMOVE_TOURS
 })
 

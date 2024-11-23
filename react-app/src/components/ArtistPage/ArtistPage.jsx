@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getLatestTour } from "../../redux/tour";
+import { getArtistById } from "../../redux/artist";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import "./artist-page.css"
@@ -13,6 +14,7 @@ function ArtistPage() {
     useEffect(() => {
         dispatch(getLatestTour(artistId))
             .then(data => setTour(data))
+            .then(() => dispatch(getArtistById(artistId)))
             .then(() => setIsLoading(false))
     }, [dispatch,artistId])
 
@@ -26,7 +28,7 @@ function ArtistPage() {
     }
 
     return (
-        <>
+        <div className="artist-page-layout">
             <div className="band-pic">
                 <img
                     className="band-pic pic"
@@ -46,7 +48,7 @@ function ArtistPage() {
                     </div>
                 </div>
             }
-        </>
+        </div>
     )
 }
 

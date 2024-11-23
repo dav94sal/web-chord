@@ -7,7 +7,7 @@ const setArtists = (artists) => ({
     artists // an array of artists
 })
 
-const removeArtists = () => ({
+export const removeArtists = () => ({
     type: REMOVE_ARTISTS
 })
 
@@ -20,6 +20,25 @@ export const getAllArtists = () => async dispatch => {
     if(response.ok) {
       const data = await response.json();
       dispatch(setArtists(data.users));
+    } else if (response.status < 500) {
+        const errorMessages = await response.json();
+        return {
+            errors: errorMessages
+        }
+    } else {
+        return {
+            errors: { server: "Something went wrong. Please try again" }
+        }
+    }
+}
+
+export const getArtistById = (id) => async dispatch => {
+    const response = await fetch(`/api/artists/${id}`);
+    // console.log("Fetch response: ", await response.json())
+
+    if(response.ok) {
+      const data = await response.json();
+      dispatch(setArtists([data]));
     } else if (response.status < 500) {
         const errorMessages = await response.json();
         return {

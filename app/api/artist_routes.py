@@ -14,6 +14,16 @@ def artists():
     # print("----------Users: ", [user.artist() for user in users], "-----------")
     return { "users": [user.artist() for user in users] }
 
+# Get artist by Id
+@artist_routes.route('/<int:artist_id>')
+def one_artist(artist_id):
+    user = User.query.get(artist_id)
+    user = user.artist()
+    if user:
+        return user
+    return {'errors': {'message': 'Artist Not Found'}}, 404
+
+
 # Get latest tour
 @artist_routes.route('/<int:artist_id>/latest-tour/')
 def latest_tour(artist_id):
