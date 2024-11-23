@@ -1,25 +1,21 @@
 from app.models import db, Show, environment, SCHEMA
 from sqlalchemy.sql import text
-from datetime import datetime
+from .show_data import shows
 
 # Adds a demo user, you can add other users here if you want
 def seed_shows():
-    demo = Show(
-        artist_id=1, tour_id=1, location="Houston,TX",
-        datetime=datetime(2025, 1, 1, 20))
-    marnies_show = Show(
-        artist_id=2, tour_id=2, location="Houston,TX",
-        datetime=datetime(2025, 1, 2, 20))
-    bobbies_show = Show(
-        artist_id=3, tour_id=3, location="Houston,TX",
-        datetime=datetime(2025, 1, 3, 20))
+    for i in range(len(shows)):
+        show = shows[i]
+        db.session.add(Show(
+            tour_id=show["tour_id"],
+            artist_id=show['artist_id'],
+            city=show["city"],
+            state=show["state"],
+            venue=show["venue"],
+            headliners=show["headliners"],
+            datetime=show['datetime']))
 
-
-    db.session.add(demo)
-    db.session.add(marnies_show)
-    db.session.add(bobbies_show)
     db.session.commit()
-
 
 # Uses a raw SQL query to TRUNCATE or DELETE the users table. SQLAlchemy doesn't
 # have a built in function to do this. With postgres in production TRUNCATE

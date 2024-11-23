@@ -8,7 +8,10 @@ class Show(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     datetime = db.Column(db.DateTime, nullable=False)
-    location = db.Column(db.String, nullable=False)
+    city = db.Column(db.String, nullable=False)
+    state = db.Column(db.String, nullable=False)
+    venue = db.Column(db.String, nullable=False)
+    headliners = db.Column(db.String)
     tour_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("tours.id")), nullable=False)
     artist_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
 
@@ -18,7 +21,10 @@ class Show(db.Model):
         return {
             "id": self.id,
             "datetime": self.datetime,
-            "location": self.location,
+            "city": self.city,
+            "state": self.state,
+            "venue": self.venue,
+            "headliners": self.headliners,
             "tour_id": self.tour_id,
             "artist_id": self.artist_id,
         }

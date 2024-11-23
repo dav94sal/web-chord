@@ -6,7 +6,6 @@ from .tour_data import tours
 def seed_tours():
     for i in range(len(tours)):
         tour = tours[i]
-        Tour(name='Demo Tour', artist_id=1)
         db.session.add(Tour(
             name=tour["name"],
             artist_id=tour['artist_id']))

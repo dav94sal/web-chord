@@ -1,8 +1,8 @@
-"""empty message
+"""Add users, tours, shows
 
-Revision ID: 7d9131cedf8c
+Revision ID: 83caea6311cb
 Revises: 
-Create Date: 2024-11-22 22:46:35.398049
+Create Date: 2024-11-23 14:56:09.672341
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '7d9131cedf8c'
+revision = '83caea6311cb'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -47,7 +47,10 @@ def upgrade():
     op.create_table('shows',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('datetime', sa.DateTime(), nullable=False),
-    sa.Column('location', sa.String(), nullable=False),
+    sa.Column('city', sa.String(), nullable=False),
+    sa.Column('state', sa.String(), nullable=False),
+    sa.Column('venue', sa.String(), nullable=False),
+    sa.Column('headliners', sa.String(), nullable=True),
     sa.Column('tour_id', sa.Integer(), nullable=False),
     sa.Column('artist_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['artist_id'], ['users.id'], ),

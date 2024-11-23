@@ -24,7 +24,9 @@ function ArtistPage() {
         const month = datetime[2]
         const year = datetime[3]
 
-        return `${show.location} - ${month} ${day}, ${year}`
+        const location = `${show.city}, ${show.state}`
+
+        return `${location} - ${month} ${day}, ${year}`
     }
 
     return (
