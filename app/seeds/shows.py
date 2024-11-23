@@ -9,10 +9,10 @@ def seed_shows():
         datetime=datetime(2025, 1, 1, 20))
     marnies_show = Show(
         artist_id=2, tour_id=2, location="Houston,TX",
-        datetime=datetime(2025, 1, 1, 20))
+        datetime=datetime(2025, 1, 2, 20))
     bobbies_show = Show(
         artist_id=3, tour_id=3, location="Houston,TX",
-        datetime=datetime(2025, 1, 1, 20))
+        datetime=datetime(2025, 1, 3, 20))
 
 
     db.session.add(demo)

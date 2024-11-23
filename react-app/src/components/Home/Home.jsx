@@ -1,17 +1,9 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { getAllArtists } from "../../redux/artist";
 import ArtistTile from "./ArtistTile";
 import "./Home.css"
-import { useEffect, useState } from "react";
-
-// For Testing
-// const arrayMaker = (num=10) => {
-//     let arr = []
-//     for (let i = 0; i < num; i++) {
-//         arr.push(i)
-//     }
-//     return arr
-// }
 
 function Home() {
     const [isLoading, setIsLoading] = useState(true)
@@ -28,10 +20,11 @@ function Home() {
         <div className="home-content-layout">
             {!isLoading && <div className="home-content-container">
                 {artists.map((artist) => (
-                    <ArtistTile
-                        key={`artists${artist.id}`}
-                        artist={artist}
-                    />
+                    <Link to={`/artists/${artist.id}` } key={`artists${artist.id}`}>
+                        <ArtistTile
+                            artist={artist}
+                        />
+                    </Link>
                 ))}
             </div>}
         </div>
