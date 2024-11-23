@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { getLatestTour } from "../../redux/tour";
-import "./artist-page.css"
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import "./artist-page.css"
 
 function ArtistPage() {
     const [tour, setTour] = useState(null)
@@ -14,7 +14,7 @@ function ArtistPage() {
         dispatch(getLatestTour(artistId))
             .then(data => setTour(data))
             .then(() => setIsLoading(false))
-    }, [dispatch])
+    }, [dispatch,artistId])
 
     const formatShow = show => {
         const datetime = show.datetime.split(' ')
@@ -26,7 +26,7 @@ function ArtistPage() {
     }
 
     return (
-        <div className="artist-page-layout">
+        <>
             <div className="band-pic">
                 <img
                     className="band-pic pic"
@@ -37,12 +37,16 @@ function ArtistPage() {
             {!isLoading &&
                 <div className="tour-container">
                     <h3 id="tour-head">{tour.name}</h3>
-                    {tour && tour.shows.map(show => (
-                        <p key={`show${show.id}`}>{formatShow(show)}</p>
-                    ))}
+                    <div className="shows-container">
+                        {tour && tour.shows.map(show => (
+                            <p className="shows" key={`show${show.id}`} >
+                                {formatShow(show)}
+                            </p>
+                        ))}
+                    </div>
                 </div>
             }
-        </div>
+        </>
     )
 }
 

@@ -3,9 +3,22 @@
 }
 
 .tour-container {
+    display: grid;
+    grid-template-rows: 100px 700px;
+    height: 800px;
     width: 100%;
 }
 
 #tour-head {
     color: black;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shows-container {
+    display: flex;
+    margin: 0 auto;
+
 }
