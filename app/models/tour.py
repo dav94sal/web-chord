@@ -13,7 +13,9 @@ class Tour(db.Model):
     shows = db.relationship("Show", back_populates="tour")
 
     def to_dict(self):
-        shows = [show.to_dict() for show in self.shows]
+        shows = None
+        if self.shows:
+            shows = [show.to_dict() for show in self.shows]
         return {
             "id": self.id,
             "name": self.name,
