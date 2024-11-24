@@ -28,7 +28,10 @@ function ShowTile({ show }) {
                 </p>
             </div>
             <div className="tickets">
-                <button className="show-button" >
+                <button
+                    className="show-button"
+                    onClick={() => alert("Feature Coming Soon")}
+                >
                     Tickets
                 </button>
             </div>
