@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { getAllArtists } from "../../redux/artist";
+import { useLoading } from "../../context/LoadingContext";
 import ArtistTile from "./ArtistTile";
 import "./Home.css"
 
 function Home() {
-    const [isLoading, setIsLoading] = useState(true)
+    const { isLoading, setIsLoading } = useLoading()
     const artistsObj = useSelector(state => state.artists)
     const artists = Object.values(artistsObj)
     const dispatch = useDispatch()
