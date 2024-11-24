@@ -15,7 +15,7 @@ function Home() {
     useEffect(() => {
         dispatch(getAllArtists())
             .then(() => setIsLoading(false))
-    }, [dispatch])
+    }, [dispatch, setIsLoading])
 
     return (
         <div className="home-content-layout">

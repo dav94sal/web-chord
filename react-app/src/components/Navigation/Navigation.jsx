@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { NavLink, useLocation, useParams } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
