@@ -14,3 +14,11 @@ class Image(db.Model):
     url = db.Column(db.String, nullable=False)
 
     ids = db.relationship("User", back_populates="img")
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "imageableType": self.imageable_type,
+            "imageableId": self.imageable_id,
+            "url": self.url,
+        }

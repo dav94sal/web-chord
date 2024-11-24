@@ -1,21 +1,16 @@
-from app.models import db, User, environment, SCHEMA
+from app.models import db, Tour, environment, SCHEMA
 from sqlalchemy.sql import text
-from .user_data import users
-
+from .tour_data import tours
 
 # Adds a demo user, you can add other users here if you want
-def seed_users():
-    for i in range(len(users)):
-        user = users[i]
-        db.session.add(User(
-            username=user["username"],
-            email=user['email'],
-            password=user['password'],
-            is_artist=user['is_artist'],
-            artist_name=user['artist_name']))
+def seed_tours():
+    for i in range(len(tours)):
+        tour = tours[i]
+        db.session.add(Tour(
+            name=tour["name"],
+            artist_id=tour['artist_id']))
 
     db.session.commit()
-
 
 # Uses a raw SQL query to TRUNCATE or DELETE the users table. SQLAlchemy doesn't
 # have a built in function to do this. With postgres in production TRUNCATE
@@ -23,10 +18,10 @@ def seed_users():
 # incrementing primary key, CASCADE deletes any dependent entities.  With
 # sqlite3 in development you need to instead use DELETE to remove all data and
 # it will reset the primary keys for you as well.
-def undo_users():
+def undo_tours():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.tours RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute(text("DELETE FROM users"))
+        db.session.execute(text("DELETE FROM tours"))
 
     db.session.commit()

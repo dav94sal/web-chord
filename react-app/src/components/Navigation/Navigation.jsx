@@ -1,14 +1,26 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { NavLink, useLocation, useParams } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
 
 function Header() {
+  const [isLoading, setIsLoading] = useState(true)
+  const { artistId } = useParams()
+  const artists = useSelector(state => state.artists)
+  const artist = artistId ? artists[artistId] : null
   const location = useLocation()
   const locations = {
     merch: "Merch",
     "manage-site": "Manage Site",
-    artists: "Band Name",
+    artists: artist?.artistName || null,
   }
+
+  useEffect(() => {
+    if (artist) {
+      setIsLoading(false)
+    }
+  }, [setIsLoading, artist])
 
   let header;
 
@@ -21,7 +33,11 @@ function Header() {
 
   if (!header) header = "Web Chord";
 
-  return <h1>{ header }</h1>
+  return (
+    <>
+      {!isLoading && <h1>{ header }</h1>}
+    </>
+  )
 }
 
 function Navigation() {

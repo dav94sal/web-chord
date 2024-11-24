@@ -13,7 +13,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    is_artist = db.Column(db.Boolean, nullable=False)
+    is_artist = db.Column(db.Boolean)
     artist_name = db.Column(db.String(40))
 
     img = db.relationship("Image", back_populates="ids")
@@ -34,4 +34,14 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email
+        }
+
+    def artist(self):
+        url = None
+        if len(self.img):
+            url = self.img[0].url
+        return {
+            'id': self.id,
+            'artistName': self.artist_name,
+            'imgUrl': url
         }

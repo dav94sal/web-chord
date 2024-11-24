@@ -1,7 +1,8 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, BooleanField
-from wtforms.validators import DataRequired, Email, ValidationError
+from wtforms import StringField, BooleanField, SubmitField
+from wtforms.validators import DataRequired, ValidationError
 from app.models import User
+from app.api.aws_helpers import ALLOWED_EXTENSIONS
 
 
 def user_exists(form, field):
@@ -29,7 +30,8 @@ def artist_name_required(form, field):
 class SignUpForm(FlaskForm):
     username = StringField(
         'username', validators=[DataRequired(), username_exists])
-    email = StringField('email', validators=[DataRequired(), user_exists])
-    password = StringField('password', validators=[DataRequired()])
-    is_artist = BooleanField('artist')
-    artist_name = StringField('artist_name')
+    email = StringField('Email', validators=[DataRequired(), user_exists])
+    password = StringField('Password', validators=[DataRequired()])
+    is_artist = BooleanField('Artist')
+    artist_name = StringField('Artist Name')
+    submit = SubmitField('Sign Up')

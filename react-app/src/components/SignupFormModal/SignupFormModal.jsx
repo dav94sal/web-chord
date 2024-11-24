@@ -5,7 +5,6 @@ import { thunkSignup } from "../../redux/session";
 import "./SignupForm.css";
 
 function SignupFormModal() {
-  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -14,6 +13,7 @@ function SignupFormModal() {
   const [artistName, setArtistName] = useState("");
   const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,18 +25,18 @@ function SignupFormModal() {
       });
     }
 
-    const serverResponse = await dispatch(
+    const user = await dispatch(
       thunkSignup({
-        email,
-        username,
-        password,
-        isArtist,
-        artistName
-      })
-    );
+            email,
+            username,
+            password,
+            isArtist,
+            artistName
+          })
+        )
 
-    if (serverResponse) {
-      setErrors(serverResponse);
+    if (user?.errors) {
+      setErrors(user.errors);
     } else {
       closeModal();
     }
@@ -46,7 +46,10 @@ function SignupFormModal() {
     <>
       <h2>Sign Up</h2>
       {errors.server && <p>{errors.server}</p>}
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        encType="multipart/form-data"
+      >
         <input
           type="text"
           placeholder="Email"
@@ -96,6 +99,12 @@ function SignupFormModal() {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
+        {/* {errors.image && <p>{errors.image}</p>}
+        <input
+          type="file"
+          accept="image/*"
+          onChange={(e) => setImage(e.target.files[0])}
+        /> */}
         {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
         <button type="submit" className="buttons">Sign Up</button>
       </form>
