@@ -32,7 +32,7 @@ function ArtistPage() {
                 <div className="tour-container">
                     <h3 id="tour-head">{tour.name}</h3>
                     <div className="shows-container">
-                        {tour && tour.shows.map(show => (
+                        {tour && tour.shows?.map(show => (
                             <div className="show-tile" key={`show${show.id}`}>
                                 <ShowTile show={show} />
                             </div>

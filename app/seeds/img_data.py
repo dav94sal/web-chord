@@ -31,6 +31,7 @@ class UserImages:
                 "https://i.ibb.co/r0KD63k/pexels-marcelodias-2460227.jpg",
                 "https://i.ibb.co/DQsLWwH/pexels-hardeep-18557772.jpg",
                 "https://i.ibb.co/LvsCp8W/pexels-keynotez-12293191.jpg"]
+
         self.images = self.images_creator()
 
     def images_creator(self):

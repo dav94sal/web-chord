@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { thunkLogout } from "../../redux/session";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
@@ -9,6 +10,7 @@ function ProfileButton() {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const user = useSelector((store) => store.session.user);
+  const navigate = useNavigate()
   const ulRef = useRef();
 
   const toggleMenu = (e) => {
@@ -38,6 +40,12 @@ function ProfileButton() {
     closeMenu();
   };
 
+  const redirect = (e) => {
+    e.preventDefault();
+    navigate('/manage-page');
+    closeMenu();
+  }
+
   return (
     <>
       <button onClick={toggleMenu} className="nav-but">
@@ -53,7 +61,7 @@ function ProfileButton() {
               <li>Welcome to WebChord!</li>
               <li>{user.username}</li>
               <li>
-                <button onClick={logout} className="buttons">Manage Site</button>
+                <button onClick={redirect} className="buttons">Manage Site</button>
                 <button onClick={logout} className="buttons">Log Out</button>
               </li>
             </>

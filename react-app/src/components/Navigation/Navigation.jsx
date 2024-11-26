@@ -13,7 +13,7 @@ function Header() {
   const location = useLocation()
   const locations = {
     merch: "Merch",
-    "manage-site": "Manage Site",
+    "manage": "Manage Site",
     artists: artist?.artistName || null,
   }
 
