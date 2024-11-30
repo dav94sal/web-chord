@@ -32,6 +32,26 @@ export const getLatestTour = (id) => async dispatch => {
     }
 }
 
+export const getAllTours = () => async dispatch => {
+    const response = await fetch(`/api/tours/all`);
+    // console.log("Fetch response: ", await response.json())
+
+    if(response.ok) {
+        const data = await response.json();
+        // console.log(data)
+        dispatch(setTours(data));
+        return data
+    } else if (response.status < 500) {
+        const errorMessages = await response.json();
+        return {
+            errors: errorMessages
+        }
+    } else {
+        return {
+            errors: { server: "Something went wrong. Please try again" }
+        }
+    }
+}
 
 const initialState = {};
 

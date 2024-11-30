@@ -37,12 +37,13 @@ function ProfileButton() {
   const logout = (e) => {
     e.preventDefault();
     dispatch(thunkLogout());
+    navigate('/')
     closeMenu();
   };
 
   const redirect = (e) => {
     e.preventDefault();
-    navigate('/manage-page');
+    navigate('/manage-tours');
     closeMenu();
   }
 
