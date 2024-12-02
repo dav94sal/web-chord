@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
+import { editTour } from "../../redux/tour";
 
 function AddShowModal({ tourId }) {
     const [venue, setVenue] = useState()
@@ -9,6 +11,7 @@ function AddShowModal({ tourId }) {
     const [date, setDate] = useState()
     const [time, setTime] = useState()
     const { closeModal } = useModal();
+    const dispatch = useDispatch();
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -21,6 +24,8 @@ function AddShowModal({ tourId }) {
             datetime: "Add date time",
             tourId
         }
+        dispatch(editTour(show))
+            .then(() => closeModal())
     }
 
     return (

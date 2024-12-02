@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from ..forms import AddTourForm
+from ..forms import AddTourForm, EditTourForm
 from app.models import Tour, db
 
 tour_routes = Blueprint('tours', __name__)
@@ -27,3 +27,21 @@ def add_tour():
         db.session.commit()
         return tour.to_dict()
     return form.errors, 401
+
+
+# Edit a tour
+@tour_routes.route('<int:tour_id>/edit', methods=['PATCH'])
+@login_required
+def edit_tour(tour_id):
+    form = EditTourForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    tour = Tour.query.get(tour_id)
+
+    if tour.name == form.data['name']:
+        return {"errors": "Choose a new name"}, 409
+
+    tour.name = form.data['name']
+    db.session.commit()
+
+    return tour.to_dict()
