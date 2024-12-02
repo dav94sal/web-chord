@@ -53,6 +53,31 @@ export const getAllTours = () => async dispatch => {
     }
 }
 
+export const newTour = (tour) => async dispatch => {
+    const response = await fetch(`/api/tours/new`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(tour)
+    });
+    // console.log("Fetch response: ", await response.json())
+
+    if(response.ok) {
+        const data = await response.json();
+        // console.log(data)
+        dispatch(getAllTours());
+        return data
+    } else if (response.status < 500) {
+        const errorMessages = await response.json();
+        return {
+            errors: errorMessages
+        }
+    } else {
+        return {
+            errors: { server: "Something went wrong. Please try again" }
+        }
+    }
+}
+
 const initialState = {};
 
 function tourReducer(state = initialState, action) {
