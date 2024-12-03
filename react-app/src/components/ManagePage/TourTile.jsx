@@ -6,6 +6,11 @@ import ShowTile from "./ShowTile";
 
 function TourTile({ tour }) {
     const [viewShows, setViewShows] = useState(false);
+    let shows = null
+
+    if (tour.shows) {
+        shows = Object.values(tour.shows)
+    }
 
     return (
         <div>
@@ -28,7 +33,7 @@ function TourTile({ tour }) {
                 className="buttons"
             >Delete Tour</button>
 
-            {viewShows && tour.shows?.map(show => (
+            {viewShows && shows?.map(show => (
                 <ShowTile
                     show={show}
                     key={`show${show.id}`}

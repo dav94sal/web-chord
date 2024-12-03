@@ -11,6 +11,11 @@ function ArtistPage() {
     const [isLoading, setIsLoading] = useState(true)
     const dispatch = useDispatch()
     const { artistId } = useParams()
+    let shows;
+
+    if (tour?.shows) {
+        shows = Object.values(tour.shows)
+    }
 
     useEffect(() => {
         dispatch(getLatestTour(artistId))
@@ -32,7 +37,7 @@ function ArtistPage() {
                 <div className="tour-container">
                     <h3 id="tour-head">{tour.name}</h3>
                     <div className="shows-container">
-                        {tour && tour.shows?.map(show => (
+                        {tour && shows?.map(show => (
                             <div className="show-tile" key={`show${show.id}`}>
                                 <ShowTile show={show} />
                             </div>

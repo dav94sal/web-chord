@@ -1,7 +1,8 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from ..forms import AddTourForm, EditTourForm
-from app.models import Tour, db
+from datetime import datetime
+from ..forms import AddTourForm, EditTourForm, AddShowForm
+from app.models import Tour, Show, db
 
 tour_routes = Blueprint('tours', __name__)
 
@@ -26,6 +27,41 @@ def add_tour():
         db.session.add(tour)
         db.session.commit()
         return tour.to_dict()
+    return form.errors, 401
+
+# Add show to tour
+@tour_routes.route('<int:tour_id>/shows', methods=['POST'])
+@login_required
+def addShow(tour_id):
+    form = AddShowForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        data = form.data
+        # date_arr = data['date']
+        # time_arr = data['time']
+        dateTime = datetime.strptime(
+            f"{data['date']} {data['time']}", "%Y-%m-%d %H:%M")
+
+        print('-------date: ', dateTime)
+
+        # dateTime = datetime(int(date_arr[0]),
+        #                     int(date_arr[1]),
+        #                     int(date_arr[2]),
+        #                     int(time_arr[0]),
+        #                     int(time_arr[1]))
+
+        show = Show(datetime = dateTime,
+                    city = data['city'],
+                    state = data['state'],
+                    venue = data['venue'],
+                    headliners = data['headliners'],
+                    tour_id = tour_id,
+                    artist_id = current_user.id,)
+        db.session.add(show)
+        db.session.commit()
+        return show.to_dict()
+    # print(form.errors)
     return form.errors, 401
 
 
