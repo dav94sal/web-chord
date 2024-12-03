@@ -2,7 +2,7 @@ import OpenModalButton from "../OpenModalButton";
 import EditShowModal from "../EditTourModal/EditShowModal";
 
 function ShowTile({ show }) {
-    const showDate = new Date(show.datetime).toString().split(' ');
+    const showDate = new Date(show.datetime).toUTCString().split(' ');
     showDate.shift()
     const [month, date, year, time] = showDate
     const [hours, minutes] = time.split(':')
