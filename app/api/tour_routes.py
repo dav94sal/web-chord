@@ -103,3 +103,26 @@ def edit_show(tour_id, show_id):
         return show.to_dict()
 
     return form.errors, 401
+
+
+# Delete tour
+
+
+# Delete Show
+@tour_routes.route('<int:tour_id>/shows/<int:show_id>', methods=['DELETE'])
+@login_required
+def delete_show(tour_id, show_id):
+    # form = AddShowForm()
+    # form['csrf_token'].data = request.cookies['csrf_token']
+
+    show = Show.query.get(show_id)
+
+    if show.tour_id != tour_id:
+        return { "errors": { "Bad Request": "Show does not belong to tour" }}, 400
+
+    if show.artist_id != current_user.id:
+        return { "errors": { "unauthorized": "This show does not belong to you" }}, 401
+
+    db.session.delete(show)
+    db.session.commit()
+    return { "ok": "Successfully deleted" }

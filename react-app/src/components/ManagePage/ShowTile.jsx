@@ -1,5 +1,6 @@
 import OpenModalButton from "../OpenModalButton";
 import EditShowModal from "../EditTourModal/EditShowModal";
+import DeleteShowModal from "../DeleteModals/DeleteShowModal";
 
 function ShowTile({ show }) {
     const showDate = new Date(show.datetime).toUTCString().split(' ');
@@ -21,9 +22,10 @@ function ShowTile({ show }) {
                 modalComponent={<EditShowModal show={show}/>}
                 buttonText='Edit Show'
             />
-            <button
-                className="buttons"
-            >Delete Show</button>
+            <OpenModalButton
+                modalComponent={<DeleteShowModal show={show}/>}
+                buttonText='Delete Show'
+            />
         </div>
     )
 }
