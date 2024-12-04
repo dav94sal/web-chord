@@ -106,6 +106,24 @@ def edit_show(tour_id, show_id):
 
 
 # Delete tour
+@tour_routes.route('<int:tour_id>', methods=['DELETE'])
+@login_required
+def delete_tour(tour_id):
+    # form = AddShowForm()
+    # form['csrf_token'].data = request.cookies['csrf_token']
+
+    tour = Tour.query.get(tour_id)
+    print(tour)
+
+    if not tour:
+        return { "errors": { "Not Found": "Cannot find tour" }}, 404
+
+    if tour.artist_id != current_user.id:
+        return { "errors": { "unauthorized": "This show does not belong to you" }}, 401
+
+    db.session.delete(tour)
+    db.session.commit()
+    return { "ok": "Successfully deleted" }
 
 
 # Delete Show

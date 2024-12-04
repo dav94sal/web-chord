@@ -168,6 +168,30 @@ export const editShow = (show) => async dispatch => {
 }
 
 // Delete Tour
+export const deleteTour = (tourId) => async dispatch => {
+    const response = await fetch(`/api/tours/${tourId}`, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+    });
+    // console.log("Fetch response: ", await response.json())
+
+    if(response.ok) {
+        const data = await response.json();
+        // console.log(data)
+        dispatch(removeTour(tourId));
+        return data
+    } else if (response.status < 500) {
+        const errorMessages = await response.json();
+        return {
+            errors: errorMessages
+        }
+    } else {
+        return {
+            errors: { server: "Something went wrong. Please try again" }
+        }
+    }
+}
+
 
 // Delete Show
 export const deleteShow = (tourId, showId) => async dispatch => {
@@ -222,7 +246,11 @@ function tourReducer(state = initialState, action) {
       return newState;
     }
     case REMOVE_TOUR:{
-      return {};
+        const newState = { ...state }
+
+        delete newState[action.tourId]
+
+        return newState;
     }
     default:
       return state;

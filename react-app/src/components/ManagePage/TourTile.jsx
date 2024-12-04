@@ -2,6 +2,7 @@ import { useState } from "react";
 import OpenModalButton from "../OpenModalButton";
 import EditTourModal from "../EditTourModal";
 import AddShowModal from "../AddTourModal/AddShowModal"
+import DeleteTourModal from "../DeleteModals/DeleteTourModal";
 import ShowTile from "./ShowTile";
 
 function TourTile({ tour }) {
@@ -29,9 +30,10 @@ function TourTile({ tour }) {
                 modalComponent={<AddShowModal tourId={tour.id}/>}
                 buttonText='Add Show'
             />
-            <button
-                className="buttons"
-            >Delete Tour</button>
+            <OpenModalButton
+                modalComponent={<DeleteTourModal tourId={tour.id}/>}
+                buttonText='Delete Tour'
+            />
 
             {viewShows && shows?.map(show => (
                 <ShowTile
