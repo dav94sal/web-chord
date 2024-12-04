@@ -12,9 +12,9 @@ function Header() {
   const artist = artistId ? artists[artistId] : null
   const location = useLocation()
   const locations = {
-    merch: "Merch",
-    "manage-site": "Manage Site",
-    artists: artist?.artistName || null,
+    "manage-tours": "Manage Tours",
+    "manage-merch": "Manage Merch",
+    "artists": artist?.artistName || null,
   }
 
   useEffect(() => {

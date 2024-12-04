@@ -7,6 +7,7 @@ import ArtistTile from "./ArtistTile";
 import "./Home.css"
 
 function Home() {
+    // isLoading context necessary for navigation header
     const { isLoading, setIsLoading } = useLoading()
     const artistsObj = useSelector(state => state.artists)
     const artists = Object.values(artistsObj)

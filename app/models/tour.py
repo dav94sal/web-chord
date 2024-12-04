@@ -10,12 +10,14 @@ class Tour(db.Model):
     name = db.Column(db.String(40), nullable=False)
     artist_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
 
-    shows = db.relationship("Show", back_populates="tour")
+    shows = db.relationship("Show",
+                            back_populates="tour",
+                            cascade="all, delete-orphan")
 
     def to_dict(self):
-        shows = None
+        shows = {}
         if self.shows:
-            shows = [show.to_dict() for show in self.shows]
+            shows = {show.id: show.to_dict() for show in self.shows}
         return {
             "id": self.id,
             "name": self.name,
