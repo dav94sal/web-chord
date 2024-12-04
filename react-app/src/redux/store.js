@@ -8,11 +8,13 @@ import thunk from "redux-thunk";
 import sessionReducer from "./session";
 import artistReducer from "./artist";
 import tourReducer from "./tour";
+import merchReducer from "./merch";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   artists: artistReducer,
   tours: tourReducer,
+  merch: merchReducer,
 });
 
 let enhancer;
