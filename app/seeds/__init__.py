@@ -3,6 +3,7 @@ from .users import seed_users, undo_users
 from .images import seed_images, undo_images
 from .tours import seed_tours, undo_tours
 from .shows import seed_shows, undo_shows
+from .merchandise import seed_merchandise, undo_merchandise
 
 from app.models.db import db, environment, SCHEMA
 
@@ -23,12 +24,13 @@ def seed():
         undo_images()
         undo_tours()
         undo_shows()
-        
+        undo_merchandise()
+
     seed_users()
     seed_images()
     seed_tours()
     seed_shows()
-    # Add other seed functions here
+    seed_merchandise()
 
 
 # Creates the `flask seed undo` command
@@ -38,4 +40,5 @@ def undo():
     undo_images()
     undo_tours()
     undo_shows()
+    undo_merchandise()
     # Add other undo functions here

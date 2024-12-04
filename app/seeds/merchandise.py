@@ -1,14 +1,16 @@
-from app.models import db, Tour, environment, SCHEMA
+from app.models import db, Merch, environment, SCHEMA
 from sqlalchemy.sql import text
-from .tour_data import tours
+from .merch_data import merchandise
 
-# Adds demo tours
-def seed_tours():
-    for i in range(len(tours)):
-        tour = tours[i]
-        db.session.add(Tour(
-            name=tour["name"],
-            artist_id=tour['artist_id']))
+# Adds demo merch
+def seed_merchandise():
+    for i in range(len(merchandise)):
+        merch = merchandise[i]
+        db.session.add(Merch(
+            name=merch["name"],
+            price=merch["price"],
+            url=merch["url"],
+            artist_id=merch['artist_id']))
 
     db.session.commit()
 
@@ -18,10 +20,10 @@ def seed_tours():
 # incrementing primary key, CASCADE deletes any dependent entities.  With
 # sqlite3 in development you need to instead use DELETE to remove all data and
 # it will reset the primary keys for you as well.
-def undo_tours():
+def undo_merchandise():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.tours RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.merchandise RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute(text("DELETE FROM tours"))
+        db.session.execute(text("DELETE FROM merchandise"))
 
     db.session.commit()

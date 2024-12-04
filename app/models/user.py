@@ -17,6 +17,8 @@ class User(db.Model, UserMixin):
     artist_name = db.Column(db.String(40))
 
     img = db.relationship("Image", back_populates="ids")
+    tour = db.relationship("Tour", cascade="all, delete-orphan")
+    merch = db.relationship("Merch", cascade="all, delete-orphan")
 
     @property
     def password(self):
