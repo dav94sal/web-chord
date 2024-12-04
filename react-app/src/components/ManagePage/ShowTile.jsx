@@ -18,7 +18,7 @@ function ShowTile({ show }) {
             </p>
 
             <OpenModalButton
-                modalComponent={<EditShowModal tour={show}/>}
+                modalComponent={<EditShowModal show={show}/>}
                 buttonText='Edit Show'
             />
             <button

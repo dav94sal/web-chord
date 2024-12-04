@@ -134,6 +134,33 @@ export const newShow = (show) => async dispatch => {
     }
 }
 
+export const editShow = (show) => async dispatch => {
+    const response = await fetch(`/api/tours/${show.tour_id}/shows/${show.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(show)
+    });
+    // console.log("Fetch response: ", await response.json())
+
+    if(response.ok) {
+        const data = await response.json();
+        // console.log(data)
+        dispatch(addShow(data));
+        return data
+    } else if (response.status < 500) {
+        const errorMessages = await response.json();
+        return {
+            errors: errorMessages
+        }
+    } else {
+        return {
+            errors: { server: "Something went wrong. Please try again" }
+        }
+    }
+}
+
+
+
 const initialState = {};
 
 function tourReducer(state = initialState, action) {

@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from datetime import datetime
-from ..forms import AddTourForm, EditTourForm, AddShowForm
+from ..forms import AddTourForm, EditTourForm, AddShowForm, EditShowForm
 from app.models import Tour, Show, db
 
 tour_routes = Blueprint('tours', __name__)
@@ -78,4 +78,28 @@ def edit_tour(tour_id):
 
 
 # Edit a show
+@tour_routes.route('<int:tour_id>/shows/<int:show_id>', methods=['PUT'])
+@login_required
+def edit_show(tour_id, show_id):
+    form = AddShowForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
 
+    show = Show.query.get(show_id)
+
+    if show.tour_id != tour_id:
+        return { "errors": { "Bad Request": "Show does not belong to tour" }}
+
+    if form.validate_on_submit():
+        data = form.data
+        date_time = datetime.strptime(
+            f"{data['date']} {data['time']}", "%Y-%m-%d %H:%M")
+
+        show.datetime = date_time
+        show.city = data['city']
+        show.state = data['state']
+        show.venue = data['venue']
+        show.headliners = data['headliners']
+        db.session.commit()
+        return show.to_dict()
+
+    return form.errors, 401
