@@ -31,6 +31,8 @@ def latest_tour(artist_id):
         joinedload(Tour.shows)
     ).all()
 
-    tour = sorted(tours, reverse=True)[0]
+    tours = [tour.to_dict() for tour in tours]
 
-    return tour.to_dict()
+    tour = sorted(tours, key=lambda tour: tour["id"], reverse=True)[0]
+
+    return tour
