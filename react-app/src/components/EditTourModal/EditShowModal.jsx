@@ -63,6 +63,7 @@ function EditShowModal({ show }) {
     return (
         <>
             <h2>Edit Show</h2>
+            {errors.errors && <p>{errors.errors}</p>}
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"

@@ -26,7 +26,7 @@ function DeleteTourModal({ tourId  }) {
             <h2>Delete Tour?</h2>
             {errors.errors && <p>{errors.errors}</p>}
             <p className="delete-prompt">
-                Are you sure you want to remove this tour and all of it's shows?</p>
+                Are you sure you want to remove this tour and all of its shows?</p>
             <button
                 className="buttons"
                 onClick={handleClick}
