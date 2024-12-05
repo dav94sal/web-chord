@@ -1,6 +1,9 @@
+import { MdOutlineEdit } from "react-icons/md";
+import { GiTrashCan } from "react-icons/gi";
 import OpenModalButton from "../OpenModalButton";
 import EditShowModal from "../EditTourModal/EditShowModal";
 import DeleteShowModal from "../DeleteModals/DeleteShowModal";
+import "./manage-page.css"
 
 function ShowTile({ show }) {
     const showDate = new Date(show.datetime).toUTCString().split(' ');
@@ -9,7 +12,7 @@ function ShowTile({ show }) {
     const [hours, minutes] = time.split(':')
 
     return (
-        <div>
+        <div className="tour-show">
             <p>{`${show.venue} | ${show.city}, ${show.state}`}</p>
             <p>{`with ${show.headliners}`}</p>
             <p>{`${month} ${date}, ${year}`}</p>
@@ -18,14 +21,18 @@ function ShowTile({ show }) {
                 : `${hours}am`}
             </p>
 
-            <OpenModalButton
-                modalComponent={<EditShowModal show={show}/>}
-                buttonText='Edit Show'
-            />
-            <OpenModalButton
-                modalComponent={<DeleteShowModal show={show}/>}
-                buttonText='Delete Show'
-            />
+            <div>
+                <OpenModalButton
+                    modalComponent={<EditShowModal show={show}/>}
+                    buttonText={<MdOutlineEdit />}
+                    newClass='edit-buttons'
+                />
+                <OpenModalButton
+                    modalComponent={<DeleteShowModal show={show}/>}
+                    buttonText={<GiTrashCan />}
+                    newClass='delete-buttons'
+                />
+            </div>
         </div>
     )
 }

@@ -1,4 +1,74 @@
 .manage-layout {
     display: grid;
     grid-template-columns: 33% 67%;
+    margin: 30px;
+}
+
+.manage-menu {
+    margin: 30px;
+}
+
+.content-layout {
+    display: flex;
+    flex-direction: column;
+    width: 825px;
+    margin: 30px;
+}
+
+.content-layout button {
+    align-self: end;
+}
+
+.tour-tile {
+    background-color: rgba(237, 232, 228, 0.193);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+    padding: 0 20px;
+    height: 60px;
+    width: 800px;
+}
+
+.tour-show {
+    background-color: rgba(237, 232, 228, 0.193);
+    border-radius: 10px;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+    margin-left: 55px;
+    padding: 0 20px;
+    height: 40px;
+    width: 750px;
+}
+
+.name-edit {
+    display: flex;
+}
+
+.edit-name-button {
+    background-color: unset;
+    border: unset;
+    position: relative;
+    top: -15px;
+    font-size: 15px;
+}
+
+.edit-buttons {
+    background-color: unset;
+    border: unset;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.delete-buttons {
+    background-color: unset;
+    border: unset;
+    color: red;
+    font-size: 18px;
+    padding: 10px;
+    height: fit-content;
 }
