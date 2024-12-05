@@ -1,0 +1,167 @@
+merchandise = [
+    # Demo Artist 1
+    {
+        "name": "Sticker",
+        "price": 1.50,
+        "url": "test.url",
+        "artist_id": 1,
+    },
+    {
+        "name": "Album 1",
+        "price": 9.00,
+        "url": "test.url",
+        "artist_id": 1,
+    },
+    {
+        "name": "Album 2",
+        "price": 10.00,
+        "url": "test.url",
+        "artist_id": 1,
+    },
+    {
+        "name": "Tank Top 1",
+        "price": 18.50,
+        "url": "test.url",
+        "artist_id": 1,
+    },
+    {
+        "name": "Tank Top 2",
+        "price": 20.00,
+        "url": "test.url",
+        "artist_id": 1,
+    },
+    {
+        "name": "T-Shirt 1",
+        "price": 20.00,
+        "url": "test.url",
+        "artist_id": 1,
+    },
+    {
+        "name": "T-Shirt 2",
+        "price": 22.50,
+        "url": "test.url",
+        "artist_id": 1,
+    },
+    {
+        "name": "Hoodie 1",
+        "price": 23.50,
+        "url": "test.url",
+        "artist_id": 1,
+    },
+    {
+        "name": "Hoodie 2",
+        "price": 25.00,
+        "url": "test.url",
+        "artist_id": 1,
+    },
+    # Demo Artist 2
+    {
+        "name": "Sticker",
+        "price": 1.50,
+        "url": "test.url",
+        "artist_id": 2,
+    },
+    {
+        "name": "Album 1",
+        "price": 9.00,
+        "url": "test.url",
+        "artist_id": 2,
+    },
+    {
+        "name": "Album 2",
+        "price": 10.00,
+        "url": "test.url",
+        "artist_id": 2,
+    },
+    {
+        "name": "Tank Top 1",
+        "price": 18.50,
+        "url": "test.url",
+        "artist_id": 2,
+    },
+    {
+        "name": "Tank Top 2",
+        "price": 20.00,
+        "url": "test.url",
+        "artist_id": 2,
+    },
+    {
+        "name": "T-Shirt 1",
+        "price": 20.00,
+        "url": "test.url",
+        "artist_id": 2,
+    },
+    {
+        "name": "T-Shirt 2",
+        "price": 22.50,
+        "url": "test.url",
+        "artist_id": 2,
+    },
+    {
+        "name": "Hoodie 1",
+        "price": 23.50,
+        "url": "test.url",
+        "artist_id": 2,
+    },
+    {
+        "name": "Hoodie 2",
+        "price": 25.00,
+        "url": "test.url",
+        "artist_id": 2,
+    },
+    # Demo Artist 3
+    {
+        "name": "Sticker",
+        "price": 1.50,
+        "url": "test.url",
+        "artist_id": 3,
+    },
+    {
+        "name": "Album 1",
+        "price": 9.00,
+        "url": "test.url",
+        "artist_id": 3,
+    },
+    {
+        "name": "Album 2",
+        "price": 10.00,
+        "url": "test.url",
+        "artist_id": 3,
+    },
+    {
+        "name": "Tank Top 1",
+        "price": 18.50,
+        "url": "test.url",
+        "artist_id": 3,
+    },
+    {
+        "name": "Tank Top 2",
+        "price": 20.00,
+        "url": "test.url",
+        "artist_id": 3,
+    },
+    {
+        "name": "T-Shirt 1",
+        "price": 20.00,
+        "url": "test.url",
+        "artist_id": 3,
+    },
+    {
+        "name": "T-Shirt 2",
+        "price": 22.50,
+        "url": "test.url",
+        "artist_id": 3,
+    },
+    {
+        "name": "Hoodie 1",
+        "price": 23.50,
+        "url": "test.url",
+        "artist_id": 3,
+    },
+    {
+        "name": "Hoodie 2",
+        "price": 25.00,
+        "url": "test.url",
+        "artist_id": 3,
+    },
+]

@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import { PiPlusCircleFill } from "react-icons/pi";
 import { useLoading } from '../../context/LoadingContext';
 import TourTile from './TourTile';
 import OpenModalButton from '../OpenModalButton';
@@ -13,8 +14,9 @@ function ManageTours() {
     return (
         <div className="content-layout">
             <OpenModalButton
-                buttonText="Create Tour"
                 modalComponent={<AddTourModal />}
+                buttonText={<PiPlusCircleFill />}
+                newClass="add-button"
             />
             { !isLoading && tours.map(tour => (
                 <TourTile

@@ -24,6 +24,7 @@ function DeleteShowModal({ show }) {
     return (
         <>
             <h2>Delete Show?</h2>
+            {errors.errors && <p>{errors.errors}</p>}
             <p className="delete-prompt">
                 Are you sure you want to remove this show from your tour?</p>
             <button

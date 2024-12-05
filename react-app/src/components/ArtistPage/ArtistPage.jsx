@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
 import { getLatestTour } from "../../redux/tour";
 import { getArtistById } from "../../redux/artist";
-import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
 import ShowTile from "./ShowTile";
+import SocialMediaButtons from "./SocialMediaButtons";
 import "./artist-page.css"
 
 function ArtistPage() {
@@ -11,6 +12,7 @@ function ArtistPage() {
     const [isLoading, setIsLoading] = useState(true)
     const dispatch = useDispatch()
     const { artistId } = useParams()
+    const navigate = useNavigate()
     let shows;
 
     if (tour?.shows) {
@@ -27,6 +29,13 @@ function ArtistPage() {
     return (
         <div className="artist-page-layout">
             <div className="band-pic">
+                <div className="artist-buttons">
+                    <SocialMediaButtons />
+                    <button
+                        className="merch-button buttons"
+                        onClick={() => navigate('merch')}
+                    >Merch</button>
+                </div>
                 <img
                     className="band-pic pic"
                     src="https://i.ibb.co/18WsrpZ/Pngtree-audiences-in-club-musical-8485712.png"
