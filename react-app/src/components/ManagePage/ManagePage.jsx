@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, NavLink } from "react-router-dom";
 import { getArtistById } from "../../redux/artist";
 import { getAllTours } from "../../redux/tour";
 import { useLoading } from "../../context/LoadingContext";
@@ -14,7 +14,6 @@ function ManagePage() {
     const artistId = useSelector(state => state.session.user.id);
     const location = useLocation();
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     useEffect(() => {
         dispatch(getArtistById(artistId))
@@ -35,11 +34,21 @@ function ManagePage() {
     return (
         <div className="manage-layout">
             <ul className="manage-menu">
-                <li onClick={() => navigate('/manage-tours')}>
-                    Tours
+                <li>
+                    <NavLink
+                        to='/manage-tours'
+                        className='nav-link'
+                    >
+                        Tours
+                    </NavLink>
                 </li>
-                <li onClick={() => navigate('/manage-merch')}>
-                    Merch
+                <li>
+                    <NavLink
+                        to='/manage-merch'
+                        className='nav-link'
+                    >
+                        Merch
+                    </NavLink>
                 </li>
             </ul>
             {!isLoading && render}

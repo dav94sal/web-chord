@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { MdOutlineEdit } from "react-icons/md";
 import { IoTrashBinOutline } from "react-icons/io5";
+import { LiaPlusCircleSolid } from "react-icons/lia";
+import { IoIosArrowDropdown } from "react-icons/io";
+import { IoIosArrowDropup } from "react-icons/io";
 import OpenModalButton from "../OpenModalButton";
 import EditTourModal from "../EditTourModal";
 import AddShowModal from "../AddTourModal/AddShowModal"
@@ -28,14 +31,15 @@ function TourTile({ tour }) {
                 </div>
                 <div className="tour-buttons">
                     <button onClick={() => setViewShows(!viewShows)}
-                        className="buttons"
-                        >
-                        View Shows
+                        className="edit-buttons"
+                    >
+                        {viewShows ? <IoIosArrowDropup /> : <IoIosArrowDropdown />}
                     </button>
-                    <OpenModalButton
+                    {viewShows && <OpenModalButton
                         modalComponent={<AddShowModal tourId={tour.id}/>}
-                        buttonText='Add Show'
-                    />
+                        buttonText={<LiaPlusCircleSolid />}
+                        newClass='add-button'
+                    />}
                     <OpenModalButton
                         modalComponent={<DeleteTourModal tourId={tour.id}/>}
                         buttonText={<IoTrashBinOutline />}
