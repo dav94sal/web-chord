@@ -3,7 +3,7 @@ import { GiTrashCan } from "react-icons/gi";
 import OpenModalButton from "../OpenModalButton";
 import EditShowModal from "../EditTourModal/EditShowModal";
 import DeleteShowModal from "../DeleteModals/DeleteShowModal";
-import "./manage-page.css"
+import '../ManagePage/manage-page.css'
 
 function ShowTile({ show }) {
     const showDate = new Date(show.datetime).toUTCString().split(' ');
