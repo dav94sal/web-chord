@@ -4,6 +4,7 @@
     rgb: 170, 64, 29 */
 
 body, #root {
+    background-color: #1e151898;
     font-family: 'Nunito';
     position: fixed;
     top: 0;
@@ -40,6 +41,11 @@ h3 {
     color: white;
     font-size: 24px;
     margin: 5px;
+}
+
+p {
+    color: white;
+    font-weight: 500;
 }
 
 input {

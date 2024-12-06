@@ -4,7 +4,7 @@ import { useLoading } from '../../context/LoadingContext';
 import TourTile from './TourTile';
 import OpenModalButton from '../OpenModalButton';
 import AddTourModal from '../AddTourModal/AddTourModal';
-import './manage-page.css'
+import '../ManagePage/manage-page.css'
 
 function ManageTours() {
     const { isLoading } = useLoading()
@@ -13,18 +13,25 @@ function ManageTours() {
 
     return (
         <div className="content-layout">
-            <OpenModalButton
-                modalComponent={<AddTourModal />}
-                buttonText={<PiPlusCircleFill />}
-                newClass="add-button"
+            <img
+                src='https://i.ibb.co/qYTNFMY/pexels-sebastian-ervi-866902-1763075.jpg'
+                className='back-image'
             />
-            { !isLoading && tours.map(tour => (
-                <TourTile
+            <div className='content'>
+
+                <OpenModalButton
+                    modalComponent={<AddTourModal />}
+                    buttonText={<PiPlusCircleFill />}
+                    newClass="add-button"
+                    />
+                { !isLoading && tours.map(tour => (
+                    <TourTile
                     key={`tour${tour.id}`}
                     tour={tour}
-                />
-            ))}
+                    />
+                ))}
 
+            </div>
         </div>
     )
 }

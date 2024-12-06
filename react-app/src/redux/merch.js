@@ -36,6 +36,7 @@ function merchReducer(state = initialState, action) {
             const newState = {}
 
             action.merch.forEach(merch => {
+                merch.price = Number.parseFloat(merch.price).toFixed(2)
                 newState[merch.id] = merch
             });
 
