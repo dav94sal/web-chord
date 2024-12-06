@@ -23,11 +23,11 @@ function ManageTours() {
                     modalComponent={<AddTourModal />}
                     buttonText={<PiPlusCircleFill />}
                     newClass="add-button"
-                    />
+                />
                 { !isLoading && tours.map(tour => (
                     <TourTile
-                    key={`tour${tour.id}`}
-                    tour={tour}
+                        key={`tour${tour.id}`}
+                        tour={tour}
                     />
                 ))}
 

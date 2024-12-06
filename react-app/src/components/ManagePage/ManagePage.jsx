@@ -5,7 +5,7 @@ import { getArtistById } from "../../redux/artist";
 import { getAllTours } from "../../redux/tour";
 import { useLoading } from "../../context/LoadingContext";
 import ManageTours from "../ManageTours";
-import ManageMerch from "./ManageMerch";
+import ManageMerch from "../ManageMerch";
 import "./manage-page.css";
 
 function ManagePage() {
@@ -28,7 +28,7 @@ function ManagePage() {
     }
 
     if (location.pathname.includes('manage-merch')) {
-        render = <ManageMerch />
+        render = <ManageMerch artistId={artistId} />
     }
 
     return (
