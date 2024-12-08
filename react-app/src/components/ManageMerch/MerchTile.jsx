@@ -1,6 +1,6 @@
 import { MdOutlineEdit } from "react-icons/md";
 import { IoTrashBinOutline } from "react-icons/io5";
-import { LiaPlusCircleSolid } from "react-icons/lia";
+import EditMerchModal from "../EditMerchModal/EditMerchModal";
 import OpenModalButton from "../OpenModalButton";
 
 function MerchTile({ merch }) {
@@ -12,12 +12,11 @@ function MerchTile({ merch }) {
                     <p>{ `$${merch.price}` }</p>
                 </div>
                 <div className="tour-buttons">
-                    {/* <OpenModalButton
-                        modalComponent={<EditTourModal tour={tour}/>}
+                    <OpenModalButton
+                        modalComponent={<EditMerchModal merch={merch}/>}
                         buttonText={<MdOutlineEdit />}
                         newClass='edit-buttons'
-                    /> */}
-                    <MdOutlineEdit className="edit-buttons"/>
+                    />
                     {/* <OpenModalButton
                         modalComponent={<DeleteTourModal tourId={tour.id}/>}
                         buttonText={<IoTrashBinOutline />}

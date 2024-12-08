@@ -57,6 +57,29 @@ export const addMerch = (merch) => async dispatch => {
     }
 }
 
+export const EditMerch = (merch) => async dispatch => {
+    const response = await fetch(`/api/merch/${merch.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(merch)
+    });
+    // console.log("Fetch response: ", await response.json())
+
+    if(response.ok) {
+        const data = await response.json();
+        dispatch(addOne(data));
+        return data
+    } else if (response.status < 500) {
+        const errorMessages = await response.json();
+        return {
+            errors: errorMessages
+        }
+    } else {
+        return {
+            errors: { server: "Something went wrong. Please try again" }
+        }
+    }
+}
 
 const initialState = {};
 
