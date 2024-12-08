@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { PiPlusCircleFill } from "react-icons/pi";
 import { getArtistMerch } from '../../redux/merch';
 import { useLoading } from '../../context/LoadingContext';
 import MerchTile from './MerchTile';
+import AddMerchModal from '../AddMerchModal/AddMerchModal';
 import OpenModalButton from '../OpenModalButton';
 import '../ManagePage/manage-page.css'
 
@@ -25,11 +27,11 @@ function ManageMerch({ artistId }) {
             />
             <div className='content'>
 
-                {/* <OpenModalButton
-                    modalComponent={<AddTourModal />}
+                <OpenModalButton
+                    modalComponent={<AddMerchModal />}
                     buttonText={<PiPlusCircleFill />}
                     newClass="add-button"
-                /> */}
+                />
 
                 { !isLoading && merch.map(merch => (
                     <MerchTile
