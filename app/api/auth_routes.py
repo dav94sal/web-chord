@@ -1,8 +1,9 @@
-from flask import Blueprint, request
-from app.models import User, db
+from flask import Blueprint, request, jsonify
+from app.models import User, Image, db
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
+from .aws_helpers import allowed_file, get_unique_filename, upload_file_to_s3, remove_file_from_s3
 
 auth_routes = Blueprint('auth', __name__)
 
@@ -52,6 +53,34 @@ def sign_up():
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
+        # print(form.file.data)
+        if form.file.data:
+            file = form.file.data
+            #does the file exist and is it allowed?
+            if not allowed_file(file.filename):
+                # print("Invalid file type")
+                return {"errors": "Invalid file type"}, 400
+
+            # title = data.get("title")
+            # genre = data.get("genre")
+
+            file.filename = get_unique_filename(file.filename)
+            upload_response = upload_file_to_s3(file)
+
+            # Handle errors during upload
+            if "errors" in upload_response:
+                # print(upload_response.errors)
+                return jsonify(upload_response), 400
+
+            image = Image(
+                imageable_type = "artist",
+                # imageable_id = current_user.id,
+                url = upload_response["url"],
+            )
+            db.session.add(image)
+
+        # print(form.data["is_artist"])
+
         user = User(
             username=form.data['username'],
             email=form.data['email'],
@@ -59,10 +88,14 @@ def sign_up():
             is_artist=form.data["is_artist"],
             artist_name=form.data["artist_name"],
         )
+
+        user.img.append(image)
+
         db.session.add(user)
         db.session.commit()
         login_user(user)
         return user.to_dict()
+    # print(form.errors)
     return form.errors, 401
 
 

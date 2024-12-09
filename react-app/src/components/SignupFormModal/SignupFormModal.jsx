@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { thunkSignup } from "../../redux/session";
+import { addArtistById } from "../../redux/artist";
 import "./SignupForm.css";
 
 function SignupFormModal() {
@@ -11,12 +12,19 @@ function SignupFormModal() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isArtist, setIsArtist] = useState(false);
   const [artistName, setArtistName] = useState("");
+  const [image, setImage] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    console.log(isArtist)
+  }, [isArtist])
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrors({})
 
     if (password !== confirmPassword) {
       return setErrors({
@@ -25,27 +33,50 @@ function SignupFormModal() {
       });
     }
 
-    const user = await dispatch(
-      thunkSignup({
-            email,
-            username,
-            password,
-            isArtist,
-            artistName
-          })
-        )
+    const formData = new FormData();
+
+    formData.append("file", image)
+    formData.append("email", email)
+    formData.append("username", username)
+    formData.append("password", password)
+    formData.append("is_artist", isArtist ? 1 : 0)
+    formData.append("artist_name", artistName)
+
+    console.log(formData)
+
+    setIsLoading(true)
+
+    let validate = {};
+
+    const user = await dispatch(thunkSignup(formData))
+      .catch(err => validate = {...err})
 
     if (user?.errors) {
-      setErrors(user.errors);
-    } else {
-      closeModal();
+      validate = {...validate, ...user.errors};
     }
+
+    if (user?.file?.length) {
+      validate.file = user.file[0]
+    }
+
+    setErrors({...validate})
+
+    if (!Object.values(validate).length) {
+      await dispatch(addArtistById(user.id))
+      closeModal()
+    }
+    setIsLoading(false)
   };
 
   return (
     <>
       <h2>Sign Up</h2>
-      {errors.server && <p>{errors.server}</p>}
+      <div>
+        {errors.server && <p>{errors.server}</p>}
+        {errors.file && <p>{errors.file}</p>}
+        {isLoading}
+      </div>
+
       <form
         onSubmit={handleSubmit}
         encType="multipart/form-data"
@@ -58,6 +89,7 @@ function SignupFormModal() {
           required
         />
         {errors.email && <p>{errors.email}</p>}
+
         <input
           type="text"
           placeholder="Username"
@@ -66,24 +98,38 @@ function SignupFormModal() {
           required
         />
         {errors.username && <p>{errors.username}</p>}
-        {/* <div> */}
-          <label id="artist-label">
-            Artist?
-            <input
-              type="checkbox"
-              // value={isArtist}
-              onChange={() => setIsArtist(!isArtist)}
-              />
-          </label>
-          {errors.isArtist && <p>{errors.isArtist}</p>}
+
+        <label id="artist-label">
+          Artist?
           <input
-            type="text"
-            placeholder="Artist Name"
-            value={artistName}
-            onChange={(e) => setArtistName(e.target.value)}
+            type="checkbox"
+            // value={isArtist}
+            onChange={() => setIsArtist(!isArtist)}
+          />
+        </label>
+        {errors.isArtist && <p>{errors.isArtist}</p>}
+
+        {isArtist &&
+          <div className="artist-info">
+            <input
+              type="text"
+              placeholder="Artist Name"
+              value={artistName}
+              onChange={(e) => setArtistName(e.target.value)}
+              />
+            {errors.artistName && <p>{errors.artistName}</p>}
+
+            <p>Display Image</p>
+            <input
+              type="file"
+              defaultValue={image}
+              accept=".pdf,.png,.jpg,.jpeg,.gif"
+              onChange={(e) => setImage(e.target.files[0])}
             />
-          {errors.artistName && <p>{errors.artistName}</p>}
-        {/* </div> */}
+            {errors.file && <p>{errors.file}</p>}
+          </div>
+        }
+
         <input
           type="password"
           placeholder="Password"
@@ -92,6 +138,7 @@ function SignupFormModal() {
           required
         />
         {errors.password && <p>{errors.password}</p>}
+
         <input
           type="password"
           placeholder="Confirm Password"
@@ -99,14 +146,12 @@ function SignupFormModal() {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
-        {/* {errors.image && <p>{errors.image}</p>}
-        <input
-          type="file"
-          accept="image/*"
-          onChange={(e) => setImage(e.target.files[0])}
-        /> */}
         {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
-        <button type="submit" className="buttons">Sign Up</button>
+
+        <button
+          type="submit"
+          className="buttons"
+          disabled={isLoading}>Sign Up</button>
       </form>
     </>
   );

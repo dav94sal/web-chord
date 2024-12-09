@@ -43,6 +43,10 @@ h3 {
     margin: 5px;
 }
 
+a {
+    text-decoration: none;
+}
+
 p {
     color: white;
     font-weight: 500;
