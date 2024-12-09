@@ -18,7 +18,9 @@ li {
     display: flex;
     flex-direction: column;
     align-items: end;
+    height: 590px;
     margin: 70px;
+    position: fixed;
 }
 
 .manage-menu li {
@@ -46,13 +48,17 @@ li {
 .content-layout {
     display: flex;
     flex-direction: column;
+    grid-column-start: 2;
     width: 1000px;
     margin: 30px;
+    /* overflow: auto; */
 }
 
 .back-image {
     border-radius: 10px;
     box-shadow: 0 0 20px 10px;
+    position: fixed;
+    width: 1000px;
 }
 
 .content {

@@ -51,3 +51,6 @@ def edit_merch(merch_id):
         db.session.commit()
         return merch.to_dict()
     return form.errors, 401
+
+
+# Delete Merch
