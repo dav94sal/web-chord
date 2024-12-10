@@ -1,4 +1,5 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
+# from .image import Image
 
 class Merch(db.Model):
     __tablename__ = "merchandise"
@@ -11,6 +12,16 @@ class Merch(db.Model):
     price = db.Column(db.Float(5, 2), nullable=False)
     url = db.Column(db.String)
     artist_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
+
+    # __mapper_args__ = {
+    #     "polymorphic_identity": "artist",
+    # }
+
+    img = db.relationship(
+        "Image",
+        primaryjoin="and_(Image.imageable_type=='merch', foreign(Image.imageable_id)==Merch.id)",
+        lazy="dynamic",
+    )
 
     def to_dict(self):
         return {

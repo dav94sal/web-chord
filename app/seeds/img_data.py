@@ -43,7 +43,7 @@ class UserImages:
             num = idx[i]
             images.append({
                 "id": i+1,
-                "type": "user",
+                "type": "artist",
                 "url": self.urls[num]
             })
         return images

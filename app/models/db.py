@@ -4,6 +4,9 @@ import os
 environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
 
+from sqlalchemy.orm import declarative_base
+
+Base = declarative_base()
 
 db = SQLAlchemy()
 

@@ -14,7 +14,7 @@ function ShowTile({ show }) {
     return (
         <div className="tour-show">
             <p>{`${show.venue} | ${show.city}, ${show.state}`}</p>
-            <p>{`with ${show.headliners}`}</p>
+            <p>{`with ${show.openers}`}</p>
             <p>{`${month} ${date}, ${year}`}</p>
             <p>{hours > 12 ?
                 `${hours - 12}${parseInt(minutes)? `:${minutes}` : ''}pm`

@@ -1,6 +1,7 @@
-from .db import db, environment, SCHEMA, add_prefix_for_prod
+from .db import db, environment, SCHEMA, Base, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+# from .image import Image
 
 
 class User(db.Model, UserMixin):
@@ -16,7 +17,15 @@ class User(db.Model, UserMixin):
     is_artist = db.Column(db.Boolean)
     artist_name = db.Column(db.String(40))
 
-    img = db.relationship("Image", back_populates="ids")
+    # __mapper_args__ = {
+    #     "polymorphic_identity": "artist",
+    # }
+
+    img = db.relationship(
+        "Image",
+        primaryjoin="and_(Image.imageable_type=='artist', foreign(Image.imageable_id)==User.id)",
+        lazy="dynamic",
+    )
     tour = db.relationship("Tour", cascade="all, delete-orphan")
     merch = db.relationship("Merch", cascade="all, delete-orphan")
 
@@ -40,7 +49,7 @@ class User(db.Model, UserMixin):
 
     def artist(self):
         url = None
-        if len(self.img):
+        if self.img:
             url = self.img[0].url
         return {
             'id': self.id,
