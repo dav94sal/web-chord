@@ -6,7 +6,7 @@ function MerchTile({ merch }) {
         <div className="artist-tile-container">
             <div className="artist-tile">
                 <img
-                    src=""
+                    src={merch.imgUrl}
                     className="artist-img"
                 />
             <div className="price-name">

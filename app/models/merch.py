@@ -24,10 +24,14 @@ class Merch(db.Model):
     )
 
     def to_dict(self):
+        url = None
+        if self.img:
+            url = self.img[0].url
         return {
             "id": self.id,
             "name": self.name,
             "price": self.price,
             "url": self.url,
             "artist_id": self.artist_id,
+            "imgUrl": url
         }
