@@ -20,6 +20,7 @@ def get_all_merch(artist_id):
 def new_merch():
     form = MerchForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    image = None
 
     if form.validate_on_submit:
         if form.file.data:
@@ -53,7 +54,8 @@ def new_merch():
                       url=data['url'],
                       artist_id=current_user.id)
 
-        merch.img.append(image)
+        if image:
+            merch.img.append(image)
 
         db.session.add(merch)
         db.session.commit()
@@ -82,3 +84,14 @@ def edit_merch(merch_id):
 
 
 # Delete Merch
+@merch_routes.route("/<int:merch_id>", methods=["DELETE"])
+@login_required
+def delete_merch(merch_id):
+    merch = Merch.query.get(merch_id)
+
+    if merch.artist_id != current_user.id:
+        return { "errors": { "unauthorized": "This merch item does not belong to you" }}, 401
+
+    db.session.delete(merch)
+    db.session.commit()
+    return { "ok": "Successfully deleted" }, 200

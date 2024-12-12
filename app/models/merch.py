@@ -25,8 +25,9 @@ class Merch(db.Model):
 
     def to_dict(self):
         url = None
-        if self.img:
-            url = self.img[0].url
+        # print("-----------images", type(self.img))
+        if len(list(self.img)):
+            url = list(self.img)[0].url
         return {
             "id": self.id,
             "name": self.name,

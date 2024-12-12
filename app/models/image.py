@@ -29,7 +29,7 @@ class Image(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
-            "discriminator": self.discriminator,
-            "parentId": self.parent_id,
+            "imageable_type": self.imageable_type,
+            "imageable_id": self.imageable_id,
             "url": self.url,
         }

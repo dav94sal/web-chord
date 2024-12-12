@@ -51,6 +51,7 @@ def sign_up():
     """
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    image = None
 
     if form.validate_on_submit():
         # print(form.file.data)
@@ -89,7 +90,8 @@ def sign_up():
             artist_name=form.data["artist_name"],
         )
 
-        user.img.append(image)
+        if image:
+            user.img.append(image)
 
         db.session.add(user)
         db.session.commit()

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux"
-import { EditMerch } from "../../redux/merch";
+import { editMerch } from "../../redux/merch";
 import { useModal } from "../../context/Modal"
 
 function EditMerchModal({ merch }) {
@@ -21,7 +21,7 @@ function EditMerchModal({ merch }) {
             url
         }
 
-        const response = await dispatch(EditMerch(newMerch))
+        const response = await dispatch(editMerch(newMerch))
             .catch(err => setErrors({...err}))
 
         if (response.errors) setErrors(response.errors)

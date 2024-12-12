@@ -49,8 +49,9 @@ class User(db.Model, UserMixin):
 
     def artist(self):
         url = None
-        if self.img:
-            url = self.img[0].url
+        # print("-----------images", self.img)
+        if len(list(self.img)):
+            url = list(self.img)[0].url
         return {
             'id': self.id,
             'artistName': self.artist_name,
