@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { thunkSignup } from "../../redux/session";
@@ -17,10 +17,6 @@ function SignupFormModal() {
   const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    console.log(isArtist)
-  }, [isArtist])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,7 +38,7 @@ function SignupFormModal() {
     formData.append("is_artist", isArtist ? 1 : 0)
     formData.append("artist_name", artistName)
 
-    console.log(formData)
+    // console.log(formData)
 
     setIsLoading(true)
 
@@ -74,7 +70,7 @@ function SignupFormModal() {
       <div>
         {errors.server && <p>{errors.server}</p>}
         {errors.file && <p>{errors.file}</p>}
-        {isLoading}
+        {/* {isLoading} */}
       </div>
 
       <form

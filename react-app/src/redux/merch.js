@@ -42,8 +42,8 @@ export const getArtistMerch = (artistId) => async dispatch => {
 export const addMerch = (merch) => async dispatch => {
     const response = await fetch(`/api/merch/new`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(merch)
+        // headers: { "Content-Type": "application/json" },
+        body: merch
     });
     // console.log("Fetch response: ", await response.json())
 
@@ -137,7 +137,7 @@ function merchReducer(state = initialState, action) {
             const newState = {...state}
 
             delete newState[action.merchId]
-            
+
             return newState;
         }
         default:

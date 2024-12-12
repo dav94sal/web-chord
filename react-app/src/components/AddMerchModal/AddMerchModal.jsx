@@ -7,23 +7,43 @@ function AddMerchModal() {
     const [name, setName] = useState('');
     const [price, setPrice] = useState('');
     const [url, setUrl] = useState('');
-    const [errors, setErrors] = useState({})
+    const [image, setImage] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const [errors, setErrors] = useState({});
     const { closeModal } = useModal();
     const dispatch = useDispatch();
 
     const handleSubmit = async e => {
         e.preventDefault();
+        setErrors({})
 
-        const newMerch = {
-            name,
-            price,
-            url
+        const formData = new FormData();
+
+        formData.append("file", image)
+        formData.append("name", name)
+        formData.append("price", price)
+        formData.append("url", url)
+
+        setIsLoading(true)
+
+        let validate = {};
+
+        const merch = await dispatch(addMerch(formData))
+            .catch(err => validate = {...err})
+
+        if (merch?.errors) {
+            validate = {...validate, ...merch.errors};
         }
 
-        const response = await dispatch(addMerch(newMerch))
-            .catch(err => setErrors({...err}))
+        if (merch?.file?.length) {
+            validate.file = merch.file[0]
+        }
 
-        if (response.errors) setErrors(response.errors)
+
+        if (Object.values(validate).length) {
+            setErrors({...validate})
+            setIsLoading(false)
+        }
         else closeModal()
     }
 
@@ -32,6 +52,7 @@ function AddMerchModal() {
             <h2>Add Merch</h2>
             <form onSubmit={handleSubmit}>
             { errors.server && <p>{errors.server}</p> }
+            {errors.file && <p>{errors.file}</p>}
                 <input
                     type="text"
                     placeholder="Name your Merch..."
@@ -56,7 +77,20 @@ function AddMerchModal() {
                     required
                 />
                 { errors.url && <p>{errors.url}</p> }
-                <button type="submit" className="buttons">Add Merch</button>
+
+                <p>Display Image</p>
+                <input
+                    type="file"
+                    defaultValue={image}
+                    accept=".pdf,.png,.jpg,.jpeg,.gif"
+                    onChange={(e) => setImage(e.target.files[0])}
+                />
+                {errors.file && <p>{errors.file}</p>}
+
+                <button
+                    type="submit"
+                    className="buttons"
+                    disabled={isLoading}>Create Merch</button>
             </form>
         </>
     )
