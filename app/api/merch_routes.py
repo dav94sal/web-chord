@@ -92,6 +92,10 @@ def delete_merch(merch_id):
     if merch.artist_id != current_user.id:
         return { "errors": { "unauthorized": "This merch item does not belong to you" }}, 401
 
+    images = Image.query.filter_by(imageable_id = merch_id).all()
+
+    [db.session.delete(img) for img in images]
+
     db.session.delete(merch)
     db.session.commit()
     return { "ok": "Successfully deleted" }, 200
