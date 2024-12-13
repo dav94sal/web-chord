@@ -41,6 +41,7 @@ def addShow(tour_id):
 
     if form.validate_on_submit():
         data = form.data
+        # print("-------------form data", data)
         dateTime = datetime.strptime(
             f"{data['date']} {data['time']}", "%Y-%m-%d %H:%M")
 
@@ -48,7 +49,7 @@ def addShow(tour_id):
                     city = data['city'],
                     state = data['state'],
                     venue = data['venue'],
-                    headliners = data['headliners'],
+                    openers = data['openers'],
                     tour_id = tour_id,
                     artist_id = current_user.id,)
 
@@ -98,7 +99,7 @@ def edit_show(tour_id, show_id):
         show.city = data['city']
         show.state = data['state']
         show.venue = data['venue']
-        show.headliners = data['headliners']
+        show.openers = data['openers']
         db.session.commit()
         return show.to_dict()
 

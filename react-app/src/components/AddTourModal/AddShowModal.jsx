@@ -7,7 +7,7 @@ function AddShowModal({ tourId }) {
     const [venue, setVenue] = useState('')
     const [city, setCity] = useState('')
     const [state, setState] = useState('')
-    const [headliners, setHeadliners] = useState('')
+    const [openers, setOpeners] = useState('')
     const [date, setDate] = useState('')
     const [time, setTime] = useState('')
     const [errors, setErrors] = useState({})
@@ -26,7 +26,7 @@ function AddShowModal({ tourId }) {
             city,
             state,
             venue,
-            headliners,
+            openers,
             tour_id: tourId
         }
         const response = await dispatch(newShow(show))
@@ -68,13 +68,13 @@ function AddShowModal({ tourId }) {
                     <p className="errors">{errors.state}</p>}
                 <input
                     type="text"
-                    value={headliners}
-                    placeholder={"Headliners..."}
-                    onChange={(e) => setHeadliners(e.target.value)}
+                    value={openers}
+                    placeholder={"Openers..."}
+                    onChange={(e) => setOpeners(e.target.value)}
                     required
                 />
-                {errors.headliners &&
-                    <p className="errors">{errors.headliners}</p>}
+                {errors.openers &&
+                    <p className="errors">{errors.openers}</p>}
                 <input
                     type="date"
                     value={date}
