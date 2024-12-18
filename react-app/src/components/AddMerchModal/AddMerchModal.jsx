@@ -24,7 +24,7 @@ function AddMerchModal() {
         formData.append("price", price)
         formData.append("url", url)
 
-        console.log("-----------formData: ", formData)
+        // console.log("-----------formData: ", formData)
         setIsLoading(true)
 
         let validate = {};
@@ -53,10 +53,16 @@ function AddMerchModal() {
     return (
         <>
             <h2>Add Merch</h2>
-            <form onSubmit={handleSubmit}>
-            { errors.server && <p>{errors.server}</p> }
-            { errors.file && <p>{errors.file}</p> }
-            { errors.errors && <p>{errors.errors}</p> }
+
+            <form
+                onSubmit={handleSubmit}
+                encType="multipart/form-data"
+            >
+
+                { errors.server && <p>{errors.server}</p> }
+                { errors.file && <p>{errors.file}</p> }
+                { errors.errors && <p>{errors.errors}</p> }
+
                 <input
                     type="text"
                     placeholder="Name your Merch..."
