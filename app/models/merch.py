@@ -14,13 +14,14 @@ class Merch(db.Model):
     artist_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
 
     # __mapper_args__ = {
-    #     "polymorphic_identity": "artist",
+    #     "polymorphic_identity": "merch",
     # }
 
     img = db.relationship(
         "Image",
         primaryjoin="and_(Image.imageable_type=='merch', foreign(Image.imageable_id)==Merch.id)",
         lazy="dynamic",
+        overlaps="img"
     )
 
     def to_dict(self):

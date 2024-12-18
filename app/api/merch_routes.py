@@ -25,6 +25,7 @@ def new_merch():
     if form.validate_on_submit:
         if form.file.data:
             file = form.file.data
+            print("---------------backend file", file)
             #does the file exist and is it allowed?
             if not allowed_file(file.filename):
                 # print("Invalid file type")
@@ -35,7 +36,7 @@ def new_merch():
 
             file.filename = get_unique_filename(file.filename)
             upload_response = upload_file_to_s3(file)
-
+            print("-----------------upload response: ", upload_response)
             # Handle errors during upload
             if "errors" in upload_response:
                 # print(upload_response.errors)
