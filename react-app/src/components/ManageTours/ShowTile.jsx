@@ -14,6 +14,8 @@ function ShowTile({ show }) {
     hours = parseInt(hours)
     minutes = parseInt(minutes)
 
+    if (minutes < 10 && minutes > 0) minutes = `0${minutes}`
+
     return (
         <div className="tour-show">
             <p>{`${show.venue} | ${show.city}, ${show.state}`}</p>
