@@ -30,16 +30,16 @@ function TourTile({ tour }) {
                     />
                 </div>
                 <div className="tour-buttons">
-                    <button onClick={() => setViewShows(!viewShows)}
-                        className="edit-buttons"
-                    >
-                        {viewShows ? <IoIosArrowDropup /> : <IoIosArrowDropdown />}
-                    </button>
                     {viewShows && <OpenModalButton
                         modalComponent={<AddShowModal tourId={tour.id}/>}
                         buttonText={<LiaPlusCircleSolid />}
                         newClass='add-button'
                     />}
+                    <button onClick={() => setViewShows(!viewShows)}
+                        className="edit-buttons"
+                    >
+                        {viewShows ? <IoIosArrowDropup /> : <IoIosArrowDropdown />}
+                    </button>
                     <OpenModalButton
                         modalComponent={<DeleteTourModal tourId={tour.id}/>}
                         buttonText={<IoTrashBinOutline />}
