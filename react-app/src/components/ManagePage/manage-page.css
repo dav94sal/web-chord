@@ -94,7 +94,8 @@ li {
     width: 900px;
 }
 
-.tour-show p {
+.tour-show p,
+.merch-edit p {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -110,6 +111,12 @@ li {
     display: flex;
     justify-content: space-between;
     width: 200px
+}
+
+.prices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .tour-buttons {
