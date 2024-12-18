@@ -9,7 +9,7 @@ import '../ManagePage/manage-page.css'
 function ManageTours() {
     const { isLoading } = useLoading()
     let tours = useSelector(state => state.tours)
-    tours = Object.values(tours)
+    tours = Object.values(tours).reverse()
 
     return (
         <div className="content-layout">

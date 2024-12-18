@@ -8,8 +8,11 @@ import '../ManagePage/manage-page.css'
 function ShowTile({ show }) {
     const showDate = new Date(show.datetime).toUTCString().split(' ');
     showDate.shift()
-    const [month, date, year, time] = showDate
-    const [hours, minutes] = time.split(':')
+    let [month, date, year, time] = showDate
+    let [hours, minutes] = time.split(':')
+    month = parseInt(month)
+    hours = parseInt(hours)
+    minutes = parseInt(minutes)
 
     return (
         <div className="tour-show">
@@ -17,8 +20,8 @@ function ShowTile({ show }) {
             <p>{`with ${show.openers}`}</p>
             <p>{`${month} ${date}, ${year}`}</p>
             <p>{hours > 12 ?
-                `${hours - 12}${parseInt(minutes)? `:${minutes}` : ''}pm`
-                : `${hours}am`}
+                `${hours - 12}${minutes? `:${minutes}` : ''}pm`
+                : `${hours}${minutes? `:${minutes}` : ''}am`}
             </p>
 
             <div>

@@ -43,6 +43,7 @@
 
 .shows-container {
     display: flex;
+    align-items: center;
     flex-direction: column;
     margin: 0 auto;
 }
@@ -50,10 +51,21 @@
 .show-tile {
     background-color: rgba(237, 232, 228, 0.193);
     display: grid;
+    justify-content: center;
     grid-template-columns: 350px 350px 300px;
     margin: 5px;
     height: 100px;
     width: 1000px;
+}
+
+@media (min-width: 1441px) {
+    .show-tile {
+        height: 150px;
+        /* width: 80%; */
+    }
+    .shows-container {
+        width: 80%;
+    }
 }
 
 .location {
@@ -73,6 +85,10 @@
     height: 25px;
     margin: 5px;
     width: 100px;
+}
+
+.info {
+    padding: 10px;
 }
 
 .shows {

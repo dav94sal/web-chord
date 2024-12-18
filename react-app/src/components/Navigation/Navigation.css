@@ -6,7 +6,7 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 160px;
+  height: 115px;
   z-index: 1;
 }
 
@@ -20,7 +20,7 @@
   border-radius: 10px;
   position: absolute;
   right: 20px;
-  top: 150px;
+  top: 105px;
   height: auto;
   width: 275px;
   padding: 20px;
@@ -34,7 +34,7 @@
 }
 
 .nav-buttons {
-  height: 160px;
+  height: 115px;
 }
 
 .nav-but {

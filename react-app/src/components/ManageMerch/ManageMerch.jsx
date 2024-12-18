@@ -11,7 +11,7 @@ import '../ManagePage/manage-page.css'
 function ManageMerch({ artistId }) {
     const { isLoading, setIsLoading } = useLoading()
     let merch = useSelector(state => state.merch)
-    merch = Object.values(merch)
+    merch = Object.values(merch).reverse()
     const dispatch = useDispatch()
 
     useEffect(() => {

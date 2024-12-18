@@ -3,8 +3,10 @@ import { IoTrashBinOutline } from "react-icons/io5";
 import EditMerchModal from "../EditMerchModal";
 import DeleteMerchModal from "../DeleteModals/DeleteMerchModal";
 import OpenModalButton from "../OpenModalButton";
+import "../ManagePage/manage-page.css"
 
 function MerchTile({ merch }) {
+    merch.price = parseFloat(merch.price)
     return (
         <>
             <div className="tour-tile">
