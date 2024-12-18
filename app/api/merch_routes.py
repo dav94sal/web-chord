@@ -32,9 +32,9 @@ def new_merch():
                 return {"errors": "Invalid file type"}, 400
 
             file.filename = get_unique_filename(file.filename)
-            print("----------File: ", file)
+            # print("----------File: ", file)
             upload_response = upload_file_to_s3(file)
-            print("-----------------upload response: ", upload_response)
+            # print("-----------------upload response: ", upload_response)
             # Handle errors during upload
             if "errors" in upload_response:
                 # print(upload_response.errors)

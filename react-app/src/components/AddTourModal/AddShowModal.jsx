@@ -18,7 +18,7 @@ function AddShowModal({ tourId }) {
         e.preventDefault()
 
         // const date1 = new Date(date)
-        console.log(date)
+        // console.log(date)
 
         const show = {
             date,

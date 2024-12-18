@@ -114,7 +114,7 @@ def delete_tour(tour_id):
     # form['csrf_token'].data = request.cookies['csrf_token']
 
     tour = Tour.query.get(tour_id)
-    print(tour)
+    # print(tour)
 
     if not tour:
         return { "errors": { "Not Found": "Cannot find tour" }}, 404
