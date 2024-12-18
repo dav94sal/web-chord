@@ -8,7 +8,7 @@ class MerchForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     price = FloatField('Price', validators=[DataRequired()])
     url =StringField('Url', validators=[DataRequired()])
-    file = FileField('Upload Song', validators=[
+    file = FileField('Upload Image', validators=[
         FileAllowed(["pdf", "png", "jpg", "jpeg", "gif"], 'Image files only!')
     ])
     submit = SubmitField('Create Merch')
