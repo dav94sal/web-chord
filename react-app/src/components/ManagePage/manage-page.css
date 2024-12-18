@@ -18,7 +18,9 @@ li {
     display: flex;
     flex-direction: column;
     align-items: end;
+    height: 590px;
     margin: 70px;
+    position: fixed;
 }
 
 .manage-menu li {
@@ -40,21 +42,33 @@ li {
 .active {
     color: #aa401dc5;
     font-weight: 900;
+    text-shadow: 0 0 20px;
 }
 
 .content-layout {
     display: flex;
     flex-direction: column;
+    grid-column-start: 2;
     width: 1000px;
     margin: 30px;
+    /* overflow: auto; */
 }
 
-.content-layout button {
-    align-self: end;
+.back-image {
+    border-radius: 10px;
+    box-shadow: 0 0 20px 10px;
+    position: fixed;
+    width: 1000px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
 }
 
 .tour-tile {
-    background-color: rgba(237, 232, 228, 0.193);
+    background-color: rgba(103, 99, 96, 0.764);
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
@@ -66,7 +80,7 @@ li {
 }
 
 .tour-show {
-    background-color: rgba(237, 232, 228, 0.193);
+    background-color: rgba(103, 99, 96, 0.764);
     border-radius: 10px;
     display: grid;
     grid-template-columns: 35% 25% 20% 10% 10%;
@@ -91,14 +105,22 @@ li {
     display: flex;
 }
 
+.merch-edit {
+    display: flex;
+    justify-content: space-between;
+    width: 200px
+}
+
 .tour-buttons {
     display: flex;
 }
 
 .add-button {
+    align-self: flex-end;
     background-color: unset;
     border: unset;
-    color: #aa401dc5;
+    /* color: #aa401dc5; */
+    color: #16F596;
     font-size: 25px;
     padding: 6px;
 }
@@ -106,14 +128,14 @@ li {
 .edit-name-button {
     background-color: unset;
     border: unset;
-    position: relative;
-    top: -15px;
+    color: #16F596;
     font-size: 15px;
 }
 
 .edit-buttons {
     background-color: unset;
     border: unset;
+    color: #16F596;
     font-size: 18px;
     padding: 10px;
 }
@@ -121,7 +143,7 @@ li {
 .delete-buttons {
     background-color: unset;
     border: unset;
-    color: grey;
+    color: #F67D68;
     font-size: 18px;
     padding: 10px;
     height: fit-content;

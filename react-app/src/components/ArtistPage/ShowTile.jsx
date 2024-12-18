@@ -19,7 +19,7 @@ function ShowTile({ show }) {
                     {show.venue}
                 </p>
                 <p className="shows" >
-                    {show.headliners}
+                    {show.openers}
                 </p>
             </div>
             <div className="location">

@@ -3,7 +3,7 @@ import { GiTrashCan } from "react-icons/gi";
 import OpenModalButton from "../OpenModalButton";
 import EditShowModal from "../EditTourModal/EditShowModal";
 import DeleteShowModal from "../DeleteModals/DeleteShowModal";
-import "./manage-page.css"
+import '../ManagePage/manage-page.css'
 
 function ShowTile({ show }) {
     const showDate = new Date(show.datetime).toUTCString().split(' ');
@@ -14,7 +14,7 @@ function ShowTile({ show }) {
     return (
         <div className="tour-show">
             <p>{`${show.venue} | ${show.city}, ${show.state}`}</p>
-            <p>{`with ${show.headliners}`}</p>
+            <p>{`with ${show.openers}`}</p>
             <p>{`${month} ${date}, ${year}`}</p>
             <p>{hours > 12 ?
                 `${hours - 12}${parseInt(minutes)? `:${minutes}` : ''}pm`

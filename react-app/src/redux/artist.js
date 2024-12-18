@@ -1,10 +1,16 @@
 const SET_ARTISTS = 'artists/setArtists'
+const ADD_ARTIST = 'artists/addArtist'
 const REMOVE_ARTISTS = 'artists/removeArtists'
 
 // action creators
 const setArtists = (artists) => ({
     type: SET_ARTISTS,
     artists // an array of artists
+})
+
+const addArtist = (artist) => ({
+    type: ADD_ARTIST,
+    artist
 })
 
 export const removeArtists = () => ({
@@ -20,6 +26,25 @@ export const getAllArtists = () => async dispatch => {
     if(response.ok) {
       const data = await response.json();
       dispatch(setArtists(data.users));
+    } else if (response.status < 500) {
+        const errorMessages = await response.json();
+        return {
+            errors: errorMessages
+        }
+    } else {
+        return {
+            errors: { server: "Something went wrong. Please try again" }
+        }
+    }
+}
+
+export const addArtistById = (id) => async dispatch => {
+    const response = await fetch(`/api/artists/${id}`);
+    // console.log("Fetch response: ", await response.json())
+
+    if(response.ok) {
+      const data = await response.json();
+      dispatch(addArtist(data));
     } else if (response.status < 500) {
         const errorMessages = await response.json();
         return {
@@ -88,6 +113,11 @@ function artistReducer(state = initialState, action) {
       });
 
       return newState;
+    }
+    case ADD_ARTIST:{
+        const newState = {...state}
+        newState[action.artist.id] = action.artist
+        return newState
     }
     case REMOVE_ARTISTS:{
       return {};

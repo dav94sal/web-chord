@@ -1,4 +1,5 @@
 from flask_wtf import FlaskForm
+from flask_wtf.file import FileField, FileAllowed
 from wtforms import StringField, BooleanField, SubmitField
 from wtforms.validators import DataRequired, ValidationError
 from app.models import User
@@ -34,4 +35,7 @@ class SignUpForm(FlaskForm):
     password = StringField('Password', validators=[DataRequired()])
     is_artist = BooleanField('Artist')
     artist_name = StringField('Artist Name')
+    file = FileField('Upload Song', validators=[
+        FileAllowed(["pdf", "png", "jpg", "jpeg", "gif"], 'Image files only!')
+    ])
     submit = SubmitField('Sign Up')

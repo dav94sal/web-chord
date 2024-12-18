@@ -2,10 +2,10 @@ import { createBrowserRouter } from 'react-router-dom';
 import LoginFormPage from '../components/LoginFormPage';
 import SignupFormPage from '../components/SignupFormPage';
 import Layout from './Layout';
-import Home from '../components/Home/Home';
-import ArtistPage from '../components/ArtistPage/ArtistPage';
-import ManagePage from '../components/ManagePage/ManagePage';
-import MerchPage from '../components/ArtistPage/MerchPage';
+import Home from '../components/Home';
+import ArtistPage from '../components/ArtistPage';
+import ManagePage from '../components/ManagePage';
+import MerchPage from '../components/MerchPage';
 
 export const router = createBrowserRouter([
   {

@@ -8,9 +8,7 @@ artist_routes = Blueprint('artists', __name__)
 # Get all artists
 @artist_routes.route('/')
 def artists():
-    users = User.query.filter_by(is_artist = True).options(
-        joinedload(User.img)
-    ).all()
+    users = User.query.filter_by(is_artist = True).all()
     # print("----------Users: ", [user.artist() for user in users], "-----------")
     return { "users": [user.artist() for user in users] }
 
@@ -31,6 +29,8 @@ def latest_tour(artist_id):
         joinedload(Tour.shows)
     ).all()
 
-    tour = sorted(tours, reverse=True)[0]
+    tours = [tour.to_dict() for tour in tours]
 
-    return tour.to_dict()
+    tour = sorted(tours, key=lambda tour: tour["id"], reverse=True)[0]
+
+    return tour
