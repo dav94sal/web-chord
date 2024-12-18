@@ -38,7 +38,7 @@ function EditShowModal({ show }) {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log(date)
+        // console.log(date)
     })
 
     const handleSubmit = async e => {
