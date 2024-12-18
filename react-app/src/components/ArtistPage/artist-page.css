@@ -29,7 +29,7 @@
 .tour-container {
     display: grid;
     grid-template-rows: 100px 700px;
-    height: 800px;
+    height: 900px;
     width: 100%;
 }
 
@@ -58,16 +58,6 @@
     width: 1000px;
 }
 
-@media (min-width: 1441px) {
-    .show-tile {
-        height: 150px;
-        /* width: 80%; */
-    }
-    .shows-container {
-        width: 80%;
-    }
-}
-
 .location {
     align-self: center;
 }
@@ -93,4 +83,39 @@
 
 .shows {
     margin: 5px 10px;
+}
+
+@media (max-width: 1023px) {
+    .show-tile {
+        display: flex;
+        flex-direction: column;
+        height: 150px;
+        width: 300px;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 10px;
+    }
+
+    .info p {
+        margin: unset;
+        font-weight: 100;
+    }
+
+    .tickets {
+        padding: 0 10px;
+    }
+}
+
+@media (min-width: 1441px) {
+    .show-tile {
+        height: 150px;
+        /* width: 80%; */
+    }
+    .shows-container {
+        width: 80%;
+    }
 }
