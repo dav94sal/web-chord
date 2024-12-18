@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { newShow } from "../../redux/tour";
+import states from "./states";
 
 function AddShowModal({ tourId }) {
     const [venue, setVenue] = useState('')
@@ -38,6 +39,7 @@ function AddShowModal({ tourId }) {
     return (
         <>
             <h2>Create Show</h2>
+
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -48,6 +50,7 @@ function AddShowModal({ tourId }) {
                 />
                 {errors.venue &&
                     <p className="errors">{errors.venue}</p>}
+
                 <input
                     type="text"
                     value={city}
@@ -57,15 +60,26 @@ function AddShowModal({ tourId }) {
                 />
                 {errors.city &&
                     <p className="errors">{errors.city}</p>}
-                <input
-                    type="text"
+
+                <select
                     value={state}
-                    placeholder={"State..."}
                     onChange={(e) => setState(e.target.value)}
                     required
-                />
+                >
+                    <option
+                        value={null}
+                        hidden
+                    >State...</option>
+                    {Object.entries(states).map((state, i) => (
+                        <option
+                            value={state[0]}
+                            key={`state${i}`}
+                        >{state[1]}</option>
+                    ))}
+                </select>
                 {errors.state &&
                     <p className="errors">{errors.state}</p>}
+
                 <input
                     type="text"
                     value={openers}
@@ -75,6 +89,7 @@ function AddShowModal({ tourId }) {
                 />
                 {errors.openers &&
                     <p className="errors">{errors.openers}</p>}
+
                 <input
                     type="date"
                     value={date}
@@ -83,6 +98,7 @@ function AddShowModal({ tourId }) {
                 />
                 {errors.date &&
                     <p className="errors">{errors.date}</p>}
+
                 <input
                     type="time"
                     value={time}
@@ -91,7 +107,11 @@ function AddShowModal({ tourId }) {
                 />
                 {errors.time &&
                     <p className="errors">{errors.time}</p>}
-                <button type="submit" className="buttons">Submit</button>
+
+                <button
+                    type="submit"
+                    className="buttons"
+                >Submit</button>
                 <button
                     type="click"
                     className="buttons"
