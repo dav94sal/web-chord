@@ -20,17 +20,20 @@ function MerchPage() {
 
     return (
         <div className="home-content-layout">
-            {!isLoading && <div className="home-content-container">
-                {merchandise.map((merch) => (
-                    <div
-                        key={`merch${merch.id}`}
-                        onClick={() => alert("Feature Coming Soon")}
-                    >
-                        <MerchTile
-                            merch={merch}
-                        />
-                    </div>
-                ))}
+            {!isLoading &&
+            <div className="home-content-container">
+                {merchandise.length?
+                    merchandise.map((merch) => (
+                        <div
+                            key={`merch${merch.id}`}
+                            onClick={() => alert("Feature Coming Soon")}
+                        >
+                            <MerchTile
+                                merch={merch}
+                            />
+                        </div>
+                    )) : <p>No merchandise yet</p>
+                }
             </div>}
         </div>
     )
