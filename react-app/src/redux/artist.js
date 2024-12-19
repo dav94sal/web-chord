@@ -63,7 +63,7 @@ export const getArtistById = (id) => async dispatch => {
 
     if(response.ok) {
       const data = await response.json();
-      dispatch(setArtists([data]));
+      dispatch(addArtist(data));
     } else if (response.status < 500) {
         const errorMessages = await response.json();
         return {
