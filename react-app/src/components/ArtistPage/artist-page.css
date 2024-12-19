@@ -118,4 +118,9 @@
     .shows-container {
         width: 80%;
     }
+    .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 }
