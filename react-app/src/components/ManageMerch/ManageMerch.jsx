@@ -1,15 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { PiPlusCircleFill } from "react-icons/pi";
 import { getArtistMerch } from '../../redux/merch';
-import { useLoading } from '../../context/LoadingContext';
 import MerchTile from './MerchTile';
 import AddMerchModal from '../AddMerchModal/AddMerchModal';
 import OpenModalButton from '../OpenModalButton';
 import '../ManagePage/manage-page.css'
 
 function ManageMerch({ artistId }) {
-    const { isLoading, setIsLoading } = useLoading()
+    const [isLoading, setIsLoading] = useState(true)
     let merch = useSelector(state => state.merch)
     merch = Object.values(merch).reverse()
     const dispatch = useDispatch()
@@ -20,28 +19,30 @@ function ManageMerch({ artistId }) {
     }, [dispatch, artistId, setIsLoading])
 
     return (
-        <div className="content-layout">
+        <>
+        {!isLoading && <div className="content-layout">
             <img
                 src='https://i.ibb.co/RjqPZyf/pexels-thibault-trillet-44912-167636.jpg'
                 className='back-image'
-            />
+                />
             <div className='content'>
 
                 <OpenModalButton
                     modalComponent={<AddMerchModal />}
                     buttonText={<PiPlusCircleFill />}
                     newClass="add-button"
-                />
+                    />
 
-                { !isLoading && merch.map(merch => (
+                {merch.map(merch => (
                     <MerchTile
-                        key={`tour${merch.id}`}
-                        merch={merch}
+                    key={`tour${merch.id}`}
+                    merch={merch}
                     />
                 ))}
 
             </div>
-        </div>
+        </div>}
+        </>
     )
 }
 

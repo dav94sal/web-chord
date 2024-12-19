@@ -1,14 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { getArtistMerch } from "../../redux/merch";
-import { useLoading } from "../../context/LoadingContext";
 import MerchTile from "./MerchTile";
 import "../Home/Home.css"
 import "./merch.css"
 
 function MerchPage() {
-    const { isLoading, setIsLoading } = useLoading();
+    const [isLoading, setIsLoading] = useState(true);
     const { artistId } = useParams();
     const merchObj = useSelector(state => state.merch);
     const merchandise = Object.values(merchObj);
@@ -21,17 +20,20 @@ function MerchPage() {
 
     return (
         <div className="home-content-layout">
-            {!isLoading && <div className="home-content-container">
-                {merchandise.map((merch) => (
-                    <div
-                        key={`merch${merch.id}`}
-                        onClick={() => alert("Feature Coming Soon")}    
-                    >
-                        <MerchTile
-                            merch={merch}
-                        />
-                    </div>
-                ))}
+            {!isLoading &&
+            <div className="home-content-container">
+                {merchandise.length?
+                    merchandise.map((merch) => (
+                        <div
+                            key={`merch${merch.id}`}
+                            onClick={() => alert("Feature Coming Soon")}
+                        >
+                            <MerchTile
+                                merch={merch}
+                            />
+                        </div>
+                    )) : <p>No merchandise yet</p>
+                }
             </div>}
         </div>
     )

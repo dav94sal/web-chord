@@ -1,16 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, NavLink } from "react-router-dom";
 import { getArtistById } from "../../redux/artist";
 import { getAllTours } from "../../redux/tour";
-import { useLoading } from "../../context/LoadingContext";
 import ManageTours from "../ManageTours";
 import ManageMerch from "../ManageMerch";
 import "./manage-page.css";
 
 function ManagePage() {
-    // isLoading context necessary for navigation header
-    const { isLoading, setIsLoading } = useLoading();
+    const [isLoading, setIsLoading] = useState(true);
     const artistId = useSelector(state => state.session.user.id);
     const location = useLocation();
     const dispatch = useDispatch();
@@ -24,7 +22,7 @@ function ManagePage() {
     let render
 
     if (location.pathname.includes('manage-tours')) {
-        render = <ManageTours />
+        render = <ManageTours isLoading={isLoading}/>
     }
 
     if (location.pathname.includes('manage-merch')) {
