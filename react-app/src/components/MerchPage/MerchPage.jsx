@@ -10,7 +10,7 @@ function MerchPage() {
     const [isLoading, setIsLoading] = useState(true);
     const { artistId } = useParams();
     const merchObj = useSelector(state => state.merch);
-    const merchandise = Object.values(merchObj);
+    const merchandise = Object.values(merchObj).reverse();
     const dispatch = useDispatch();
 
     useEffect(() => {
