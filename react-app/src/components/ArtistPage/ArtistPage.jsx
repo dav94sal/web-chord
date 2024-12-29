@@ -44,13 +44,16 @@ function ArtistPage() {
             </div>
             {!isLoading &&
                 <div className="tour-container">
-                    <h3 id="tour-head">{tour.name}</h3>
+                    { tour?
+                        <h3 id="tour-head">{tour.name}</h3> :
+                        <h3 id="tour-head">No Tours Yet...</h3>
+                    }
                     <div className="shows-container">
-                        {tour && shows?.map(show => (
+                        {tour && shows.length ? shows.map(show => (
                             <div className="show-tile" key={`show${show.id}`}>
                                 <ShowTile show={show} />
                             </div>
-                        ))}
+                        )) : <p>No shows available yet</p>}
                     </div>
                 </div>
             }
