@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { thunkLogout } from "../../redux/session";
+import { thunkLogout, thunkLogin } from "../../redux/session";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
@@ -47,6 +47,14 @@ function ProfileButton() {
     closeMenu();
   }
 
+  const demoSignIn = (e) => {
+    e.preventDefault()
+    dispatch(thunkLogin({
+      email: 'demo@aa.io',
+      password: 'password'
+    }))
+  }
+
   return (
     <>
       <button onClick={toggleMenu} className="nav-but">
@@ -62,8 +70,12 @@ function ProfileButton() {
               <li>Welcome to WebChord!</li>
               <li>{user.username}</li>
               <li>
-                <button onClick={redirect} className="buttons">Manage Site</button>
-                <button onClick={logout} className="buttons">Log Out</button>
+                <button
+                  onClick={redirect}
+                  className="buttons">Manage Site</button>
+                <button
+                  onClick={logout}
+                  className="buttons">Log Out</button>
               </li>
             </>
           ) : (
@@ -81,6 +93,9 @@ function ProfileButton() {
                 modalComponent={<SignupFormModal />}
                 setClassName="buttons"
               />
+              <button
+                onClick={demoSignIn}
+                className="buttons">Demo Log In</button>
             </>
           )}
         </ul>
