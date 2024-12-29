@@ -53,6 +53,7 @@ function ProfileButton() {
       email: 'demo@aa.io',
       password: 'password'
     }))
+    closeMenu();
   }
 
   return (
