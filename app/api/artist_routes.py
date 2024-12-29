@@ -31,6 +31,7 @@ def latest_tour(artist_id):
 
     tours = [tour.to_dict() for tour in tours]
 
-    tour = sorted(tours, key=lambda tour: tour["id"], reverse=True)[0]
-
-    return tour
+    if tours:
+        return sorted(tours, key=lambda tour: tour["id"], reverse=True)[0]
+    else:
+        return {"none": True}
