@@ -10,7 +10,7 @@ function Home() {
     // isLoading context necessary for navigation header
     const { isLoading, setIsLoading } = useLoading()
     const artistsObj = useSelector(state => state.artists)
-    const artists = Object.values(artistsObj)
+    const artists = Object.values(artistsObj).reverse()
     const dispatch = useDispatch()
 
     useEffect(() => {
