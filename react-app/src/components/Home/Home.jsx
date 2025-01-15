@@ -19,8 +19,8 @@ function Home() {
     }, [dispatch, setIsLoading])
 
     return (
-        <div className="home-content-layout">
-            {!isLoading && <div className="home-content-container">
+        <>
+            {!isLoading && <div className="tiling-container">
                 {artists.map((artist) => (
                     <Link to={`/artists/${artist.id}` } key={`artists${artist.id}`}>
                         <ArtistTile
@@ -29,7 +29,8 @@ function Home() {
                     </Link>
                 ))}
             </div>}
-        </div>
+            {/* add a footer with about section */}
+        </>
     )
 }
 
