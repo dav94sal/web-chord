@@ -1,5 +1,4 @@
 import "../Home/Home.css"
-import "./merch.css"
 
 function MerchTile({ merch }) {
     return (
