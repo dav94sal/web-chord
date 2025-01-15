@@ -1,5 +1,11 @@
 .band-pic {
+    position: fixed;
     width: 100%;
+    z-index: -1;
+}
+
+.artist-content {
+    z-index: 1;
 }
 
 .artist-buttons {
@@ -7,9 +13,9 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    position: absolute;
+    /* position: absolute; */
     top: 10px;
-    height: 125px;
+    height: 90px;
     width: 100%;
 }
 
@@ -29,11 +35,13 @@
 .tour-container {
     display: grid;
     grid-template-rows: 100px 700px;
+    position: relative;
+    /* top: 135px; */
     height: 900px;
     width: 100%;
 }
 
-#tour-head {
+.artist-headers {
     color: black;
     font-size: 30px;
     display: flex;
@@ -83,6 +91,18 @@
 
 .shows {
     margin: 5px 10px;
+}
+
+.price-name {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    margin: 5px 30px;
+    height: 30px;
+}
+
+.price-name p {
+    margin: 0;
 }
 
 @media (max-width: 1023px) {

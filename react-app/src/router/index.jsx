@@ -5,7 +5,6 @@ import Layout from './Layout';
 import Home from '../components/Home';
 import ArtistPage from '../components/ArtistPage';
 import ManagePage from '../components/ManagePage';
-import MerchPage from '../components/MerchPage';
 
 export const router = createBrowserRouter([
   {
@@ -25,16 +24,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/artists/:artistId",
-        children: [
-          {
-            index: true,
-            element: <ArtistPage />
-          },
-          {
-            path: "merch",
-            element: <MerchPage />
-          }
-        ]
+        element: <ArtistPage />
       },
       {
         path: "/manage-tours",

@@ -1,8 +1,5 @@
-.home-content-layout {
-    padding: 100px
-}
-
-.home-content-container {
+.tiling-container {
+    padding: 100px;
     display: grid;
 }
 
@@ -33,23 +30,23 @@
 }
 
 @media (max-width: 1000px) {
-    .home-content-layout {
+    .tile-content-layout {
         padding: 100px 0;
     }
 }
 
 @media (max-width: 1440px) and (min-width: 1024px) {
-    .home-content-container {
+    .tiling-container {
         grid-template-columns: 33% 34% 33%;
     }
 }
 @media (min-width: 1441px) {
-    .home-content-container {
+    .tiling-container {
         grid-template-columns: 25% 25% 25% 25%;
     }
 }
 @media (min-width: 1920px) {
-    .home-content-container {
+    .tiling-container {
         grid-template-columns: 20% 20% 20% 20% 20%;
     }
 }
