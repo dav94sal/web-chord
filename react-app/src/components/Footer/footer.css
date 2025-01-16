@@ -1,0 +1,37 @@
+.center-content-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-container {
+    background-color: rgba(0, 0, 0, 0.23);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 75px;
+}
+
+.footer-icon {
+    color: white;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.copyright-container p,
+.contact-container p {
+    margin: 3px;
+}
+
+.copyright-icon {
+    color: white;
+}
+
+.manage-footer-container {
+    position: fixed;
+}
