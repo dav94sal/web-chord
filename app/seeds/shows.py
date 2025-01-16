@@ -12,7 +12,7 @@ def seed_shows():
             city=show["city"],
             state=show["state"],
             venue=show["venue"],
-            openers=show["headliners"],
+            openers=show["openers"],
             datetime=show['datetime']))
 
     db.session.commit()

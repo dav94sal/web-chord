@@ -83,11 +83,18 @@ users = [
         'is_artist': True,
         'artist_name': "LunaBella"
     },
-    # {
-    #     'username': 'LunaBella',
-    #     'email': 'luna@gmail.com',
-    #     'password': 'password',
-    #     'is_artist': True,
-    #     'artist_name': "LunaBella"
-    # },
+    {
+        'username': 'Anachronism',
+        'email': 'AMP@gmail.com',
+        'password': 'password',
+        'is_artist': True,
+        'artist_name': "Anachronism"
+    },
+    {
+        'username': 'manager',
+        'email': 'manager@md.com',
+        'password': 'password',
+        'is_artist': True,
+        'artist_name': "Mangled Digits"
+    },
 ]
