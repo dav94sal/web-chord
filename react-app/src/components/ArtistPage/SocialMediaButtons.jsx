@@ -11,23 +11,29 @@ function SocialMediaButtons() {
     const handleClick = () => alert("Feature Coming Soon!");
 
     return (
-        <div className="social-buttons">
+        <div className="social-buttons-container">
             <button
+                className="social-buttons"
                 onClick={handleClick}
             ><FaXTwitter /></button>
             <button
+                className="social-buttons"
                 onClick={handleClick}
             ><FaFacebookF /></button>
             <button
+                className="social-buttons"
                 onClick={handleClick}
             ><SlSocialInstagram /></button>
             <button
+                className="social-buttons"
                 onClick={handleClick}
             ><IoLogoYoutube /></button>
             <button
+                className="social-buttons"
                 onClick={handleClick}
             ><FaSpotify /></button>
             <button
+                className="social-buttons"
                 onClick={handleClick}
             ><SiPandora /></button>
         </div>

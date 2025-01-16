@@ -17,10 +17,22 @@
     height: 75px;
 }
 
+.contact-container {
+    min-width: 330px;
+    height: 40px;
+    justify-content: space-between;
+}
+
 .footer-icon {
     color: white;
     font-size: 20px;
     padding: 5px;
+    transition: 500ms;
+}
+
+.footer-icon:hover {
+    font-size: 25px;
+    transition: 500ms;
 }
 
 .copyright-container p,
