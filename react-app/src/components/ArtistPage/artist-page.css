@@ -1,6 +1,6 @@
 .band-pic {
     position: fixed;
-    width: 100%;
+    height: 100%;
     z-index: -1;
 }
 
@@ -11,30 +11,38 @@
 .artist-buttons {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: end;
     align-items: center;
     /* position: absolute; */
     top: 10px;
-    height: 90px;
+    height: 50px;
     width: 100%;
 }
 
-.social-buttons {
+.social-buttons-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 45px;
 }
 
-.social-buttons button {
+.social-buttons {
     background-color: unset;
     border: unset;
+    color: white;
+    font-size: 13px;
     margin: 0 5px;
+    transition-duration: 500ms;
+}
+
+.social-buttons:hover {
+    font-size: 20px;
+    transition-duration: 500ms;
 }
 
 .tour-container {
     display: grid;
-    grid-template-rows: 100px 700px;
+    grid-template-rows: 100px auto;
     position: relative;
     /* top: 135px; */
     height: 900px;
@@ -42,7 +50,7 @@
 }
 
 .artist-headers {
-    color: black;
+    color: white;
     font-size: 30px;
     display: flex;
     justify-content: center;
@@ -62,7 +70,7 @@
     justify-content: center;
     grid-template-columns: 350px 350px 300px;
     margin: 5px;
-    height: 100px;
+    max-height: 120px;
     width: 1000px;
 }
 

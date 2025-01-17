@@ -8,4 +8,6 @@ tours = [
     { "name": "Homebound", "artist_id": 10 },
     { "name": "The Itchy and Scratchy Tour!", "artist_id": 11 },
     { "name": "Howl at the Moon", "artist_id": 12 },
+    { "name": "Back In Time", "artist_id": 13 },
+    { "name": "Resurgence", "artist_id": 14 },
 ]
