@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { editShow } from "../../redux/tour";
+import states from "../AddTourModal/states";
 
 function EditShowModal({ show }) {
     const [venue, setVenue] = useState(show.venue)
@@ -53,11 +54,24 @@ function EditShowModal({ show }) {
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                     />
-                <input
-                    type="text"
+                <select
                     value={state}
                     onChange={(e) => setState(e.target.value)}
-                    />
+                    required
+                >
+                    <option
+                        value={null}
+                        hidden
+                    >State...</option>
+                    {Object.entries(states).map((state, i) => (
+                        <option
+                            value={state[0]}
+                            key={`state${i}`}
+                        >{state[1]}</option>
+                    ))}
+                </select>
+                {errors.state &&
+                    <p className="errors">{errors.state}</p>}
                 <input
                     type="text"
                     value={openers}
