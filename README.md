@@ -4,7 +4,16 @@
 
 Web-Chord is an app for musicians to display their Tours, Shows, and Merchandise for fans.
 
-[Features List](https://github.com/dav94sal/web-chord/wiki/Feature-List)
+## Guide to Web-Chord
+
+Extensive documentation available at the [Web-Chord Wiki](https://github.com/dav94sal/web-chord/wiki)!
+
+- [Backend Routes](https://github.com/dav94sal/web-chord/wiki/Backend-Routes)
+- [Database Schema](https://github.com/dav94sal/web-chord/wiki/Database-Schema)
+- [Feature List](https://github.com/dav94sal/web-chord/wiki/Feature-List)
+- [Frontend Routes](https://github.com/dav94sal/web-chord/wiki/Frontend-Routes)
+- [Redux State](https://github.com/dav94sal/web-chord/wiki/Redux-State)
+- [User Stories](https://github.com/dav94sal/web-chord/wiki/User-Stories)
 
 ## Technologies Used
 
@@ -21,40 +30,35 @@ Web-Chord is an app for musicians to display their Tours, Shows, and Merchandise
 
 There are 3 main pages:
 
-Home
+Home - For all users to browse for their favorite artists or find new obsessions
 ![Home Page](https://i.ibb.co/dPN1LcD/Home.jpg)
 
-Artist Page
-
+Artist Page - Where artists display their newest shows and merchandise for everyone to see
 ![Artist Page with Tour info](https://i.ibb.co/J2QV1t9/Artist-Page-Tours.jpg)
 ![Artist Page with Merch info](https://i.ibb.co/DLNPXg2/Artist-Page-Merch.jpg)
 
-Manage Page
-
+Manage Page - Artists can view, create, update, and delete all tour and merch information
 ![Manage Page with Tour information](https://i.ibb.co/7tvVQt5/Manage-Tours.jpg)
 ![Manage Page with Merch information](https://i.ibb.co/Bfqz8Y9/Manage-Merch.jpg)
 
 ## Usage
 
-1. Clone this repository.
-
-2. Install dependencies.
+1. Install dependencies.
 
    ```bash
    pipenv install -r requirements.txt
    ```
 
-3. Create a __.env__ file based on the example with proper settings for your
-   development environment.
+2. Create your __.env__ file based on the example.
 
-4. Make sure the SQLite3 database connection URL is in the __.env__ file.
+3. The SQLite3 database connection URL must be in the __.env__ file.
 
-5. This starter organizes all tables inside the `flask_schema` schema, defined
-   by the `SCHEMA` environment variable.  Replace the value for
-   `SCHEMA` with a unique name, **making sure you use the snake_case
+4. Replace the value for `SCHEMA` with a unique name, **make sure to use snake_case
    convention.**
 
-6. Get into your pipenv, migrate your database, seed your database, and run your
+5. Create an AWS S3 Bucket and User. Add your buckets name, key, and secret to the __.env__ file.
+
+6. Open your pipenv shell, migrate and seed your database, then run your
    Flask app:
 
    ```bash
@@ -73,9 +77,8 @@ Manage Page
    flask run
    ```
 
-7. To run the React frontend in development, `cd` into the __react-vite__
+7. To run the React frontend in development, `cd` into the __react-app__
    directory and run `npm i` to install dependencies. Next, run `npm run build`
-   to create the `dist` folder. The starter has modified the `npm run build`
-   command to include the `--watch` flag. This flag will rebuild the __dist__
-   folder whenever you change your code, keeping the production version up to
-   date.
+   to create the `dist` folder. The `npm run build` command is modified to include
+   the `--watch` flag. This flag will rebuild the __dist__ folder whenever you
+   change your code, keeping the production version up to date.
