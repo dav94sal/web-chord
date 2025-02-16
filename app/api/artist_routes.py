@@ -1,16 +1,16 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
 from sqlalchemy.orm import joinedload
-from app.models import User, Tour
+from app.models import Artist, User, Tour
 
 artist_routes = Blueprint('artists', __name__)
 
 # Get all artists
 @artist_routes.route('/')
 def artists():
-    users = User.query.filter_by(is_artist = True).all()
-    # print("----------Users: ", [user.artist() for user in users], "-----------")
-    return { "users": [user.artist() for user in users] }
+    artists = Artist.query.all()
+    print("----------Artists: ", [artist.to_dict() for artist in artists], "-----------")
+    return { "artists": [artist.to_dict() for artist in artists] }
 
 # Get artist by Id
 @artist_routes.route('/<int:artist_id>')
