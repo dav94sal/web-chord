@@ -11,8 +11,7 @@ def seed_users():
             username=user["username"],
             email=user['email'],
             password=user['password'],
-            is_artist=user['is_artist'],
-            artist_name=user['artist_name']))
+            is_artist=user['is_artist'],))
 
     db.session.commit()
 

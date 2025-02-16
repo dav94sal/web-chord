@@ -166,9 +166,9 @@ shows = [
         'openers': "David Allen Coe",
         'datetime': datetime(2025, 1, 25, 21),
     },
-    # Tour id: 4, Artist id: 6
+    # Tour id: 4, Artist id: 4
     {
-        'artist_id': 6,
+        'artist_id': 4,
         'tour_id': 4,
         'city': 'Los Angeles',
         'state': 'CA',
@@ -177,7 +177,7 @@ shows = [
         'datetime': datetime(2025, 6, 6, 20),
     },
     {
-        'artist_id': 6,
+        'artist_id': 4,
         'tour_id': 4,
         'city': 'Los Angeles',
         'state': 'CA',
@@ -186,7 +186,7 @@ shows = [
         'datetime': datetime(2025, 6, 7, 21),
     },
     {
-        'artist_id': 6,
+        'artist_id': 4,
         'tour_id': 4,
         'city': 'Morrison',
         'state': 'CO',
@@ -195,7 +195,7 @@ shows = [
         'datetime': datetime(2025, 6, 13, 20),
     },
     {
-        'artist_id': 6,
+        'artist_id': 4,
         'tour_id': 4,
         'city': 'Morrison',
         'state': 'CO',
@@ -204,7 +204,7 @@ shows = [
         'datetime': datetime(2025, 6, 14, 20),
     },
     {
-        'artist_id': 6,
+        'artist_id': 4,
         'tour_id': 4,
         'city': 'Nashville',
         'state': 'TN',
@@ -213,7 +213,7 @@ shows = [
         'datetime': datetime(2025, 6, 20, 22),
     },
     {
-        'artist_id': 6,
+        'artist_id': 4,
         'tour_id': 4,
         'city': 'Nashville',
         'state': 'TN',
@@ -221,9 +221,9 @@ shows = [
         'openers': "Ungrateful Deed",
         'datetime': datetime(2025, 6, 21, 22),
     },
-    # Tour id: 5, Artist id: 7
+    # Tour id: 5, Artist id: 5
     {
-        'artist_id': 7,
+        'artist_id': 5,
         'tour_id': 5,
         'city': 'New York City',
         'state': 'NY',
@@ -232,7 +232,7 @@ shows = [
         'datetime': datetime(2025, 6, 20, 19),
     },
     {
-        'artist_id': 7,
+        'artist_id': 5,
         'tour_id': 5,
         'city': 'New York City',
         'state': 'NY',
@@ -241,7 +241,7 @@ shows = [
         'datetime': datetime(2025, 6, 21, 20),
     },
     {
-        'artist_id': 7,
+        'artist_id': 5,
         'tour_id': 5,
         'city': 'New York City',
         'state': 'NY',
@@ -250,7 +250,7 @@ shows = [
         'datetime': datetime(2025, 6, 27, 20),
     },
     {
-        'artist_id': 7,
+        'artist_id': 5,
         'tour_id': 5,
         'city': 'Minneapolis',
         'state': 'MN',
@@ -258,9 +258,9 @@ shows = [
         'openers': "ABDB, White Service",
         'datetime': datetime(2025, 7, 4, 20),
     },
-    # Tour id: 6, Artist id: 9
+    # Tour id: 6, Artist id: 6
     {
-        'artist_id': 9,
+        'artist_id': 6,
         'tour_id': 6,
         'city': 'New York City',
         'state': 'NY',
@@ -269,7 +269,7 @@ shows = [
         'datetime': datetime(2025, 7, 4, 22),
     },
     {
-        'artist_id': 9,
+        'artist_id': 6,
         'tour_id': 6,
         'city': 'New York City',
         'state': 'NY',
@@ -278,7 +278,7 @@ shows = [
         'datetime': datetime(2025, 7, 5, 22),
     },
     {
-        'artist_id': 9,
+        'artist_id': 6,
         'tour_id': 6,
         'city': 'New York City',
         'state': 'NY',
@@ -287,7 +287,7 @@ shows = [
         'datetime': datetime(2025, 7, 6, 22),
     },
     {
-        'artist_id': 9,
+        'artist_id': 6,
         'tour_id': 6,
         'city': 'New York City',
         'state': 'NY',
@@ -296,7 +296,7 @@ shows = [
         'datetime': datetime(2025, 7, 11, 22),
     },
     {
-        'artist_id': 9,
+        'artist_id': 6,
         'tour_id': 6,
         'city': 'New York City',
         'state': 'NY',
@@ -305,7 +305,7 @@ shows = [
         'datetime': datetime(2025, 7, 12, 22),
     },
     {
-        'artist_id': 9,
+        'artist_id': 6,
         'tour_id': 6,
         'city': 'New York City',
         'state': 'NY',
@@ -315,7 +315,7 @@ shows = [
     },
     # Tour id: 7, Artist id: 10
     {
-        'artist_id': 10,
+        'artist_id': 7,
         'tour_id': 7,
         'city': 'Las Vegas',
         'state': 'NV',
@@ -324,7 +324,7 @@ shows = [
         'datetime': datetime(2025, 7, 4, 20),
     },
     {
-        'artist_id': 10,
+        'artist_id': 7,
         'tour_id': 7,
         'city': 'Las Vegas',
         'state': 'NV',
@@ -333,7 +333,7 @@ shows = [
         'datetime': datetime(2025, 7, 5, 20),
     },
     {
-        'artist_id': 10,
+        'artist_id': 7,
         'tour_id': 7,
         'city': 'Las Vegas',
         'state': 'NV',
@@ -342,7 +342,7 @@ shows = [
         'datetime': datetime(2025, 7, 6, 20),
     },
     {
-        'artist_id': 10,
+        'artist_id': 7,
         'tour_id': 7,
         'city': 'Las Vegas',
         'state': 'NV',
@@ -351,7 +351,7 @@ shows = [
         'datetime': datetime(2025, 7, 11, 20),
     },
     {
-        'artist_id': 10,
+        'artist_id': 7,
         'tour_id': 7,
         'city': 'Las Vegas',
         'state': 'NV',
@@ -360,7 +360,7 @@ shows = [
         'datetime': datetime(2025, 7, 12, 20),
     },
     {
-        'artist_id': 10,
+        'artist_id': 7,
         'tour_id': 7,
         'city': 'Las Vegas',
         'state': 'NV',
@@ -368,9 +368,9 @@ shows = [
         'openers': "Roombah",
         'datetime': datetime(2025, 7, 18, 20),
     },
-    # Tour id: 8, Artist id: 11
+    # Tour id: 8, Artist id: 8
     {
-        'artist_id': 11,
+        'artist_id': 8,
         'tour_id': 8,
         'city': 'Houston',
         'state': 'TX',
@@ -379,7 +379,7 @@ shows = [
         'datetime': datetime(2025, 7, 4, 21),
     },
     {
-        'artist_id': 11,
+        'artist_id': 8,
         'tour_id': 8,
         'city': 'Houston',
         'state': 'TX',
@@ -388,7 +388,7 @@ shows = [
         'datetime': datetime(2025, 7, 11, 22),
     },
     {
-        'artist_id': 11,
+        'artist_id': 8,
         'tour_id': 8,
         'city': 'Houston',
         'state': 'TX',
@@ -397,7 +397,7 @@ shows = [
         'datetime': datetime(2025, 7, 12, 22),
     },
     {
-        'artist_id': 11,
+        'artist_id': 8,
         'tour_id': 8,
         'city': 'Houston',
         'state': 'TX',
@@ -406,7 +406,7 @@ shows = [
         'datetime': datetime(2025, 7, 18, 21),
     },
     {
-        'artist_id': 11,
+        'artist_id': 8,
         'tour_id': 8,
         'city': 'Austin',
         'state': 'TX',
@@ -415,7 +415,7 @@ shows = [
         'datetime': datetime(2025, 7, 19, 21),
     },
     {
-        'artist_id': 11,
+        'artist_id': 8,
         'tour_id': 8,
         'city': 'Austin',
         'state': 'TX',
@@ -425,7 +425,7 @@ shows = [
     },
     # Tour id: 9, Artist id: 12
     {
-        'artist_id': 12,
+        'artist_id': 9,
         'tour_id': 9,
         'city': 'Houston',
         'state': 'TX',
@@ -434,7 +434,7 @@ shows = [
         'datetime': datetime(2025, 7, 5, 21),
     },
     {
-        'artist_id': 12,
+        'artist_id': 9,
         'tour_id': 9,
         'city': 'Houston',
         'state': 'TX',
@@ -443,7 +443,7 @@ shows = [
         'datetime': datetime(2025, 7, 11, 21),
     },
     {
-        'artist_id': 12,
+        'artist_id': 9,
         'tour_id': 9,
         'city': 'Houston',
         'state': 'TX',
@@ -452,7 +452,7 @@ shows = [
         'datetime': datetime(2025, 7, 12, 21),
     },
     {
-        'artist_id': 12,
+        'artist_id': 9,
         'tour_id': 9,
         'city': 'Houston',
         'state': 'TX',
@@ -461,7 +461,7 @@ shows = [
         'datetime': datetime(2025, 7, 18, 21),
     },
     {
-        'artist_id': 12,
+        'artist_id': 9,
         'tour_id': 9,
         'city': 'Houston',
         'state': 'TX',
@@ -470,7 +470,7 @@ shows = [
         'datetime': datetime(2025, 7, 19, 21),
     },
     {
-        'artist_id': 12,
+        'artist_id': 9,
         'tour_id': 9,
         'city': 'Houston',
         'state': 'TX',
@@ -478,9 +478,9 @@ shows = [
         'openers': "Ned Flanders Band",
         'datetime': datetime(2025, 7, 25, 21),
     },
-    # Tour id: 10, Artist id: 13
+    # Tour id: 10, Artist id: 10
     {
-        'artist_id': 13,
+        'artist_id': 10,
         'tour_id': 10,
         'city': 'Houston',
         'state': 'TX',
@@ -489,7 +489,7 @@ shows = [
         'datetime': datetime(2025, 7, 18, 21),
     },
     {
-        'artist_id': 13,
+        'artist_id': 10,
         'tour_id': 10,
         'city': 'Houston',
         'state': 'TX',
@@ -498,7 +498,7 @@ shows = [
         'datetime': datetime(2025, 7, 19, 21),
     },
     {
-        'artist_id': 13,
+        'artist_id': 10,
         'tour_id': 10,
         'city': 'Houston',
         'state': 'TX',
@@ -507,7 +507,7 @@ shows = [
         'datetime': datetime(2025, 7, 20, 21),
     },
     {
-        'artist_id': 13,
+        'artist_id': 10,
         'tour_id': 10,
         'city': 'Houston',
         'state': 'TX',
@@ -516,7 +516,7 @@ shows = [
         'datetime': datetime(2025, 7, 25, 21),
     },
     {
-        'artist_id': 13,
+        'artist_id': 10,
         'tour_id': 10,
         'city': 'Houston',
         'state': 'TX',
@@ -525,7 +525,7 @@ shows = [
         'datetime': datetime(2025, 7, 26, 21),
     },
     {
-        'artist_id': 13,
+        'artist_id': 10,
         'tour_id': 10,
         'city': 'Houston',
         'state': 'TX',
@@ -533,9 +533,9 @@ shows = [
         'openers': "Demo Rock",
         'datetime': datetime(2025, 7, 27, 21),
     },
-    # Tour id: 11, Artist id: 14
+    # Tour id: 11, Artist id: 11
     {
-        'artist_id': 14,
+        'artist_id': 11,
         'tour_id': 11,
         'city': 'Houston',
         'state': 'TX',
@@ -544,7 +544,7 @@ shows = [
         'datetime': datetime(2025, 7, 4, 21),
     },
     {
-        'artist_id': 14,
+        'artist_id': 11,
         'tour_id': 11,
         'city': 'Houston',
         'state': 'TX',
@@ -553,7 +553,7 @@ shows = [
         'datetime': datetime(2025, 7, 5, 21),
     },
     {
-        'artist_id': 14,
+        'artist_id': 11,
         'tour_id': 11,
         'city': 'Houston',
         'state': 'TX',
@@ -562,7 +562,7 @@ shows = [
         'datetime': datetime(2025, 7, 24, 21),
     },
     {
-        'artist_id': 14,
+        'artist_id': 11,
         'tour_id': 11,
         'city': 'Houston',
         'state': 'TX',
@@ -571,7 +571,7 @@ shows = [
         'datetime': datetime(2025, 7, 25, 21),
     },
     {
-        'artist_id': 14,
+        'artist_id': 11,
         'tour_id': 11,
         'city': 'Houston',
         'state': 'TX',
@@ -580,7 +580,7 @@ shows = [
         'datetime': datetime(2025, 7, 26, 21),
     },
     {
-        'artist_id': 14,
+        'artist_id': 11,
         'tour_id': 11,
         'city': 'Houston',
         'state': 'TX',
