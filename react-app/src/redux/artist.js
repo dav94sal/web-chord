@@ -25,7 +25,7 @@ export const getAllArtists = () => async dispatch => {
 
     if(response.ok) {
       const data = await response.json();
-      dispatch(setArtists(data.users));
+      dispatch(setArtists(data.artists));
     } else if (response.status < 500) {
         const errorMessages = await response.json();
         return {

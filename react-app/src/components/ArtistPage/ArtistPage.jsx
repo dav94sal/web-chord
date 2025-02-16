@@ -13,10 +13,12 @@ function ArtistPage() {
     const [tour, setTour] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
     const { artistId } = useParams()
+    const artist = useSelector(state => state.artists[artistId])
     const dispatch = useDispatch()
     const merchObj = useSelector(state => state.merch);
     const merchandise = Object.values(merchObj).reverse();
     let shows;
+
 
     if (tour?.shows) {
         shows = Object.values(tour.shows)
@@ -41,7 +43,7 @@ function ArtistPage() {
                 />
             </div>
             <div className="artist-buttons">
-                <SocialMediaButtons />
+                <SocialMediaButtons artist={artist}/>
             </div>
             {!isLoading &&
             <div className="artist-content">
@@ -64,14 +66,16 @@ function ArtistPage() {
                     <div className="tiling-container">
                         {merchandise.length?
                             merchandise.map((merch) => (
-                                <div
+                                <a
                                     key={`merch${merch.id}`}
-                                    onClick={() => alert("Feature Coming Soon")}
+                                    href={merch.url}
+                                    target="_blank"
+                                    rel="noreferrer"
                                 >
                                     <MerchTile
                                         merch={merch}
                                     />
-                                </div>
+                                </a>
                             )) : <p>No merchandise yet</p>
                         }
                     </div>}

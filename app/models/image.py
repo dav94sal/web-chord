@@ -18,11 +18,6 @@ class Image(db.Model):
     imageable_id = db.Column(db.Integer, nullable=False)
     url = db.Column(db.String, nullable=False)
 
-    # __mapper_args__ = {
-    #     "polymorphic_identity": "image",
-    #     "polymorphic_on": "imageable_type",
-    # }
-
     # def __repr__(self):
     #     return f"{self.__class__.__name__}({self.name!r})"
 

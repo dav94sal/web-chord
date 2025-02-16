@@ -13,7 +13,7 @@ class Show(db.Model):
     venue = db.Column(db.String, nullable=False)
     openers = db.Column(db.String)
     tour_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("tours.id")), nullable=False)
-    artist_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
+    artist_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("artists.id")), nullable=False)
 
     tour = db.relationship("Tour", back_populates="shows")
 

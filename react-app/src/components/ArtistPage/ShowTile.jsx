@@ -1,5 +1,4 @@
 function ShowTile({ show }) {
-
     const date = () => {
         const datetime = show.datetime.split(' ')
         const day = datetime[1]

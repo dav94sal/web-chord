@@ -15,19 +15,8 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     is_artist = db.Column(db.Boolean)
-    artist_name = db.Column(db.String(40))
 
-    # __mapper_args__ = {
-    #     "polymorphic_identity": "artist",
-    # }
-
-    img = db.relationship(
-        "Image",
-        primaryjoin="and_(Image.imageable_type=='artist', foreign(Image.imageable_id)==User.id)",
-        lazy="dynamic",
-    )
-    tour = db.relationship("Tour", cascade="all, delete-orphan")
-    merch = db.relationship("Merch", cascade="all, delete-orphan")
+    artist = db.relationship("Artist", cascade="all, delete-orphan")
 
     @property
     def password(self):
@@ -45,15 +34,4 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email
-        }
-
-    def artist(self):
-        url = None
-        # print("-----------images", self.img)
-        if len(list(self.img)):
-            url = list(self.img)[0].url
-        return {
-            'id': self.id,
-            'artistName': self.artist_name,
-            'imgUrl': url
         }
