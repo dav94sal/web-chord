@@ -1,7 +1,7 @@
 """Add artists table
 
 Revision ID: 565c89c1f1a5
-Revises: 
+Revises:
 Create Date: 2025-02-16 13:11:55.882379
 
 """
@@ -41,7 +41,7 @@ def upgrade():
     sa.Column('x_url', sa.String(), nullable=True),
     sa.Column('facebook_url', sa.String(), nullable=True),
     sa.Column('instagram_url', sa.String(), nullable=True),
-    sa.Column('youttube_url', sa.String(), nullable=True),
+    sa.Column('youtube_url', sa.String(), nullable=True),
     sa.Column('spotify_url', sa.String(), nullable=True),
     sa.Column('pandora_url', sa.String(), nullable=True),
     sa.Column('ticket_url', sa.String(), nullable=True),

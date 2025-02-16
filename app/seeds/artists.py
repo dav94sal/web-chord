@@ -11,7 +11,7 @@ def seed_artists():
             x_url="https://x.com/?lang=en",
             facebook_url="https://www.facebook.com/",
             instagram_url="http://instagram.com/",
-            youttube_url="https://www.youtube.com/",
+            youtube_url="https://www.youtube.com/",
             spotify_url="https://open.spotify.com/",
             pandora_url="https://www.pandora.com/",
             ticket_url="https://www.ticketmaster.com/",

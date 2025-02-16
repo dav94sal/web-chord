@@ -11,7 +11,7 @@ class Artist(db.Model):
     x_url = db.Column(db.String)
     facebook_url = db.Column(db.String)
     instagram_url = db.Column(db.String)
-    youttube_url = db.Column(db.String)
+    youtube_url = db.Column(db.String)
     spotify_url = db.Column(db.String)
     pandora_url = db.Column(db.String)
     ticket_url = db.Column(db.String)
@@ -38,7 +38,7 @@ class Artist(db.Model):
             'x_url': self.x_url or "",
             'facebook_url': self.facebook_url or "",
             'instagram_url': self.instagram_url or "",
-            'youttube_url': self.youttube_url or "",
+            'youtube_url': self.youtube_url or "",
             'spotify_url': self.spotify_url or "",
             'pandora_url': self.pandora_url or "",
             'ticket_url': self.ticket_url or "",
