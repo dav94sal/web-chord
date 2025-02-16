@@ -1,7 +1,4 @@
-import { useNavigate } from 'react-router';
-
 function ShowTile({ show }) {
-    const navigate = useNavigate();
     const date = () => {
         const datetime = show.datetime.split(' ')
         const day = datetime[1]
