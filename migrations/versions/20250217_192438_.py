@@ -1,8 +1,8 @@
-"""Add artists table
+"""empty message
 
-Revision ID: 565c89c1f1a5
-Revises:
-Create Date: 2025-02-16 13:11:55.882379
+Revision ID: c41dd1b50892
+Revises: 
+Create Date: 2025-02-17 19:24:38.559657
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import postgresql
 
 # revision identifiers, used by Alembic.
-revision = '565c89c1f1a5'
+revision = 'c41dd1b50892'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -44,7 +44,6 @@ def upgrade():
     sa.Column('youtube_url', sa.String(), nullable=True),
     sa.Column('spotify_url', sa.String(), nullable=True),
     sa.Column('pandora_url', sa.String(), nullable=True),
-    sa.Column('ticket_url', sa.String(), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
@@ -72,6 +71,7 @@ def upgrade():
     sa.Column('state', sa.String(), nullable=False),
     sa.Column('venue', sa.String(), nullable=False),
     sa.Column('openers', sa.String(), nullable=True),
+    sa.Column('ticket_url', sa.String(), nullable=True),
     sa.Column('tour_id', sa.Integer(), nullable=False),
     sa.Column('artist_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['artist_id'], ['artists.id'], ),

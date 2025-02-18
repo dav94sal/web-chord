@@ -9,16 +9,16 @@ artist_routes = Blueprint('artists', __name__)
 @artist_routes.route('/')
 def artists():
     artists = Artist.query.all()
-    print("----------Artists: ", [artist.to_dict() for artist in artists], "-----------")
+    # print("----------Artists: ", [artist.to_dict() for artist in artists], "-----------")
     return { "artists": [artist.to_dict() for artist in artists] }
 
 # Get artist by Id
 @artist_routes.route('/<int:artist_id>')
 def one_artist(artist_id):
-    user = User.query.get(artist_id)
-    user = user.artist()
-    if user:
-        return user
+    artist = Artist.query.get(artist_id)
+    artist = artist.to_dict()
+    if artist:
+        return artist
     return {'errors': {'message': 'Artist Not Found'}}, 404
 
 

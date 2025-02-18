@@ -27,12 +27,11 @@ function ShowTile({ show }) {
                 </p>
             </div>
             <div className="tickets">
-                <button
-                    className="show-button"
-                    onClick={() => alert("Feature Coming Soon")}
-                >
-                    Tickets
-                </button>
+                <a href={show.ticket_url} target="_blank" rel="noreferrer">
+                    <button className="show-button">
+                        Tickets
+                    </button>
+                </a>
             </div>
         </>
     )

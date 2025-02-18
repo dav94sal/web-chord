@@ -13,6 +13,7 @@ def seed_shows():
             state=show["state"],
             venue=show["venue"],
             openers=show["openers"],
+            ticket_url="https://www.ticketmaster.com/",
             datetime=show['datetime']))
 
     db.session.commit()

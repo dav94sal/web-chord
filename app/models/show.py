@@ -12,6 +12,7 @@ class Show(db.Model):
     state = db.Column(db.String, nullable=False)
     venue = db.Column(db.String, nullable=False)
     openers = db.Column(db.String)
+    ticket_url = db.Column(db.String)
     tour_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("tours.id")), nullable=False)
     artist_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("artists.id")), nullable=False)
 
@@ -26,5 +27,6 @@ class Show(db.Model):
             "venue": self.venue,
             "openers": self.openers,
             "tour_id": self.tour_id,
+            'ticket_url': self.ticket_url or "",
             "artist_id": self.artist_id,
         }

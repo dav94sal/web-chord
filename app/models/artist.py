@@ -14,7 +14,6 @@ class Artist(db.Model):
     youtube_url = db.Column(db.String)
     spotify_url = db.Column(db.String)
     pandora_url = db.Column(db.String)
-    ticket_url = db.Column(db.String)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
 
     img = db.relationship(
@@ -41,6 +40,5 @@ class Artist(db.Model):
             'youtube_url': self.youtube_url or "",
             'spotify_url': self.spotify_url or "",
             'pandora_url': self.pandora_url or "",
-            'ticket_url': self.ticket_url or "",
             'user_id': self.user_id,
         }

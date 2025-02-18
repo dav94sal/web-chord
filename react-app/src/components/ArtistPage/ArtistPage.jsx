@@ -42,11 +42,11 @@ function ArtistPage() {
                     alt="band picture"
                 />
             </div>
-            <div className="artist-buttons">
-                <SocialMediaButtons artist={artist}/>
-            </div>
             {!isLoading &&
             <div className="artist-content">
+                <div className="artist-buttons">
+                    <SocialMediaButtons artist={artist}/>
+                </div>
                 <div className="tour-container">
                     { tour.none ?
                         <h3 className="artist-headers">No Tours Yet...</h3> :
