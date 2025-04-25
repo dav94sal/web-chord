@@ -1,16 +1,13 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { getAllArtists } from "../../redux/artist";
 import { useLoading } from "../../context/LoadingContext";
-import ArtistTile from "./ArtistTile";
+import ExploreArtists from "./ExploreArtists";
 import "./Home.css"
 
 function Home() {
     // isLoading context necessary for navigation header
-    const { isLoading, setIsLoading } = useLoading()
-    const artistsObj = useSelector(state => state.artists)
-    const artists = Object.values(artistsObj).reverse()
+    const { setIsLoading } = useLoading()
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -19,18 +16,25 @@ function Home() {
     }, [dispatch, setIsLoading])
 
     return (
-        <>
-            {!isLoading && <div className="tiling-container">
-                {artists.map((artist) => (
-                    <Link to={`/artists/${artist.id}` } key={`artists${artist.id}`}>
-                        <ArtistTile
-                            artist={artist}
-                        />
-                    </Link>
-                ))}
-            </div>}
-            {/* add a footer with about section */}
-        </>
+        <div className="home-container">
+            {/* sidebar */}
+            <div className="home-sidebar">
+                <p>Explore</p>
+            </div>
+
+            {/* main section */}
+            <div className="home-main-content">
+                <div className="main-content-header">
+                    <p>search bar</p>
+                </div>
+                <ExploreArtists />
+            </div>
+
+            {/* chat */}
+            <div className="home-chat">
+                <p>Chat</p>
+            </div>
+        </div>
     )
 }
 
