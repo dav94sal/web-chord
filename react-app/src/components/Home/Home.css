@@ -1,6 +1,8 @@
-.home-container {
+.home-main-content {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 65%;
 }
 
 .tiling-container {
@@ -37,34 +39,65 @@
 }
 
 .home-sidebar, .home-chat {
-    /* background-color: rgb(116, 116, 116); */
-    width: 17%;
+    background-color: rgb(116, 116, 116);
+    position: fixed;
+    top: 90px;
+    bottom: 0vh;
+    width: 200px;
 }
 
-@media (max-width: 1000px) {
+.home-sidebar {
+    left: 0vh;
+}
+
+.home-chat {
+    right: 0vh;
+}
+
+@media (max-width: 1023px) {
     .tile-content-layout {
         padding: 100px 0;
     }
+
+    .home-sidebar, .home-chat {
+        display: none;
+    }
 }
 
-@media (max-width: 1440px) and (min-width: 1024px) {
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .tiling-container {
+        grid-template-columns: 50% 50%;
+    }
+    .home-sidebar, .home-chat {
+        width: 150px;
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 1919px) {
     .tiling-container {
         grid-template-columns: 33% 34% 33%;
     }
+    .home-sidebar, .home-chat {
+        width: 200px;
+    }
 }
-@media (min-width: 1441px) {
+
+@media (min-width: 1920px) and (max-width: 2079px) {
     .tiling-container {
         grid-template-columns: 25% 25% 25% 25%;
     }
+
+    .home-sidebar, .home-chat {
+        width: 250px;
+    }
 }
-@media (min-width: 1920px) {
+
+@media (min-width: 2080px) {
     .tiling-container {
         grid-template-columns: 20% 20% 20% 20% 20%;
     }
 
-    .home-main-content {
-        display: flex;
-        flex-direction: column;
-        /* width: 100%; */
+    .home-sidebar, .home-chat {
+        width: 300px;
     }
 }

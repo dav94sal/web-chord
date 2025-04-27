@@ -16,7 +16,8 @@ function Home() {
     }, [dispatch, setIsLoading])
 
     return (
-        <div className="home-container">
+        // <div className="home-container">
+        <>
             {/* sidebar */}
             <div className="home-sidebar">
                 <p>Explore</p>
@@ -34,7 +35,7 @@ function Home() {
             <div className="home-chat">
                 <p>Chat</p>
             </div>
-        </div>
+        </>
     )
 }
 
