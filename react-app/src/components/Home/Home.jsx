@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux"
 import { getAllArtists } from "../../redux/artist";
 import { useLoading } from "../../context/LoadingContext";
+import Feed from "./Feed";
 import ExploreArtists from "./ExploreArtists";
 import "./Home.css"
 
@@ -16,7 +17,6 @@ function Home() {
     }, [dispatch, setIsLoading])
 
     return (
-        // <div className="home-container">
         <>
             {/* sidebar */}
             <div className="home-sidebar">
@@ -28,7 +28,8 @@ function Home() {
                 <div className="main-content-header">
                     <p>search bar</p>
                 </div>
-                <ExploreArtists />
+                {/* <ExploreArtists /> */}
+                <Feed />
             </div>
 
             {/* chat */}

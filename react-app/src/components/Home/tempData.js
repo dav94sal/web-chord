@@ -279,4 +279,6 @@ const posts = [
         post: "My personal goal for guitar performance is to improve my fingerpicking technique and learn challenging new pieces. I encourage you to set a similar goal for yourself and dedicate time each day to practice and improve. Let's support each other in our musical endeavors!",
         username: "manager",
     },
-]
+];
+
+export default posts;
