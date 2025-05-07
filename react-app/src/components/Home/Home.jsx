@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux"
+import { NavLink } from "react-router-dom";
 import { getAllArtists } from "../../redux/artist";
 import { useLoading } from "../../context/LoadingContext";
 import Feed from "./Feed";
@@ -16,11 +17,18 @@ function Home() {
             .then(() => setIsLoading(false))
     }, [dispatch, setIsLoading])
 
+    let render = <Feed />
+
+    if (location.pathname.includes('explore')) {
+        render = <ExploreArtists />
+    }
+
     return (
         <>
             {/* sidebar */}
             <div className="home-sidebar">
-                <p>Explore</p>
+                <NavLink to="/">Home</NavLink>
+                <NavLink to="/explore">Explore</NavLink>
             </div>
 
             {/* main section */}
@@ -28,8 +36,7 @@ function Home() {
                 <div className="main-content-header">
                     <p>search bar</p>
                 </div>
-                {/* <ExploreArtists /> */}
-                <Feed />
+                {render}
             </div>
 
             {/* chat */}

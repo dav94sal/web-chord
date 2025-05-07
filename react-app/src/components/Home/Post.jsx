@@ -2,8 +2,7 @@
 function Post({post}) {
     return (
         <>
-            <h1>This is a post</h1>
-            <h3>by {post.username}</h3>
+            <h1>{post.username}</h1>
             <p>{post.post}</p>
         </>
     )

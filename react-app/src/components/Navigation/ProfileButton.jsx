@@ -38,6 +38,7 @@ function ProfileButton() {
     e.preventDefault();
     dispatch(thunkLogout());
     navigate('/')
+    alert('Successfully logged out')
     closeMenu();
   };
 
@@ -53,6 +54,7 @@ function ProfileButton() {
       email: 'demo@aa.io',
       password: 'password'
     }))
+    alert("You are logged in as Demo!")
     closeMenu();
   }
 
