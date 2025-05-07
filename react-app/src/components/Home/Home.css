@@ -39,7 +39,7 @@
 }
 
 .home-sidebar, .home-chat {
-    background-color: rgb(116, 116, 116);
+    /* background-color: rgb(116, 116, 116); */
     position: fixed;
     top: 90px;
     bottom: 0vh;

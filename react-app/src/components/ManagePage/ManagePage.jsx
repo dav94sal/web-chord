@@ -19,23 +19,28 @@ function ManagePage() {
             .then(() => setIsLoading(false))
     })
 
-    let render
+    let render;
+    let border;
 
     if (location.pathname.includes('manage-tours')) {
         render = <ManageTours isLoading={isLoading}/>
+        border = "border-right-red"
     }
 
     if (location.pathname.includes('manage-merch')) {
         render = <ManageMerch artistId={artistId} />
+        border = "border-right-blue"
     }
 
     return (
         <div className="manage-layout">
-            <ul className="manage-menu">
+            <ul
+            className={`menu ${border}`}
+            >
                 <li>
                     <NavLink
                         to='/manage-tours'
-                        className='nav-link'
+                        className='nav-link black-text'
                     >
                         Tours
                     </NavLink>
@@ -43,7 +48,13 @@ function ManagePage() {
                 <li>
                     <NavLink
                         to='/manage-merch'
-                        className='nav-link'
+                        className={isActive => {
+                            console.log(isActive)
+                            let classes = isActive.isActive ?
+                                "active-blue" : "black-text"
+
+                            return "nav-link " + classes
+                        }}
                     >
                         Merch
                     </NavLink>

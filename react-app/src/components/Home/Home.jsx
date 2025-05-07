@@ -27,8 +27,26 @@ function Home() {
         <>
             {/* sidebar */}
             <div className="home-sidebar">
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/explore">Explore</NavLink>
+                <ul className="menu">
+                    <li>
+                        <NavLink
+                            to="/"
+                            className='nav-link black-text'
+                        >
+                            Home
+                        </NavLink>
+
+                    </li>
+                    <li>
+                        <NavLink
+                            to="/explore"
+                            className='nav-link black-text'
+                        >
+                            Explore
+                        </NavLink>
+
+                    </li>
+                </ul>
             </div>
 
             {/* main section */}
