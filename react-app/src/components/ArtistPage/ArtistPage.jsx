@@ -4,9 +4,9 @@ import { useParams } from "react-router-dom";
 import { getLatestTour } from "../../redux/tour";
 import { getArtistById } from "../../redux/artist";
 import { getArtistMerch } from "../../redux/merch";
-import MerchTile from "./MerchTile";
-import ShowTile from "./ShowTile";
-import SocialMediaButtons from "./SocialMediaButtons";
+import MerchTile from "./tiles/MerchTile";
+import ShowTile from "./tiles/ShowTile";
+import SocialMediaButtons from "./tiles/SocialMediaButtons";
 import "./artist-page.css"
 
 function ArtistPage() {

@@ -1,21 +1,10 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux"
 import { NavLink } from "react-router-dom";
-import { getAllArtists } from "../../redux/artist";
-import { useLoading } from "../../context/LoadingContext";
-import Feed from "./Feed";
-import ExploreArtists from "./ExploreArtists";
+import Feed from "./pages/Feed";
+import ExploreArtists from "./pages/ExploreArtists";
 import "./Home.css"
 
 function Home() {
     // isLoading context necessary for navigation header
-    const { setIsLoading } = useLoading()
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(getAllArtists())
-            .then(() => setIsLoading(false))
-    }, [dispatch, setIsLoading])
 
     let render = <Feed />
 

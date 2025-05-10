@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, NavLink } from "react-router-dom";
 import { getArtistById } from "../../redux/artist";
 import { getAllTours } from "../../redux/tour";
-import ManageTours from "../ManageTours";
-import ManageMerch from "../ManageMerch";
+import ManageTours from "./ManageTours";
+import ManageMerch from "./ManageMerch";
 import "./manage-page.css";
 
 function ManagePage() {

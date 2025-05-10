@@ -17,7 +17,7 @@ def artists():
 def one_artist(artist_id):
     user = Artist.query.get(artist_id)
     print("___---------user", user)
-    # user = user.artist()
+
     if user:
         return user.to_dict()
     return {'errors': {'message': 'Artist Not Found'}}, 404

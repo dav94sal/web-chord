@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { thunkLogout, thunkLogin } from "../../redux/session";
 import OpenModalMenuItem from "./OpenModalMenuItem";
-import LoginFormModal from "../LoginFormModal";
-import SignupFormModal from "../SignupFormModal";
+import LoginFormModal from "../modals/LoginFormModal";
+import SignupFormModal from "../modals/SignupFormModal";
 
 function ProfileButton() {
   const dispatch = useDispatch();
