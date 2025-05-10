@@ -20,6 +20,10 @@ export const router = createBrowserRouter([
           {
             path: "explore",
             element: <Home />
+          },
+          {
+            path: "newest-posts",
+            element: <Home />
           }
         ]
       },

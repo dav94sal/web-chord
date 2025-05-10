@@ -21,6 +21,8 @@ function Home() {
 
     if (location.pathname.includes('explore')) {
         render = <ExploreArtists />
+    } else if (location.pathname.includes('newest-posts')) {
+        render = <Feed />
     }
 
     return (
@@ -35,7 +37,6 @@ function Home() {
                         >
                             Home
                         </NavLink>
-
                     </li>
                     <li>
                         <NavLink
@@ -44,7 +45,14 @@ function Home() {
                         >
                             Explore
                         </NavLink>
-
+                    </li>
+                    <li>
+                        <NavLink
+                            to="/newest-posts"
+                            className='nav-link black-text'
+                        >
+                            New
+                        </NavLink>
                     </li>
                 </ul>
             </div>
