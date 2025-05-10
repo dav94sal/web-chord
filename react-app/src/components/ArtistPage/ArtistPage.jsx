@@ -19,7 +19,6 @@ function ArtistPage() {
     const merchandise = Object.values(merchObj).reverse();
     let shows;
 
-
     if (tour?.shows) {
         shows = Object.values(tour.shows)
     }
@@ -35,17 +34,17 @@ function ArtistPage() {
 
     return (
         <div className="artist-page-layout">
+            {!isLoading && <>
             <div className="band-pic">
                 <img
                     className="band-pic pic"
                     src="https://i.ibb.co/18WsrpZ/Pngtree-audiences-in-club-musical-8485712.png"
                     alt="band picture"
-                />
+                    />
             </div>
             <div className="artist-buttons">
                 <SocialMediaButtons artist={artist}/>
             </div>
-            {!isLoading &&
             <div className="artist-content">
                 <div className="tour-container">
                     { tour.none ?
@@ -62,26 +61,25 @@ function ArtistPage() {
                 </div>
                 <>
                     <h3 className="artist-headers">Merch</h3>
-                    {!isLoading &&
                     <div className="tiling-container">
                         {merchandise.length?
                             merchandise.map((merch) => (
                                 <a
-                                    key={`merch${merch.id}`}
-                                    href={merch.url}
-                                    target="_blank"
-                                    rel="noreferrer"
+                                key={`merch${merch.id}`}
+                                href={merch.url}
+                                target="_blank"
+                                rel="noreferrer"
                                 >
                                     <MerchTile
                                         merch={merch}
-                                    />
+                                        />
                                 </a>
                             )) : <p>No merchandise yet</p>
                         }
-                    </div>}
+                    </div>
                 </>
             </div>
-            }
+            </>}
         </div>
     )
 }
