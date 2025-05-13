@@ -54,7 +54,7 @@ function ArtistPage() {
                     <div className="shows-container">
                         {tour && shows?.length ? shows.map(show => (
                             <div className="show-tile" key={`show${show.id}`}>
-                                <ShowTile show={show} />
+                                <ShowTile show={show} artist={artist}/>
                             </div>
                         )) : <p>No shows available yet</p>}
                     </div>
@@ -65,14 +65,14 @@ function ArtistPage() {
                         {merchandise.length?
                             merchandise.map((merch) => (
                                 <a
-                                key={`merch${merch.id}`}
-                                href={merch.url}
-                                target="_blank"
-                                rel="noreferrer"
+                                    key={`merch${merch.id}`}
+                                    href={merch.url}
+                                    target="_blank"
+                                    rel="noreferrer"
                                 >
                                     <MerchTile
                                         merch={merch}
-                                        />
+                                    />
                                 </a>
                             )) : <p>No merchandise yet</p>
                         }
