@@ -5,14 +5,44 @@ import { IoChatbubbleOutline } from "react-icons/io5";
 import { PiShareFat } from "react-icons/pi";
 
 function Post({post}) {
-    const today = Date.now();
+    const today = new Date;
+
     const timeElapsed = () => {
-        // subtract post.createdAt from today
+        const minute = 60 * 1000;
+        const hour = minute * 60;
+        const day = hour * 24;
+        const week = day * 7;
+        const month = day * 30.44; // Average days in a month
+        const year = day * 365.25; // Average days in a year (including leap years)
+
+        const postDate = new Date(post.createdAt);
+        const difference = today - postDate;
+
         // convert difference to 'time ago'
             // diff <= 1000: 1 sec
-            // 1000 < diff < 60000(1 min): diff / 1000 min
-            // 60000(1 min) < diff <  3600000000(1 hr) : diff / 60000 hr
-        return post.createdAt ? post.createdAt : 'just now'
+            // 1000 < diff < 60000(1 min): diff / 1000ms = secs ago
+            // 60000(1 min) < diff <  3600000000(1 hr) : diff / 60000ms = mins ago
+            // 1 hr < diff <  1 day : diff / 1 hr = hrs ago
+            // 1 day < diff <  1 week : diff / 1 day = days ago
+            // 1 week < diff <  1 month : diff / 1 week = weeks ago
+            // 1 month < diff <  1 year : diff / 1 week = months ago
+            // diff > 1 year: diff / 1 year = years ago
+
+        if (difference < minute) {
+            return `${Math.floor(difference / 1000)} seconds ago`;
+        } else if (difference < hour) {
+            return `${Math.floor(difference / minute)} min. ago`;
+        } else if (difference < day) {
+            return `${Math.floor(difference / hour)} hr. ago`;
+        } else if (difference < week) {
+            return `${Math.floor(difference / day)} days ago`;
+        } else if (difference < month) {
+            return `${Math.floor(difference / week)} weeks ago`;
+        } else if (difference < year) {
+            return `${Math.floor(difference / month)} months ago`;
+        } else {
+            return `${Math.floor(difference / year)} years ago`;
+        }
     };
 
     return (
