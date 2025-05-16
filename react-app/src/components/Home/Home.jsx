@@ -4,8 +4,6 @@ import ExploreArtists from "./pages/ExploreArtists";
 import "./Home.css"
 
 function Home() {
-    // isLoading context necessary for navigation header
-
     let render = <Feed />
 
     if (location.pathname.includes('explore')) {

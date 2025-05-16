@@ -6,7 +6,6 @@
 }
 
 .tiling-container {
-    padding-top: 100px;
     display: grid;
 }
 
@@ -52,6 +51,64 @@
 
 .home-chat {
     right: 0vh;
+}
+
+.posts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-tile, .border {
+    width: 600px;
+}
+
+.post-tile {
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding: 8px;
+    transition-duration: 250ms;
+}
+
+.post-tile:hover {
+    background-color: #17161fbd;
+    transition-duration: 250ms;
+}
+
+.post-head {
+    display: flex;
+    align-items: center;
+    height: 15px;
+}
+
+.post-head p {
+    margin: unset;
+    font-size: small;
+}
+
+.post-footer {
+    height: 30px;
+}
+
+.post-button {
+    background-color: rgba(48, 48, 51, 0.76);
+    border-radius: 15px;
+    border: none;
+    color: white;
+    font-size: small;
+    height: 30px;
+    margin: 0 3px;
+    padding: 0 10px;
+}
+
+.border {
+    background-color: rgba(113, 113, 119, 0.76);
+    height: 1px;
+    margin: 8px 0;
+}
+
+.grey-text {
+    color: rgba(147, 147, 151, 0.89);
 }
 
 @media (max-width: 1023px) {

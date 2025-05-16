@@ -7,6 +7,7 @@ import { getAllArtists } from "../../../redux/artist";
 import ArtistTile from "../tiles/ArtistTile";
 
 function ExploreArtists() {
+    // isLoading context necessary for navigation header
     const { isLoading, setIsLoading } = useLoading()
     const artistsObj = useSelector(state => state.artists)
     const artists = Object.values(artistsObj).reverse()
