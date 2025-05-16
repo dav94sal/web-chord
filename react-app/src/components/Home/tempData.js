@@ -1,83 +1,108 @@
+const today = Date.now();
+const oneDay = 86400000; // milliseconds
+const oneHour = 60 * 60 * 1000;
+const oneMinute = 60 * 1000;
+
+// function generateDate() {
+
+// }
+
 const posts = [
     {
         id: 1,
         post: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in imperdiet turpis. Donec vel leo vel quam cursus tristique aliquam a mauris. Duis fringilla nisl augue, quis ultricies tortor rutrum et. Mauris ultrices pretium ipsum id dignissim. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin sed libero lobortis, ultrices nibh at, dapibus ex. Donec non elit dolor. Aliquam nec fermentum nibh, et mollis ante. Mauris et imperdiet tellus. Proin porttitor venenatis fermentum.",
         username: "Demo",
+        createdAt: new Date(today).toString(),
     },
     {
         id: 2,
         post: "Nam posuere at ligula non faucibus. Sed a magna nec mauris sodales luctus. Nulla cursus tincidunt nisi eu ornare. Pellentesque urna quam, pulvinar sit amet posuere sed, porttitor et augue. Fusce nec lorem iaculis, porttitor ligula at, ornare nisl. Aliquam mauris neque, rutrum ac pharetra in, tincidunt ullamcorper enim. Aliquam sit amet nisl rutrum, fermentum ligula quis, commodo massa.",
         username: "marnie",
+        createdAt: new Date(today - oneDay).toString(),
     },
     {
         id: 3,
         post: "Pellentesque condimentum libero id lobortis facilisis. Vestibulum tempus nunc eget ex feugiat consequat. Aliquam dapibus, mi eget dignissim ullamcorper, nisi ante commodo sapien, id semper velit tortor quis lacus. In a elit sit amet sapien consectetur venenatis id et diam. Suspendisse potenti. Mauris aliquam orci nec lacinia ultrices. Vivamus in dolor nec magna dignissim luctus at eu leo.",
         username: "bobby",
+        createdAt: new Date(today - (oneDay / 2)).toString(),
     },
     {
         id: 4,
         post: "ROck N ROll BROO!!",
         username: "darrel",
+        createdAt: new Date(today - (oneDay * 2)).toString(),
     },
     {
         id: 5,
         post: "Omg! I just saw Captain America 4. IT WAS AMAZING!!!!!",
         username: "Jina",
+        createdAt: new Date(today - oneHour).toString(),
     },
     {
         id: 6,
         post: "Flying in space!",
         username: "ricky",
+        createdAt: new Date(today - (oneHour * 2)).toString(),
     },
     {
         id: 7,
         post: "I can't believe this guy! We brought in dozensof people and refused to pay us because we 'didnt bring enough people.' WTF!?",
         username: "purple-paper",
+        createdAt: new Date(today - (oneHour / 2)).toString(),
     },
     {
         id: 8,
         post: "Just found an amazing new band! Gonna be stuck on them for a while :)",
         username: "music-lover1994",
+        createdAt: new Date(today - Math.ceil(oneHour / 2)  + (7 * oneMinute)).toString(),
     },
     {
         id: 9,
         post: "New merch coming soon! Keep looking out!",
         username: "Jonnie Cache",
+        createdAt: new Date(today - Math.ceil(oneHour / 4)).toString(),
     },
     {
         id: 10,
         post: "Just started on a new album!",
         username: "gtrLegend_59",
+        createdAt: new Date(today - oneDay - oneHour).toString(),
     },
     {
         id: 11,
         post: "Surprise coming soon! More info tomorrow",
         username: "Navila",
+        createdAt: new Date(today).toString(),
     },
     {
         id: 12,
         post: "We have a collaboration coming up. Keep an eye out!",
         username: "LunaBella",
+        createdAt: new Date(today - Math.ceil(oneHour / 4)).toString(),
     },
     {
         id: 13,
         post: "Check out my single Knock, Knock, Knock on Spotify, Pandora, iHeart Radio, Apple Music, or anywhere you stream your music!",
         username: "Anachronism",
+        createdAt: new Date(today - Math.ceil(oneHour / 4) + (18 * oneMinute)).toString(),
     },
     {
         id: 14,
         post: "Documentary is nearing the end of post-production! Who's excited?",
         username: "manage",
+        createdAt: new Date(today - Math.ceil(oneHour / 4) - (9 * oneMinute)).toString(),
     },
     {
         id: 15,
         post: "Praesent molestie auctor pretium. Curabitur ac orci in enim maximus convallis eget sit amet sem. Integer facilisis diam sed nisl interdum tempus at ac neque. Aliquam tempor malesuada nisl, nec convallis tortor mollis et. Nunc vulputate luctus ex, finibus bibendum felis consequat nec. Nam lacinia laoreet leo in efficitur. Sed dignissim lectus in nisl ultrices varius. Ut luctus ex erat, in iaculis diam sodales id. Phasellus non lacinia enim. Quisque pharetra, tellus interdum cursus fringilla, nulla erat tincidunt dui, ut mattis odio quam vulputate lacus. Donec tempus nulla purus, aliquet consequat neque rutrum eget. Mauris lacinia augue ac porttitor varius. Cras eleifend dui in ipsum placerat, ut dignissim magna facilisis. Nulla facilisi. Proin dapibus tincidunt urna, sed pellentesque leo efficitur in. Morbi sit amet mi ipsum.",
         username: "Demo",
+        createdAt: new Date(today - oneDay - Math.ceil(oneHour / 3) - (10 * oneMinute)).toString(),
     },
     {
         id: 16,
         post: "Ut efficitur elit nec eros vestibulum, et ornare odio sagittis. Cras sodales condimentum libero eu dapibus. Phasellus sagittis commodo maximus. Cras non lacus lorem. Duis sem tellus, efficitur sit amet porttitor vitae, interdum a mauris. Donec dictum tristique sodales. Donec mollis venenatis gravida. Quisque et turpis neque. Maecenas vulputate, nibh eget auctor malesuada, metus ligula luctus mi, quis tempus sapien libero at sapien. Donec vitae mauris in metus blandit auctor eu vitae felis. Pellentesque vestibulum, purus eu fermentum malesuada, turpis dui imperdiet mauris, ut hendrerit urna tellus at sem.",
         username: "marnie",
+        createdAt: new Date(today - oneDay - Math.ceil(oneHour / 3) - (10 * oneMinute)).toString(),
     },
     {
         id: 17,
