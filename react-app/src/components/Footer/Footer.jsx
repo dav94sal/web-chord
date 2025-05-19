@@ -4,11 +4,12 @@ import { FaGithub } from "react-icons/fa";
 import { FaRegCopyright } from "react-icons/fa6";
 import "./footer.css"
 
-function Footer() {
+function Footer({ isLoaded }) {
     const location = useLocation();
+
     return (
-        <div className={`footer-container ${location.pathname.includes("manage") ? 'manage-footer-container' : ''}`}>
-            <div className="contact-container center-content-flex">
+        <div className={`footer-container `}>
+            {isLoaded && <><div className="contact-container center-content-flex">
                 <a
                     href="https://dav94sal.github.io/"
                     className="center-content-flex"
@@ -45,7 +46,7 @@ function Footer() {
             <div className="copyright-container center-content-flex">
                 <FaRegCopyright className="copyright-icon"/>
                 <p>David Salas. All rights Reserved</p>
-            </div>
+            </div></>}
         </div>
     )
 }

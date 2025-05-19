@@ -3,10 +3,13 @@ import Layout from './Layout';
 import Home from '../components/Home';
 import ArtistPage from '../components/ArtistPage';
 import ManagePage from '../components/ManagePage';
+import NotFound from '../components/NotFound/';
+import Error from '../components/Error/';
 
-export const router = createBrowserRouter([
+export const routes = [
   {
     element: <Layout />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
@@ -36,7 +39,13 @@ export const router = createBrowserRouter([
       {
         path: "/manage-merch",
         element: <ManagePage />,
+      },
+      {
+        path: "/*",
+        element: <NotFound />
       }
     ],
   },
-]);
+];
+
+export const router = createBrowserRouter(routes);

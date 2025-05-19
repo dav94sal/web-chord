@@ -122,6 +122,14 @@
     color: rgba(147, 147, 151, 0.89);
 }
 
+.err-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    margin: 20px;
+}
+
 @media (max-width: 1023px) {
     .tile-content-layout {
         padding: 100px 0;

@@ -10,11 +10,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 75px;
+    margin-top: auto;
 }
 
 .contact-container {
@@ -44,6 +40,10 @@
     color: white;
 }
 
-.manage-footer-container {
+.fixed-position {
     position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 75px;
 }
