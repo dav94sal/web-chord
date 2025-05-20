@@ -1,11 +1,9 @@
-import { useLocation } from "react-router-dom";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { FaRegCopyright } from "react-icons/fa6";
 import "./footer.css"
 
 function Footer({ isLoaded }) {
-    const location = useLocation();
 
     return (
         <div className={`footer-container `}>

@@ -16,13 +16,13 @@ function Feed() {
 
     return (
         <>
-            {!isLoading && <div className="posts-container">
+            {!isLoading && <div className="posts-container" >
                 {posts.map(post => {
                     return (
-                        <>
+                        <div key={`post${post.id}`}>
                             <div className="border"></div>
-                            <Post post={post} key={`post${post.id}`} />
-                        </>
+                            <Post post={post}  />
+                        </div>
                     )
                 })}
             </div>}

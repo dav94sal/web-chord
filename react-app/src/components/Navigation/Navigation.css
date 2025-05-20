@@ -1,12 +1,13 @@
 .navigation {
   background-color: rgba(0, 0, 0, 0.801);
+  border-bottom: 1px solid rgba(113, 113, 119, 0.76);
   display: flex;
   justify-content: space-between;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 90px;
+  height: 56px;
   z-index: 1;
 }
 
@@ -34,7 +35,14 @@
 }
 
 .nav-buttons {
-  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 57px;
+}
+
+.logo {
+  height: 33px;
 }
 
 .nav-but {

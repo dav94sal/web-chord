@@ -72,12 +72,12 @@
 .post-tile {
     border-radius: 15px;
     box-sizing: border-box;
-    padding: 8px;
+    padding: 8px 19px;
     transition-duration: 250ms;
 }
 
 .post-tile:hover {
-    background-color: #17161fbd;
+    background-color: #181e22;
     transition-duration: 250ms;
 }
 

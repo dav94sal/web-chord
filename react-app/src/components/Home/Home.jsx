@@ -46,9 +46,6 @@ function Home() {
 
             {/* main section */}
             <div className="home-main-content">
-                <div className="main-content-header">
-                    <p>search bar</p>
-                </div>
                 {render}
             </div>
 
