@@ -49,3 +49,27 @@
   background-color: unset;
   border: unset;
 }
+
+.searchbar-container {
+  display: flex;
+  align-items: center;
+}
+.search-border {
+  background-color: #181e22;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 600px;
+}
+
+.mag-glass {
+  color: white;
+  font-size: 19px;
+  margin-left: 20px;
+}
+
+.input-search {
+  background-color: unset;
+  font-size: 15px;
+}

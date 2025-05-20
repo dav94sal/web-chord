@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { NavLink, useLocation, useParams } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
-import { useLoading } from "../../context/LoadingContext";
+// import { useLoading } from "../../context/LoadingContext";
+import SearchBar from "./SearchBar";
 import "./Navigation.css";
 
 // function Header() {
@@ -60,6 +61,8 @@ function Navigation() {
       {/* <div className="header">
         <Header />
       </div> */}
+
+      <SearchBar />
 
       <ProfileButton />
     </nav>

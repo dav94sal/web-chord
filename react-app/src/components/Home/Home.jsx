@@ -50,9 +50,9 @@ function Home() {
             </div>
 
             {/* chat */}
-            <div className="home-chat">
+            {/* <div className="home-chat">
                 <p>Chat</p>
-            </div>
+            </div> */}
         </>
     )
 }
