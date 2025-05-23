@@ -17,21 +17,27 @@
 }
 
 .profile-dropdown {
-  background-color: #aa401dc5;
+  background-color: #181e22;
   border-radius: 10px;
   position: absolute;
-  right: 20px;
-  top: 105px;
+  right: 10px;
+  top: 56px;
   height: auto;
-  width: 290px;
-  padding: 20px;
+  width: 220px;
+  padding: 5px 20px;
+  margin: 1px;
+}
+
+.profile-dropdown a {
+  height: auto;
+  text-shadow: none;
 }
 
 .profile-dropdown li {
   color: white;
   font-size: 20px;
   list-style-type: none;
-  margin: 7px 5px;
+  margin: 15px 5px;
 }
 
 .nav-buttons {
@@ -76,6 +82,7 @@
 .input-search {
   background-color: unset;
   font-size: 15px;
+  width: 85%;
 }
 
 .post-button {
@@ -103,4 +110,36 @@
 .post-button:hover {
     background-color: rgba(48, 48, 51, 0.76);
     transition-duration: 250ms;
+}
+
+.drop-menu-item {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.menu-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+}
+
+.menu-icon {
+  font-size: 30px;
+}
+
+.menu-text {
+  margin: 0 2px;
+}
+
+.menu-text p {
+  font-size: 15px;
+  margin: 0;
+}
+
+.menu-text p + p {
+  color: #7e868b;
+  font-size: 13px;
+  margin: 0;
 }
