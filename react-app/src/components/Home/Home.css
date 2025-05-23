@@ -96,17 +96,6 @@
     height: 30px;
 }
 
-.post-button {
-    background-color: rgba(48, 48, 51, 0.76);
-    border-radius: 15px;
-    border: none;
-    color: white;
-    font-size: 12px;
-    height: 30px;
-    margin: 0 3px;
-    padding: 0 10px;
-}
-
 .border {
     background-color: rgba(113, 113, 119, 0.76);
     height: 1px;
@@ -116,6 +105,10 @@
 .icon-style {
     vertical-align: middle;
     font-size: 17px;
+}
+
+.darkgrey-background {
+    background-color: rgba(48, 48, 51, 0.76);
 }
 
 .grey-text {

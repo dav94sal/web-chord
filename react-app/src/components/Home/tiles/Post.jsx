@@ -18,16 +18,6 @@ function Post({post}) {
         const postDate = new Date(post.createdAt);
         const difference = today - postDate;
 
-        // convert difference to 'time ago'
-            // diff <= 1000: 1 sec
-            // 1000 < diff < 60000(1 min): diff / 1000ms = secs ago
-            // 60000(1 min) < diff <  3600000000(1 hr) : diff / 60000ms = mins ago
-            // 1 hr < diff <  1 day : diff / 1 hr = hrs ago
-            // 1 day < diff <  1 week : diff / 1 day = days ago
-            // 1 week < diff <  1 month : diff / 1 week = weeks ago
-            // 1 month < diff <  1 year : diff / 1 week = months ago
-            // diff > 1 year: diff / 1 year = years ago
-
         if (difference < minute) {
             return `${Math.floor(difference / 1000)} seconds ago`;
         } else if (difference < hour) {
@@ -56,16 +46,16 @@ function Post({post}) {
             </div>
             <p>{post.post}</p>
             <div className="post-footer">
-                <button className="post-button">
+                <button className="buttons darkgrey-background">
                     <PiArrowFatUp className="icon-style"/>
                     {` 339 `}
                     <PiArrowFatDown className="icon-style"/>
                 </button>
-                <button className="post-button">
+                <button className="buttons darkgrey-background">
                     <IoChatbubbleOutline className="icon-style"/>
                     {` 43 `}
                 </button>
-                <button className="post-button">
+                <button className="buttons darkgrey-background">
                     <PiShareFat className="icon-style"/>
                     {` Share`}
                 </button>

@@ -41,6 +41,10 @@
   height: 57px;
 }
 
+.margin-lr-10 {
+  margin: 0 6px;
+}
+
 .logo {
   height: 33px;
 }
@@ -72,4 +76,31 @@
 .input-search {
   background-color: unset;
   font-size: 15px;
+}
+
+.post-button {
+  background-color: unset;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  height: 40px;
+  margin: 0 3px;
+  padding: 0 15px;
+  transition-duration: 250ms;
+}
+
+.post-button p {
+  margin: 5px;
+}
+
+.icon-plus {
+  font-size: 19px;
+}
+
+.post-button:hover {
+    background-color: rgba(48, 48, 51, 0.76);
+    transition-duration: 250ms;
 }
