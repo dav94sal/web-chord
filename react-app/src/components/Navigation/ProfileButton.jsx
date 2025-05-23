@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
+import { CiSettings } from "react-icons/ci";
+import { MdExitToApp } from "react-icons/md";
 import { thunkLogout } from "../../redux/session";
 
 function ProfileButton() {
@@ -63,17 +65,18 @@ function ProfileButton() {
           <NavLink to='/manage-tours' onClick={closeMenu}>
             <li className="drop-menu-item">
               <div className="menu-icon-container">
-                <CgProfile className="menu-icon"/>
+                <CiSettings className="menu-icon"/>
               </div>
               <div className="menu-text">
                 <p>Manage Site</p>
               </div>
             </li>
           </NavLink>
+          <div className="border"></div>
           <NavLink to='/manage-tours' onClick={logout}>
             <li className="drop-menu-item">
               <div className="menu-icon-container">
-                <CgProfile className="menu-icon"/>
+                <MdExitToApp className="menu-icon"/>
               </div>
               <div className="menu-text">
                 <p>Log Out</p>
