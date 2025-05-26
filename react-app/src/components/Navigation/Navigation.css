@@ -28,11 +28,6 @@
   margin: 1px;
 }
 
-.profile-dropdown a {
-  height: auto;
-  text-shadow: none;
-}
-
 .profile-dropdown li {
   color: white;
   font-size: 20px;
@@ -110,36 +105,4 @@
 .post-button:hover {
     background-color: rgba(48, 48, 51, 0.76);
     transition-duration: 250ms;
-}
-
-.drop-menu-item {
-  display: flex;
-  align-items: center;
-  height: 40px;
-}
-
-.menu-icon-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-}
-
-.menu-icon {
-  font-size: 30px;
-}
-
-.menu-text {
-  margin: 0 2px;
-}
-
-.menu-text p {
-  font-size: 15px;
-  margin: 0;
-}
-
-.menu-text p + p {
-  color: #7e868b;
-  font-size: 13px;
-  margin: 0;
 }

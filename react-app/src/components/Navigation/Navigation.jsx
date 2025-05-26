@@ -31,7 +31,7 @@ function Navigation() {
             className="nav-buttons"
           />
           <img
-            src="../../public/web-chord-retro-logo1-cropped.png"
+            src="/web-chord-retro-logo1-cropped.png"
             className="logo"
           />
         </div>

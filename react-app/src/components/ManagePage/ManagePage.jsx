@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, NavLink } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { FaShop } from "react-icons/fa6";
+import { FaBus } from "react-icons/fa";
 import { getArtistById } from "../../redux/artist";
 import { getAllTours } from "../../redux/tour";
 import ManageTours from "./ManageTours";
 import ManageMerch from "./ManageMerch";
+import MenuItem from "../Home/tiles/MenuItem";
 import "./manage-page.css";
 
 function ManagePage() {
@@ -24,42 +27,35 @@ function ManagePage() {
 
     if (location.pathname.includes('manage-tours')) {
         render = <ManageTours isLoading={isLoading}/>
-        border = "border-right-red"
+        border = "background-red"
     }
 
     if (location.pathname.includes('manage-merch')) {
         render = <ManageMerch artistId={artistId} />
-        border = "border-right-blue"
+        border = "background-blue"
     }
+
+    const sidebarMenus = [
+        { icon: FaBus, primaryText: 'Tours', destination: '/manage-tours'},
+        { icon: FaShop, primaryText: 'Merch', destination: '/manage-merch'},
+        // { icon: FaWpexplorer, primaryText: 'Explore', destination: '/explore'},
+        // { icon: HiChartBar, primaryText: 'All', destination: '/all-posts'},
+    ]
 
     return (
         <div className="manage-layout">
-            <ul
-            className={`menu ${border}`}
-            >
-                <li>
-                    <NavLink
-                        to='/manage-tours'
-                        className='nav-link black-text'
-                    >
-                        Tours
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                        to='/manage-merch'
-                        className={isActive => {
-                            console.log(isActive)
-                            let classes = isActive.isActive ?
-                                "active-blue" : "black-text"
+            <ul className='menu'>
 
-                            return "nav-link " + classes
-                        }}
-                    >
-                        Merch
-                    </NavLink>
-                </li>
+                {sidebarMenus.map((item, i) => {
+                    return (<MenuItem
+                        icon={item.icon}
+                        primaryText={item.primaryText}
+                        destination={item.destination}
+                        key={`${item.primaryText}${i}`}
+                    />)
+                })}
             </ul>
+            <div className={`side-border ${border}`}></div>
             {!isLoading && render}
         </div>
     )

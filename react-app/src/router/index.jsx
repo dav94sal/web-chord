@@ -19,11 +19,15 @@ export const routes = [
             element: <Home />
           },
           {
+            path: "newest-posts",
+            element: <Home />
+          },
+          {
             path: "explore",
             element: <Home />
           },
           {
-            path: "newest-posts",
+            path: "all-posts",
             element: <Home />
           }
         ]

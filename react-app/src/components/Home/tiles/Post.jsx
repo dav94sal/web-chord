@@ -47,16 +47,16 @@ function Post({post}) {
             <p>{post.post}</p>
             <div className="post-footer">
                 <button className="buttons darkgrey-background">
-                    <PiArrowFatUp className="icon-style"/>
+                    <PiArrowFatUp className="post-icon-style"/>
                     {` 339 `}
-                    <PiArrowFatDown className="icon-style"/>
+                    <PiArrowFatDown className="post-icon-style"/>
                 </button>
                 <button className="buttons darkgrey-background">
-                    <IoChatbubbleOutline className="icon-style"/>
+                    <IoChatbubbleOutline className="post-icon-style"/>
                     {` 43 `}
                 </button>
                 <button className="buttons darkgrey-background">
-                    <PiShareFat className="icon-style"/>
+                    <PiShareFat className="post-icon-style"/>
                     {` Share`}
                 </button>
             </div>

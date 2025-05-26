@@ -45,14 +45,17 @@
 
 .home-sidebar, .home-chat {
     /* background-color: rgb(116, 116, 116); */
+    display: flex;
     position: fixed;
-    top: 90px;
+    top: 56px;
     bottom: 0vh;
     width: 200px;
+    margin: 12px 27px;
 }
 
 .home-sidebar {
     left: 0vh;
+    padding-left: 1px;
 }
 
 .home-chat {
@@ -96,6 +99,11 @@
     height: 30px;
 }
 
+.post-icon-style {
+    vertical-align: middle;
+    font-size: 17px;
+}
+
 .border {
     background-color: rgba(113, 113, 119, 0.76);
     height: 1px;
@@ -103,9 +111,15 @@
     width: 100%;
 }
 
-.icon-style {
-    vertical-align: middle;
-    font-size: 17px;
+.side-border {
+    background-color: rgba(113, 113, 119, 0.76);
+    margin: 0 10px;
+    width: 1px;
+    height: 100%;
+    position: fixed;
+    top: 56px;
+    bottom: 0;
+    left: 262px;
 }
 
 .darkgrey-background {

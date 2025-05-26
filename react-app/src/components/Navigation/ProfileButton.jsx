@@ -51,7 +51,7 @@ function ProfileButton() {
       </button>
       {showMenu && (
         <ul className={"profile-dropdown"} ref={ulRef}>
-          <NavLink>
+          <NavLink to={`/`}>
             <li className="drop-menu-item">
               <div className="menu-icon-container">
                 <CgProfile className="menu-icon"/>
@@ -73,7 +73,7 @@ function ProfileButton() {
             </li>
           </NavLink>
           <div className="border"></div>
-          <NavLink to='/manage-tours' onClick={logout}>
+          <div onClick={logout}>
             <li className="drop-menu-item">
               <div className="menu-icon-container">
                 <MdExitToApp className="menu-icon"/>
@@ -82,7 +82,7 @@ function ProfileButton() {
                 <p>Log Out</p>
               </div>
             </li>
-          </NavLink>
+          </div>
         </ul>
       )}
     </>
