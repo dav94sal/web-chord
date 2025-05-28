@@ -22,7 +22,7 @@ class Artist(db.Model):
         primaryjoin="and_(Image.imageable_type=='artist', foreign(Image.imageable_id)==Artist.id)",
         lazy="dynamic",
     )
-    user = db.relationship("User")
+    user = db.relationship("User", overlaps="artist")
     tour = db.relationship("Tour", cascade="all, delete-orphan")
     merch = db.relationship("Merch", cascade="all, delete-orphan")
 

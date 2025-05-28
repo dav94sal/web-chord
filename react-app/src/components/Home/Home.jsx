@@ -1,4 +1,3 @@
-import { FaHome } from "react-icons/fa";
 import { AiFillHome } from "react-icons/ai";
 import { FaWpexplorer } from "react-icons/fa6";
 import { BsArrowUpRightCircle } from "react-icons/bs";

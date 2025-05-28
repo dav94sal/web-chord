@@ -13,6 +13,7 @@
 
 .tiling-container {
     display: grid;
+    padding-top: 20px;
 }
 
 .artist-tile-container {
