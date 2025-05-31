@@ -1,15 +1,15 @@
 from app.models import db, Image, environment, SCHEMA
 from sqlalchemy.sql import text
-from .img_data import UserImages
-from .merch_img_data import MerchImages
+from .data.img_data import ArtistImages
+from .data.merch_img_data import MerchImages
 
 
 # Adds a demo user, you can add other users here if you want
 def seed_images():
-    user_imgs = UserImages()
+    artist_imgs = ArtistImages()
     merch_images = MerchImages()
     # print("---------Image: ", user_imgs.images, "------------")
-    for img in user_imgs.images:
+    for img in artist_imgs.images:
         db.session.add(Image(
             imageable_id=img["id"],
             imageable_type=img["type"],

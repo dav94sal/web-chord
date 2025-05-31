@@ -1,6 +1,6 @@
 from app.models import db, Merch, environment, SCHEMA
 from sqlalchemy.sql import text
-from .merch_data import merchandise
+from .data.merch_data import merchandise
 
 # Adds demo merch
 def seed_merchandise():

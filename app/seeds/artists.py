@@ -1,6 +1,6 @@
 from app.models import db, Artist, environment, SCHEMA
 from sqlalchemy.sql import text
-from .artist_data import artists
+from .data.artist_data import artists
 
 
 def seed_artists():

@@ -1,6 +1,6 @@
 from app.models import db, ProfilePic, environment, SCHEMA
 from sqlalchemy.sql import text
-from .profile_pic_data import profile_pics
+from .data.profile_pic_data import profile_pics
 
 
 def seed_profile_pics():

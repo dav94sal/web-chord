@@ -18,6 +18,7 @@ class User(db.Model, UserMixin):
 
     artist = db.relationship("Artist", cascade="all, delete-orphan")
     profile_pic = db.relationship("ProfilePic", backref="user", uselist=False, cascade="all, delete-orphan")
+    # posts = db.relationship("Post", backref='author', lazy=True, cascade="all, delete-orphan")
 
     @property
     def password(self):

@@ -1,6 +1,6 @@
 from app.models import db, Show, environment, SCHEMA
 from sqlalchemy.sql import text
-from .show_data import shows
+from .data.show_data import shows
 
 # Adds a demo user, you can add other users here if you want
 def seed_shows():

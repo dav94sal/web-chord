@@ -38,6 +38,7 @@ function Post({post}) {
     return (
         <div className="post-tile">
             <div className="post-head">
+                <img src={post.url} alt="profile picture" className="profile-pic" />
                 <p>{post.username}</p>
                 <BsDot />
                 <p className="grey-text">

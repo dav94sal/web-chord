@@ -1,6 +1,6 @@
 from app.models import db, Tour, environment, SCHEMA
 from sqlalchemy.sql import text
-from .tour_data import tours
+from .data.tour_data import tours
 
 # Adds demo tours
 def seed_tours():
