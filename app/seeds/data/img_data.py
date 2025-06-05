@@ -1,4 +1,4 @@
-from random import shuffle
+from random import choice
 from .user_data import users
 
 class ArtistImages:
@@ -27,14 +27,11 @@ class ArtistImages:
 
     def images_creator(self):
         images = []
-        idx = [i for i in range(len(self.urls))]
-        shuffle(idx)
 
         for i in range(len(users)):
-            num = idx[i]
             images.append({
                 "id": i+1,
                 "type": "artist",
-                "url": self.urls[num]
+                "url": choice(self.urls)
             })
         return images
