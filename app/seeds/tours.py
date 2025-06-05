@@ -8,7 +8,9 @@ def seed_tours():
         tour = tours[i]
         db.session.add(Tour(
             name=tour["name"],
-            artist_id=tour['artist_id']))
+            artist_id=tour["artist_id"],
+            created_at=tour["created_at"],
+            updated_at=tour['updated_at']))
 
     db.session.commit()
 

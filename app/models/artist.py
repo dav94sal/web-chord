@@ -16,6 +16,8 @@ class Artist(db.Model):
     pandora_url = db.Column(db.String)
     ticket_url = db.Column(db.String)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
+    created_at = db.Column(db.DateTime, default=db.func.now(), nullable=False)
+    updated_at = db.Column(db.DateTime, default=db.func.now(), onupdate=db.func.now(), nullable=False)
 
     img = db.relationship(
         "Image",

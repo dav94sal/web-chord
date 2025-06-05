@@ -1,18 +1,9 @@
-import datetime
 import random
+from datetime import datetime
+from .utils import get_random_datetime
 from .user_data import users
 from .post_data import posts
 
-# Re-defining get_random_datetime as it's needed for the comments
-def get_random_datetime(start_date=None):
-    if start_date is None:
-        start_date = datetime.datetime(2023, 1, 1)
-    else:
-        start_date = datetime.datetime.fromisoformat(start_date)
-    end_date = datetime.datetime.now() # Dynamically set to the current time
-    time_delta = end_date - start_date
-    random_seconds = random.uniform(0, time_delta.total_seconds())
-    return start_date + datetime.timedelta(seconds=random_seconds)
 
 NUMBER_OF_POSTS = len(posts)
 MAX_USER_ID = len(users)
@@ -130,7 +121,7 @@ for i in range(len(posts)):
         # If the post exists, use its ID
         post_id = post["id"]
     for _ in range(num_comments_for_post):
-        random_datetime = get_random_datetime(post["created_at"]).isoformat()
+        random_datetime = get_random_datetime(datetime.fromisoformat(post["created_at"])).isoformat()
         comments.append({
             "id": comment_id_counter,
             "comment": random.choice(general_comments), # Randomly pick a general comment
@@ -140,4 +131,3 @@ for i in range(len(posts)):
             "updated_at": random_datetime,
         })
         comment_id_counter += 1
-

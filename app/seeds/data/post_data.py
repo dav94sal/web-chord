@@ -1,19 +1,11 @@
 # This file contains the post data for the application.
-import datetime
-import random
-today = datetime.datetime.now()
+from datetime import datetime
+from .utils import get_random_datetime
+
+today = datetime.now()
 oneDay = 24 * 60 * 60  # seconds in a day
 oneHour = 60 * 60  # seconds in an hour
 oneMinute = 60  # seconds in a minute
-
-
-# Function to get a random datetime within a range
-def get_random_datetime():
-    start_date = datetime.datetime(2023, 1, 1)
-    end_date = today
-    time_delta = end_date - start_date
-    random_seconds = random.uniform(0, time_delta.total_seconds())
-    return start_date + datetime.timedelta(seconds=random_seconds)
 
 
 posts = [
@@ -2461,6 +2453,7 @@ posts = [
         "updated_at": "2023-01-26T04:24:20.942918",
     }
 ]
+
 
 for post in posts:
     if "created_at" not in post or "updated_at" not in post:

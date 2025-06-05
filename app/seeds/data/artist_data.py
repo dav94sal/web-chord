@@ -1,57 +1,60 @@
+from .utils import get_random_datetime
+
 artists = [
-    {
-        "id": 1,
-        "artist_name": "Demo Rock",
-        "user_id": 1,
-    },
-    {
-        "id": 2,
-        "artist_name": "Wiccan",
-        "user_id": 2,
-    },
-    {
-        "id": 3,
-        "artist_name": "Singer's Soul",
-        "user_id": 3,
-    },
-    {
-        "id": 4,
-        'artist_name': "Sticky Ricky",
-        "user_id": 6,
-    },
-    {
-        "id": 5,
-        'artist_name': "Purple Paper",
-        "user_id": 7,
-    },
-    {
-        "id": 6,
-        'artist_name': "Touche Cache",
-        "user_id": 9,
-    },
-    {
-        "id": 7,
-        'artist_name': "59 Legends",
-        "user_id": 10,
-    },
-    {
-        "id": 8,
-        'artist_name': "HEY, Listen!",
-        "user_id": 11,
-    },
-    {
-        "id": 9,
-        'artist_name': "LunaBella",
-        "user_id": 12,
-    },
-    {
-        "id": 10,
-        'artist_name': "Anachronism",
-        "user_id": 13,
-    },
-    {
-        "id": 11,
-        'artist_name': "Mangled Digits",
-        "user_id": 14,
-    },
+    {'id': 1, 'artist_name': 'Demo Rock', 'user_id': 1},
+    {'id': 2, 'artist_name': 'Wiccan', 'user_id': 2},
+    {'id': 3, 'artist_name': "Singer's Soul", 'user_id': 3},
+    {'id': 4, 'artist_name': 'Sticky Ricky', 'user_id': 6},
+    {'id': 5, 'artist_name': 'Purple Paper', 'user_id': 7},
+    {'id': 6, 'artist_name': 'Touche Cache', 'user_id': 9},
+    {'id': 7, 'artist_name': '59 Legends', 'user_id': 10},
+    {'id': 8, 'artist_name': 'HEY, Listen!', 'user_id': 11},
+    {'id': 9, 'artist_name': 'LunaBella', 'user_id': 12},
+    {'id': 10, 'artist_name': 'Anachronism', 'user_id': 13},
+    {'id': 11, 'artist_name': 'Mangled Digits', 'user_id': 14},
+    {'id': 12, 'artist_name': 'Symphonic Souls', 'user_id': 62},
+    {'id': 13, 'artist_name': 'Ethereal Ensembles', 'user_id': 41},
+    {'id': 14, 'artist_name': 'Chromatic Collective', 'user_id': 15},
+    {'id': 15, 'artist_name': 'Acoustic Alchemists', 'user_id': 39},
+    {'id': 16, 'artist_name': 'Orchestral Observers', 'user_id': 50},
+    {'id': 17, 'artist_name': 'Dynamic Duos', 'user_id': 57},
+    {'id': 18, 'artist_name': 'Resonance Rebels', 'user_id': 91},
+    {'id': 19, 'artist_name': 'Sonic Sculptors', 'user_id': 69},
+    {'id': 20, 'artist_name': 'Soundwave Sorcerers', 'user_id': 67},
+    {'id': 21, 'artist_name': 'The Soundscape Architects', 'user_id': 98},
+    {'id': 22, 'artist_name': 'RhythmKing', 'user_id': 16},
+    {'id': 23, 'artist_name': 'HarmonyQueen', 'user_id': 17},
+    {'id': 24, 'artist_name': 'BeatBender', 'user_id': 18},
+    {'id': 25, 'artist_name': 'SonicSculptor', 'user_id': 19},
+    {'id': 26, 'artist_name': 'GrooveGuru', 'user_id': 20},
+    {'id': 27, 'artist_name': 'BassBringer', 'user_id': 21},
+    {'id': 28, 'artist_name': 'DrumDominator', 'user_id': 22},
+    {'id': 29, 'artist_name': 'LyricLover', 'user_id': 23},
+    {'id': 30, 'artist_name': 'VocalVirtuoso', 'user_id': 24},
+    {'id': 31, 'artist_name': 'SynthSorcerer', 'user_id': 25},
+    {'id': 32, 'artist_name': 'FretboardFairy', 'user_id': 26},
+    {'id': 33, 'artist_name': 'AcousticAce', 'user_id': 27},
+    {'id': 34, 'artist_name': 'ElectricEcho', 'user_id': 28},
+    {'id': 35, 'artist_name': 'MaestroMind', 'user_id': 29},
+    {'id': 36, 'artist_name': 'OrchestraOracle', 'user_id': 30},
+    {'id': 37, 'artist_name': 'ConcertCreator', 'user_id': 31},
+    {'id': 38, 'artist_name': 'StageStunner', 'user_id': 32},
+    {'id': 39, 'artist_name': 'StudioSymphony', 'user_id': 33},
+    {'id': 40, 'artist_name': 'ProductionPro', 'user_id': 34},
+    {'id': 41, 'artist_name': 'SoundSensei', 'user_id': 35},
+    {'id': 42, 'artist_name': 'GenreJuggler', 'user_id': 36},
+    {'id': 43, 'artist_name': 'TuneTitan', 'user_id': 37},
+    {'id': 44, 'artist_name': 'ChartChaser', 'user_id': 38},
+    {'id': 45, 'artist_name': 'DecibelDiva', 'user_id': 40},
+    {'id': 46, 'artist_name': 'AmpAmplifier', 'user_id': 42},
+    {'id': 47, 'artist_name': 'MixMasterFlex', 'user_id': 43},
+    {'id': 48, 'artist_name': 'SamplerSamurai', 'user_id': 44},
+    {'id': 49, 'artist_name': 'BeatboxBoss', 'user_id': 45}
 ]
+
+
+for artist in artists:
+    if "created_at" not in artist or "updated_at" not in artist:
+        dt = get_random_datetime().isoformat()
+        artist["created_at"] = dt
+        artist["updated_at"] = dt
