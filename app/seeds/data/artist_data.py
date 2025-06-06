@@ -55,6 +55,6 @@ artists = [
 
 for artist in artists:
     if "created_at" not in artist or "updated_at" not in artist:
-        dt = get_random_datetime().isoformat()
+        dt = get_random_datetime()
         artist["created_at"] = dt
         artist["updated_at"] = dt

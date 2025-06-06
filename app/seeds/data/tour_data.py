@@ -87,6 +87,6 @@ tours = [
 
 for tour in tours:
     if "created_at" not in tour or "updated_at" not in tour:
-        dt = get_random_datetime().isoformat()
+        dt = get_random_datetime()
         tour["created_at"] = dt
         tour["updated_at"] = dt

@@ -113,21 +113,48 @@ general_comments = [
     "This track is pure fire!", "Heating up the charts!", "Burning hot!", "Blazing!"
 ]
 
+
+def getUniqueUserId(post_id, num_users, used_ids=set()):
+    """Generate a unique user ID for the comment based on the post ID."""
+
+    ids = [i for i in range(1, num_users + 1)]  # User IDs from 1 to num_users
+    random.shuffle(ids)
+
+    for i in range(len(ids)):
+        user_id = ids[i]
+        if (user_id, post_id) not in used_ids:
+            used_ids.add((user_id, post_id))
+            return [user_id, used_ids]
+    return False  # If no unique ID can be found, return False
+
+
 for i in range(len(posts)):
     post = posts[i]
     post_id = 1 # Default post_id in case the post does not exist
-    num_comments_for_post = random.randint(70, 89)
+    num_users = len(users)
+    num_comments_for_post = random.randint(num_users - (num_users // 4), num_users)
+
     if post:
         # If the post exists, use its ID
         post_id = post["id"]
+
+    used_ids = set()  # Reset used IDs for each post
+
     for _ in range(num_comments_for_post):
-        random_datetime = get_random_datetime(datetime.fromisoformat(post["created_at"])).isoformat()
-        comments.append({
-            "id": comment_id_counter,
-            "comment": random.choice(general_comments), # Randomly pick a general comment
-            "user_id": random.randint(1, MAX_USER_ID),
-            "post_id": post_id,
-            "created_at": random_datetime,
-            "updated_at": random_datetime,
-        })
-        comment_id_counter += 1
+        res = getUniqueUserId(post_id, num_users, used_ids)
+
+        if res:
+            user_id, new_used_ids = res
+            used_ids = new_used_ids
+            random_datetime = get_random_datetime(post["created_at"])
+            comments.append({
+                "id": comment_id_counter,
+                "comment": random.choice(general_comments), # Randomly pick a general comment
+                "user_id": user_id,
+                "post_id": post_id,
+                "created_at": random_datetime,
+                "updated_at": random_datetime,
+            })
+            comment_id_counter += 1
+        else:
+            break  # If no unique user ID can be found, break out of the loop

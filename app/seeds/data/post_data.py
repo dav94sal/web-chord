@@ -2457,6 +2457,9 @@ posts = [
 
 for post in posts:
     if "created_at" not in post or "updated_at" not in post:
-        dt = get_random_datetime().isoformat()
+        dt = get_random_datetime()
         post["created_at"] = dt
         post["updated_at"] = dt
+    else:
+        post["created_at"] = datetime.fromisoformat(post["created_at"])
+        post["updated_at"] = datetime.fromisoformat(post["updated_at"])

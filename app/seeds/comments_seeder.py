@@ -11,8 +11,8 @@ def seed_comments():
             comment=comment["comment"],
             user_id=comment["user_id"],
             post_id=comment["post_id"],
-            created_at=datetime.datetime.fromisoformat(comment["created_at"]),
-            updated_at=datetime.datetime.fromisoformat(comment['updated_at'])))
+            created_at=comment["created_at"],
+            updated_at=comment['updated_at']))
 
     db.session.commit()
 

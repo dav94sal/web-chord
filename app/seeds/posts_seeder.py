@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 from app.models import db, Post, environment, SCHEMA
 from sqlalchemy.sql import text
 from .data.post_data import posts
@@ -11,8 +11,8 @@ def seed_posts():
         db.session.add(Post(
             post=post["post"],
             user_id=post["user_id"],
-            created_at=datetime.datetime.fromisoformat(post["created_at"]),
-            updated_at=datetime.datetime.fromisoformat(post['updated_at'])))
+            created_at=post["created_at"],
+            updated_at=post['updated_at']))
 
     db.session.commit()
 

@@ -14,6 +14,10 @@ class Comment(db.Model):
     created_at = db.Column(db.DateTime, default=db.func.now(), nullable=False)
     updated_at = db.Column(db.DateTime, default=db.func.now(), onupdate=db.func.now(), nullable=False)
 
+    __table_args__ = (
+        db.UniqueConstraint('user_id', 'post_id', name='unique_comment_per_user_per_post'),
+    )
+
     def to_dict(self):
         return {
             "id": self.id,
