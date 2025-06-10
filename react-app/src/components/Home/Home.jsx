@@ -1,6 +1,6 @@
 import { AiFillHome } from "react-icons/ai";
 import { FaWpexplorer } from "react-icons/fa6";
-import { BsArrowUpRightCircle } from "react-icons/bs";
+// import { BsArrowUpRightCircle } from "react-icons/bs";
 import { HiChartBar } from "react-icons/hi";
 import ExploreArtists from "./pages/ExploreArtists";
 import Feed from "./pages/Feed";
@@ -18,9 +18,10 @@ function Home() {
 
     const sidebarMenus = [
         { icon: AiFillHome, primaryText: 'Home', destination: '/'},
-        { icon: BsArrowUpRightCircle, primaryText: 'New', destination: '/newest-posts'},
+        { icon: HiChartBar, primaryText: 'Popular', destination: '/posts'},
         { icon: FaWpexplorer, primaryText: 'Explore', destination: '/explore'},
-        { icon: HiChartBar, primaryText: 'All', destination: '/all-posts'},
+        // { icon: BsArrowUpRightCircle, primaryText: 'New', destination: '/newest-posts'},
+        // { icon: HiChartBar, primaryText: 'All', destination: '/all-posts'},
     ]
 
     return (

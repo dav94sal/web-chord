@@ -1,4 +1,4 @@
-from .utils import get_random_datetime
+from ..utils import get_random_datetime
 
 tours = [
     {'name': 'Demo Tour', 'artist_id': 1},

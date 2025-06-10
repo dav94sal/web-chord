@@ -1,6 +1,5 @@
 import random
-from datetime import datetime
-from .utils import get_random_datetime
+from ..utils import get_random_datetime, getUniqueUserId
 from .user_data import users
 from .post_data import posts
 
@@ -112,20 +111,6 @@ general_comments = [
     "What a surprising and delightful discovery!", "Pleasantly surprised!", "New favorite artist!",
     "This track is pure fire!", "Heating up the charts!", "Burning hot!", "Blazing!"
 ]
-
-
-def getUniqueUserId(post_id, num_users, used_ids=set()):
-    """Generate a unique user ID for the comment based on the post ID."""
-
-    ids = [i for i in range(1, num_users + 1)]  # User IDs from 1 to num_users
-    random.shuffle(ids)
-
-    for i in range(len(ids)):
-        user_id = ids[i]
-        if (user_id, post_id) not in used_ids:
-            used_ids.add((user_id, post_id))
-            return [user_id, used_ids]
-    return False  # If no unique ID can be found, return False
 
 
 for i in range(len(posts)):

@@ -1,6 +1,6 @@
 # This file contains the post data for the application.
 from datetime import datetime
-from .utils import get_random_datetime
+from ..utils import get_random_datetime
 
 today = datetime.now()
 oneDay = 24 * 60 * 60  # seconds in a day

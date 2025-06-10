@@ -1,4 +1,4 @@
-from .utils import get_random_datetime
+from ..utils import get_random_datetime
 
 artists = [
     {'id': 1, 'artist_name': 'Demo Rock', 'user_id': 1},

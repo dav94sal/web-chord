@@ -6,8 +6,8 @@ from .data.vote_data import votes
 def seed_votes():
     for vote in votes:
         db.session.add(Vote(
-            votable_id=vote["id"],
-            votable_type=vote["type"],
+            votable_id=vote["votable_id"],
+            votable_type=vote["votable_type"],
             user_id=vote["user_id"],
             vote=vote["vote"],
             created_at=vote["created_at"],
