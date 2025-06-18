@@ -3,8 +3,9 @@ import Layout from './Layout';
 import Home from '../components/Home';
 import ArtistPage from '../components/ArtistPage';
 import ManagePage from '../components/ManagePage';
-import NotFound from '../components/NotFound/';
-import Error from '../components/Error/';
+import NotFound from '../components/handlers/NotFound';
+import Error from '../components/handlers/Error';
+import Redirect from '../components/handlers/Redirect';
 
 export const routes = [
   {
@@ -16,10 +17,14 @@ export const routes = [
         children: [
           {
             index: true,
+            element: <Redirect />
+          },
+          {
+            path: "feed",
             element: <Home />
           },
           {
-            path: "newest-posts",
+            path: "popular",
             element: <Home />
           },
           {
@@ -27,9 +32,9 @@ export const routes = [
             element: <Home />
           },
           {
-            path: "all-posts",
-            element: <Home />
-          }
+            path: "*",
+            element: <Redirect />
+          },
         ]
       },
       {

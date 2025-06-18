@@ -7,6 +7,7 @@ import { PiShareFat } from "react-icons/pi";
 function Post({post}) {
     const today = new Date;
 
+
     const timeElapsed = () => {
         const minute = 60 * 1000;
         const hour = minute * 60;
@@ -15,7 +16,7 @@ function Post({post}) {
         const month = day * 30.44; // Average days in a month
         const year = day * 365.25; // Average days in a year (including leap years)
 
-        const postDate = new Date(post.createdAt);
+        const postDate = new Date(post.created_at);
         const difference = today - postDate;
 
         if (difference < minute) {
@@ -38,8 +39,8 @@ function Post({post}) {
     return (
         <div className="post-tile">
             <div className="post-head">
-                <img src={post.url} alt="profile picture" className="profile-pic" />
-                <p>{post.username}</p>
+                <img src={post.author.profile_pic?.url} alt="profile picture" className="profile-pic" />
+                <p>{post.author.username}</p>
                 <BsDot />
                 <p className="grey-text">
                     {timeElapsed()}
@@ -49,7 +50,7 @@ function Post({post}) {
             <div className="post-footer">
                 <button className="buttons darkgrey-background">
                     <PiArrowFatUp className="post-icon-style"/>
-                    {` 339 `}
+                    {` ${post.upvotes} `}
                     <PiArrowFatDown className="post-icon-style"/>
                 </button>
                 <button className="buttons darkgrey-background">

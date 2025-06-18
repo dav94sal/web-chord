@@ -1,23 +1,29 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllPosts } from "../../../redux/post";
 import Post from "../tiles/Post";
-import posts from "../tempData";
+// import posts from "../tempData";
 
-function Feed() {
+function Feed({ query }) {
     const [isLoading, setIsLoading] = useState(true)
-
-    // need to fetch data here
-        // need a variable to determine how to sort data
-        // need logic to avoid fetching data multiple times
+    const [posts, setPosts] = useState(useSelector(state => state.posts));
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        // simulate a fetch
-        setTimeout(() => setIsLoading(false), 500)
-    })
+        dispatch(getAllPosts(`${query}`))
+            .then(data => setPosts(data))
+            .then(() => setIsLoading(false))
+            .catch(err => {
+                console.error("Error fetching posts:", err);
+                setIsLoading(false);
+            });
+    }, [dispatch, query]);
+    let postArr = Object.values(posts)
 
     return (
         <>
             {!isLoading && <div className="posts-container" >
-                {posts.map(post => {
+                {postArr.map(post => {
                     return (
                         <div key={`post${post.id}`}>
                             <div className="border"></div>

@@ -1,0 +1,67 @@
+const SET_POSTS = 'posts/setPosts'
+const ADD_POST = 'posts/addPost'
+const REMOVE_POST = 'posts/removePost'
+
+// action creators
+const setPosts = (posts) => ({
+    type: SET_POSTS,
+    posts // an array of posts
+})
+
+// const addPost = (post) => ({
+//     type: ADD_POST,
+//     post
+// })
+
+// export const removePost = () => ({
+//     type: REMOVE_POST
+// })
+
+
+// Thunks
+export const getAllPosts = (query) => async dispatch => {
+    const response = await fetch(`/api/posts/all?${query}`);
+    // console.log("Fetch response: ", await response.json())
+
+    if(response.ok) {
+      const data = await response.json();
+      dispatch(setPosts(data));
+      return data;
+    } else if (response.status < 500) {
+        const errorMessages = await response.json();
+        return {
+            errors: errorMessages
+        }
+    } else {
+        return {
+            errors: { server: "Something went wrong. Please try again" }
+        }
+    }
+}
+
+
+function postReducer(state = {}, action) {
+  switch (action.type) {
+    case SET_POSTS: {
+        const newState = { ...state };
+        action.posts.forEach(post => {
+            newState[post.id] = post;
+        });
+        return newState;
+    }
+    case ADD_POST: {
+        const newState = { ...state };
+        newState[action.post.id] = action.post;
+        return newState;
+    }
+    case REMOVE_POST: {
+        const newState = { ...state };
+        delete newState[action.postId];
+        return newState;
+    }
+    default:
+      return state;
+  }
+}
+
+export default postReducer;

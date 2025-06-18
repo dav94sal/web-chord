@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
 import { FaWpexplorer } from "react-icons/fa6";
 // import { BsArrowUpRightCircle } from "react-icons/bs";
@@ -8,17 +10,22 @@ import MenuItem from "./tiles/MenuItem";
 import "./Home.css"
 
 function Home() {
-    let render = <Feed />
+    const [render, setRender] = useState(<Feed query='fltr=null' />)
+    const location = useLocation();
 
-    if (location.pathname.includes('explore')) {
-        render = <ExploreArtists />
-    } else if (location.pathname.includes('newest-posts')) {
-        render = <Feed />
-    }
+    useEffect(() => {
+        if (location.pathname.includes('explore')) {
+            setRender(<ExploreArtists />)
+        } else if (location.pathname.includes('popular')) {
+            setRender(<Feed query='fltr=popular' />)
+        } else if (location.pathname.includes('feed')) {
+            setRender(<Feed query='fltr=null' />)
+        }
+    }, [location.pathname])
 
     const sidebarMenus = [
-        { icon: AiFillHome, primaryText: 'Home', destination: '/'},
-        { icon: HiChartBar, primaryText: 'Popular', destination: '/posts'},
+        { icon: AiFillHome, primaryText: 'Home', destination: '/feed'},
+        { icon: HiChartBar, primaryText: 'Popular', destination: '/popular'},
         { icon: FaWpexplorer, primaryText: 'Explore', destination: '/explore'},
         // { icon: BsArrowUpRightCircle, primaryText: 'New', destination: '/newest-posts'},
         // { icon: HiChartBar, primaryText: 'All', destination: '/all-posts'},

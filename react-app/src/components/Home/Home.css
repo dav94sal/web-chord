@@ -105,6 +105,13 @@
     font-size: 17px;
 }
 
+.profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
 .border {
     background-color: rgba(113, 113, 119, 0.76);
     height: 1px;

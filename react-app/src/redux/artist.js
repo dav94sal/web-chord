@@ -71,7 +71,7 @@ export const getArtistById = (id) => async dispatch => {
             errors: errorMessages
         }
     } else {
-        console.log(response)
+        // console.log(response)
         return {
             errors: { server: "Something went wrong. Please try again" }
         }

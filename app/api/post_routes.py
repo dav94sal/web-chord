@@ -10,8 +10,6 @@ post_routes = Blueprint('posts', __name__)
 def posts():
     page = request.args.get('page') or 1
     fltr = request.args.get('fltr')
-    # filters = {}
-    # orders = ["created_at"]
     page = int(page) if page else 1
 
     upvotes_calc = func.sum(db.case((Vote.vote == 'upvote', 1), else_=0)).label('upvotes_count')
@@ -29,13 +27,10 @@ def posts():
         upvotes_calc,
         downvotes_calc,
         total_votes
-    ).outerjoin(Vote, Vote.votable_id == Post.id) # Perform the join here
+    ).outerjoin(Vote, Vote.votable_id == Post.id)
 
     # Eager load author and profile pic
     query = query.options(db.joinedload(Post.author).joinedload(User.profile_pic))
-
-    # if fltr == 'user':
-    #     # get user subscriptions
 
     if fltr == 'popular':
         query = query.group_by(Post.id)\
