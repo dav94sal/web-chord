@@ -5,6 +5,7 @@ import { thunkLogin } from "../../redux/session";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../modals/LoginFormModal";
 import SignupFormModal from "../modals/SignupFormModal";
+import NewPostModal from "../modals/NewPostModal/NewPostModal";
 import ProfileButton from "./ProfileButton";
 import SearchBar from "./SearchBar";
 import "./Navigation.css";
@@ -41,14 +42,12 @@ function Navigation() {
 
       <div className="nav-buttons margin-lr-10">
         {user ? <>
-          <NavLink to='/'>
-            <button className={`post-button`}>
-              <FaPlus className="icon-plus" />
-              <p>
-                Create
-              </p>
-            </button>
-          </NavLink>
+          <OpenModalMenuItem
+            itemText={`Create Post`}
+            modalComponent={<NewPostModal />}
+            setClassName="post-button"
+            textIcon={<FaPlus className="icon-plus" />}
+          />
           <ProfileButton /> </>:
           <><OpenModalMenuItem
             itemText="Log In"

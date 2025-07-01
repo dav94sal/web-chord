@@ -14,8 +14,25 @@ function ExploreArtists() {
     const dispatch = useDispatch()
 
         useEffect(() => {
+            let isMounted = true; // Flag to track if the component is mounted
+
             dispatch(getAllArtists())
-                .then(() => setIsLoading(false))
+                .then(() => {
+                    if (isMounted) { // Only update state if the component is still mounted
+                        setIsLoading(false);
+                    }
+                })
+                .catch(err => {
+                    console.error("Error fetching artists:", err);
+                    if (isMounted) {
+                        setIsLoading(false);
+                    }
+                });
+
+        return () => {
+            isMounted = false; // Set flag to false when component unmounts
+        }
+
         }, [dispatch, setIsLoading])
 
     return (
