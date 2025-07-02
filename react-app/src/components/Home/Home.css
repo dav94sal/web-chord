@@ -88,12 +88,26 @@
 .post-head {
     display: flex;
     align-items: center;
-    height: 15px;
+    justify-content: space-between;
+    height: 30px;
+    width: 100%;
 }
 
 .post-head p {
     margin: unset;
     font-size: small;
+}
+
+.post-dropdown-menu {
+    background-color: #181e22;
+    position: relative;
+    left: 140px;
+    top: 50px;
+    width: 120px;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
 
 .post-footer {

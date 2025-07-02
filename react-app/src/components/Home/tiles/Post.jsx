@@ -1,12 +1,16 @@
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import { BsDot } from "react-icons/bs";
 import { PiArrowFatUp } from "react-icons/pi";
 import { PiArrowFatDown } from "react-icons/pi";
 import { IoChatbubbleOutline } from "react-icons/io5";
 import { PiShareFat } from "react-icons/pi";
+import { BsThreeDots } from "react-icons/bs";
 
 function Post({post}) {
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+    const user = useSelector((state) => state.session.user);
     const today = new Date;
-
 
     const timeElapsed = () => {
         const minute = 60 * 1000;
@@ -39,12 +43,24 @@ function Post({post}) {
     return (
         <div className="post-tile">
             <div className="post-head">
-                <img src={post.author.profile_pic?.url} alt="profile picture" className="profile-pic" />
-                <p>{post.author.username}</p>
-                <BsDot />
-                <p className="grey-text">
-                    {timeElapsed()}
-                </p>
+                <div className="centered">
+                    <img src={post.author.profile_pic?.url} alt="profile picture" className="profile-pic" />
+                    <p>{post.author.username}</p>
+                    <BsDot className="white-text"/>
+                    <p className="grey-text">
+                        {timeElapsed()}
+                    </p>
+                </div>
+                {dropdownOpen && (
+                    <ul className="post-dropdown-menu">
+                        <li>Hide</li>
+                        <li>Report</li>
+                        {user && <li>Delete</li> /* Only show if the user is the author of the post */ }
+                    </ul>
+                )}
+                <div className="centered" onClick={() => setDropdownOpen(!dropdownOpen)}>
+                    <BsThreeDots className="white-text"/>
+                </div>
             </div>
             <p>{post.post}</p>
             <div className="post-footer">
