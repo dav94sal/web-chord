@@ -13,8 +13,9 @@ const addPost = (post) => ({
     post
 })
 
-export const removePost = () => ({
-    type: REMOVE_POST
+export const removePost = (postId) => ({
+    type: REMOVE_POST,
+    postId
 })
 
 
@@ -89,8 +90,9 @@ export const editPost = (postId, postData) => async dispatch => {
 
 
 export const deletePost = (postId) => async dispatch => {
-    const response = await fetch(`/api/posts/${postId}`, {
+    const response = await fetch(`/api/posts/${postId}/delete`, {
         method: 'DELETE',
+        headers: { "Content-Type": "application/json" },
     });
 
     if(response.ok) {
@@ -112,7 +114,7 @@ export const deletePost = (postId) => async dispatch => {
 function postReducer(state = {}, action) {
   switch (action.type) {
     case SET_POSTS: {
-        const newState = { ...state };
+        const newState = {};
         action.posts.forEach(post => {
             newState[post.id] = post;
         });

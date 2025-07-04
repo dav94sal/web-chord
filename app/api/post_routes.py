@@ -99,7 +99,7 @@ def edit_post(post_id):
 def delete_post(post_id):
     post = Post.query.get(post_id)
 
-    if post.user_id != current_user.id:
+    if post.author.id != current_user.id:
         return {"errors": "Unauthorized"}, 401
 
     db.session.delete(post)

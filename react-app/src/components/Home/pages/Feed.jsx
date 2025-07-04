@@ -8,6 +8,7 @@ function Feed({ query }) {
     let reduxPosts = useSelector(state => state.posts);
     const [isLoading, setIsLoading] = useState(true)
     const [posts, setPosts] = useState(reduxPosts);
+    const [postArr, setPostArr] = useState(Object.values(posts));
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -37,9 +38,11 @@ function Feed({ query }) {
     }, [dispatch, query]);
 
     useEffect(() => {
-        setPosts(reduxPosts);
-    }, [reduxPosts]);
-    let postArr = Object.values(posts);
+        setIsLoading(true);
+        setPosts(reduxPosts)
+        setPostArr(Object.values(posts));
+        setIsLoading(false);
+    }, [reduxPosts, posts]);
 
     return (
         <>

@@ -1,15 +1,17 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { BsDot } from "react-icons/bs";
 import { PiArrowFatUp } from "react-icons/pi";
 import { PiArrowFatDown } from "react-icons/pi";
 import { IoChatbubbleOutline } from "react-icons/io5";
 import { PiShareFat } from "react-icons/pi";
 import { BsThreeDots } from "react-icons/bs";
+import { deletePost } from "../../../redux/post";
 
 function Post({post}) {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const user = useSelector((state) => state.session.user);
+    const dispatch = useDispatch();
     const today = new Date;
 
     const timeElapsed = () => {
@@ -40,6 +42,12 @@ function Post({post}) {
         }
     };
 
+    const handleDelete = () => {
+        // Logic to delete the post
+        dispatch(deletePost(post.id));
+        setDropdownOpen(false); // Close the dropdown after deletion
+    }
+
     return (
         <div className="post-tile">
             <div className="post-head">
@@ -55,7 +63,9 @@ function Post({post}) {
                     <ul className="post-dropdown-menu">
                         <li>Hide</li>
                         <li>Report</li>
-                        {user && <li>Delete</li> /* Only show if the user is the author of the post */ }
+                        {user.id === post.author.id && /* Only show if the user is the author of the post */
+                            <li onClick={handleDelete}>Delete</li>
+                        }
                     </ul>
                 )}
                 <div className="centered" onClick={() => setDropdownOpen(!dropdownOpen)}>
