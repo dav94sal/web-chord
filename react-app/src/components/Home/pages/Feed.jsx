@@ -7,42 +7,54 @@ import Post from "../tiles/Post";
 function Feed({ query }) {
     let reduxPosts = useSelector(state => state.posts);
     const [isLoading, setIsLoading] = useState(true)
-    const [posts, setPosts] = useState(reduxPosts);
-    const [postArr, setPostArr] = useState(Object.values(posts));
+    // const [posts, setPosts] = useState(reduxPosts);
+    const [postArr, setPostArr] = useState([]);
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        let isMounted = true; // Flag to track if the component is mounted
-
-        dispatch(getAllPosts(`${query}`))
-            .then(data => {
-            if (isMounted) { // Only update state if the component is still mounted
-                setPosts(data);
-            }
-            })
-            .then(() => {
-                if (isMounted) {
-                    setIsLoading(false);
-                }
-            })
-            .catch(err => {
-                console.error("Error fetching posts:", err);
-                if (isMounted) {
-                    setIsLoading(false);
-                }
-            });
-
-    return () => {
-        isMounted = false; // Set flag to false when component unmounts
-    };
-    }, [dispatch, query]);
 
     useEffect(() => {
         setIsLoading(true);
-        setPosts(reduxPosts)
-        setPostArr(Object.values(posts));
+
+        let postArr = Object.values(reduxPosts)
+        if (!query.includes('popular')) {
+            postArr.sort(sortFn)
+        }
+        setPostArr(postArr)
+
         setIsLoading(false);
-    }, [reduxPosts, posts]);
+    }, [setIsLoading, query, reduxPosts]);
+
+
+    useEffect(() => {
+        let isMounted = true; // Flag to track if the component is mounted
+        setIsLoading(true);
+
+        dispatch(getAllPosts(`${query}`))
+            .then(data => {
+                if (isMounted) { // Only update state if the component is still mounted
+                    let postArr = Object.values(data)
+                    // setPosts(data)
+                    if (!query.includes('popular')) {
+                        postArr.sort(sortFn)
+                    }
+                    setPostArr(postArr);
+                }
+            })
+            .then(() => setIsLoading(false))
+            .catch(err => {
+                console.error("Error fetching posts:", err);
+                // setPosts({});
+            });
+
+        // Cleanup function to set the flag to false when the component unmounts
+        return () => isMounted = false;
+    }, [dispatch, query]);
+
+
+    function sortFn(a, b) {
+        return new Date(b.created_at) - new Date(a.created_at);
+    }
+
 
     return (
         <>

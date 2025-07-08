@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BsDot } from "react-icons/bs";
-import { PiArrowFatUp } from "react-icons/pi";
-import { PiArrowFatDown } from "react-icons/pi";
-import { IoChatbubbleOutline } from "react-icons/io5";
-import { PiShareFat } from "react-icons/pi";
+// import { PiArrowFatUp } from "react-icons/pi";
+// import { PiArrowFatDown } from "react-icons/pi";
+// import { IoChatbubbleOutline } from "react-icons/io5";
+// import { PiShareFat } from "react-icons/pi";
 import { BsThreeDots } from "react-icons/bs";
 import { deletePost } from "../../../redux/post";
 
@@ -63,7 +63,7 @@ function Post({post}) {
                     <ul className="post-dropdown-menu">
                         <li>Hide</li>
                         <li>Report</li>
-                        {user.id === post.author.id && /* Only show if the user is the author of the post */
+                        {user?.id === post.author.id && /* Only show if the user is the author of the post */
                             <li onClick={handleDelete}>Delete</li>
                         }
                     </ul>
@@ -74,7 +74,7 @@ function Post({post}) {
             </div>
             <p>{post.post}</p>
             <div className="post-footer">
-                <button className="buttons darkgrey-background">
+                {/* <button className="buttons darkgrey-background">
                     <PiArrowFatUp className="post-icon-style"/>
                     {` ${post.upvotes} `}
                     <PiArrowFatDown className="post-icon-style"/>
@@ -86,7 +86,7 @@ function Post({post}) {
                 <button className="buttons darkgrey-background">
                     <PiShareFat className="post-icon-style"/>
                     {` Share`}
-                </button>
+                </button> */}
             </div>
         </div>
     )
