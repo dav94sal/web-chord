@@ -55,6 +55,7 @@ def posts():
             calculated_downvotes=downvotes_val,
             calculated_total_votes=total_votes_val
         ))
+        print("Posts data: ", posts_data)
     return posts_data
 
 

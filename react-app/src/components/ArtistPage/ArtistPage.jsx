@@ -59,7 +59,7 @@ function ArtistPage() {
                         )) : <p>No shows available yet</p>}
                     </div>
                 </div>
-                <>
+                <div className="merch-container">
                     <h3 className="artist-headers">Merch</h3>
                     <div className="tiling-container">
                         {merchandise.length?
@@ -77,7 +77,7 @@ function ArtistPage() {
                             )) : <p>No merchandise yet</p>
                         }
                     </div>
-                </>
+                </div>
             </div>
             </>}
         </div>
