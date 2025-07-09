@@ -4,7 +4,7 @@ function Redirect() {
     return (
         <>
             <h1>Redirecting...</h1>
-            <Navigate to="/feed" />
+            <Navigate to="/explore" />
         </>
     )
 }

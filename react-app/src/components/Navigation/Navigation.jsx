@@ -7,7 +7,7 @@ import LoginFormModal from "../modals/LoginFormModal";
 import SignupFormModal from "../modals/SignupFormModal";
 import NewPostModal from "../modals/NewPostModal/NewPostModal";
 import ProfileButton from "./ProfileButton";
-import SearchBar from "./SearchBar";
+// import SearchBar from "./SearchBar";
 import "./Navigation.css";
 
 function Navigation() {
@@ -38,7 +38,7 @@ function Navigation() {
         </div>
       </NavLink>
 
-      <SearchBar />
+      {/* <SearchBar /> */}
 
       <div className="nav-buttons margin-lr-10">
         {user ? <>

@@ -5,7 +5,7 @@ import { BsDot } from "react-icons/bs";
 // import { PiArrowFatDown } from "react-icons/pi";
 // import { IoChatbubbleOutline } from "react-icons/io5";
 // import { PiShareFat } from "react-icons/pi";
-import { BsThreeDots } from "react-icons/bs";
+// import { BsThreeDots } from "react-icons/bs";
 import { deletePost } from "../../../redux/post";
 
 function Post({post}) {
@@ -68,9 +68,9 @@ function Post({post}) {
                         }
                     </ul>
                 )}
-                <div className="centered" onClick={() => setDropdownOpen(!dropdownOpen)}>
+                {/* <div className="centered" onClick={() => setDropdownOpen(!dropdownOpen)}>
                     <BsThreeDots className="white-text"/>
-                </div>
+                </div> */}
             </div>
             <p>{post.post}</p>
             <div className="post-footer">

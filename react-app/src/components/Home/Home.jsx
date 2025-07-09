@@ -24,9 +24,9 @@ function Home() {
     }, [location.pathname])
 
     const sidebarMenus = [
+        { icon: FaWpexplorer, primaryText: 'Explore', destination: '/explore'},
         { icon: AiFillHome, primaryText: 'Home', destination: '/feed'},
         { icon: HiChartBar, primaryText: 'Popular', destination: '/popular'},
-        { icon: FaWpexplorer, primaryText: 'Explore', destination: '/explore'},
         // { icon: BsArrowUpRightCircle, primaryText: 'New', destination: '/newest-posts'},
         // { icon: HiChartBar, primaryText: 'All', destination: '/all-posts'},
     ]

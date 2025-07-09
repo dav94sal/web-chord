@@ -56,3 +56,15 @@ def undo():
     undo_posts()
     undo_comments()
     undo_votes()
+
+# Creates the `flask seed merch` command
+@seed_commands.command('merch')
+def seed_merch():
+    undo_merchandise()
+    seed_merchandise()
+
+# Creates the `flask seed images` command
+@seed_commands.command('images')
+def seed_lone_images():
+    undo_images()
+    seed_images()
