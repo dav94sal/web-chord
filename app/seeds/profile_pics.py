@@ -4,7 +4,7 @@ from .data.profile_pic_data import profile_pics
 
 
 def seed_profile_pics():
-    for i in range(len(profile_pics)):
+    for i in range(1, len(profile_pics)+1):
         pic = profile_pics[i]
         db.session.add(ProfilePic(
             url=pic["url"],
