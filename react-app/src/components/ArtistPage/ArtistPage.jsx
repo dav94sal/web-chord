@@ -46,9 +46,6 @@ function ArtistPage() {
                 <SocialMediaButtons artist={artist}/>
             </div>
             <div className="artist-content">
-                <div className="artist-buttons">
-                    <SocialMediaButtons artist={artist}/>
-                </div>
                 <div className="tour-container">
                     { tour.none ?
                         <h3 className="artist-headers">No Tours Yet...</h3> :
