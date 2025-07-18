@@ -1,5 +1,5 @@
 from random import choice
-from .user_data import users
+from .artist_data import artists
 
 artist_imgs = {
     1: {
@@ -17,180 +17,120 @@ artist_imgs = {
         "type": "artist",
         "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai-4.jpg"
     },
-    4:{
+    4: {
         "id": 4,
         "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai-6.jpg"
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/Gemini-Generated-Image-uob3bluob3bluob3.png"
     },
     5:{
         "id": 5,
         "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai-3.jpg"
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/8b4580a5-7d42-4e1d-a68a-ef1875d48cb4.jpg"
     },
     6: {
         "id": 6,
         "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/Gemini-Generated-Image-uob3bluob3bluob3.png"
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/Gemini-Generated-Image-22ih8022ih8022ih.png",
     },
-    7:{
+    7: {
         "id": 7,
         "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/8b4580a5-7d42-4e1d-a68a-ef1875d48cb4.jpg"
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/Gemini-Generated-Image-c5mve5c5mve5c5mv.png",
     },
     8: {
         "id": 8,
         "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/Web-Chord-Speaker.jpg"
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/Gemini-Generated-Image-k61adgk61adgk61a.png",
     },
     9: {
         "id": 9,
         "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/Gemini-Generated-Image-22ih8022ih8022ih.png",
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/e1059868-19a2-4ca2-90d5-ad1085679df9.jpg",
     },
     10: {
         "id": 10,
         "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/Gemini-Generated-Image-c5mve5c5mve5c5mv.png",
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/David-Desaturated.jpg"
     },
     11: {
         "id": 11,
         "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/Gemini-Generated-Image-k61adgk61adgk61a.png",
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/Mangled-Digits-Portrait.jpg"
     },
     12: {
         "id": 12,
         "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/e1059868-19a2-4ca2-90d5-ad1085679df9.jpg",
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/melodyMaker-flute1.jpeg",
     },
     13: {
         "id": 13,
         "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/David-Desaturated.jpg"
-    },
-    14: {
-        "id": 14,
-        "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/Mangled-Digits-Portrait.jpg"
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/RythmKing.jpeg",
     },
     15: {
         "id": 15,
         "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/melodyMaker-flute1.jpeg",
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_dj_male.jpeg",
     },
-    16: {
-        "id": 16,
+    17: {
+        "id": 17,
         "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/RythmKing.jpeg",
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_djs.jpeg",
     },
     18: {
         "id": 18,
         "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_dj_male.jpeg",
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_drummer_male.jpeg",
     },
-    20: {
-        "id": 20,
+    19: {
+        "id": 19,
         "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_djs.jpeg",
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_drummer_female.jpeg",
     },
     21: {
         "id": 21,
         "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_drummer_male.jpeg",
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_singer_female.jpeg",
     },
     22: {
         "id": 22,
         "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_drummer_female.jpeg",
-    },
-    24: {
-        "id": 24,
-        "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_singer_female.jpeg",
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_keys_male.jpeg",
     },
     25: {
         "id": 25,
         "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_keys_male.jpeg",
-    },
-    28: {
-        "id": 28,
-        "type": "artist",
         "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_dj_female.jpeg",
     },
-    33: {
-        "id": 33,
+    30: {
+        "id": 30,
         "type": "artist",
         "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_producer_female.jpeg",
     },
-    34: {
-        "id": 34,
+    31: {
+        "id": 31,
         "type": "artist",
         "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_producer_female2.jpeg",
     },
-    35: {
-        "id": 35,
+    32: {
+        "id": 32,
         "type": "artist",
         "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/sensei.jpeg",
     },
-    39: {
-        "id": 39,
+    36: {
+        "id": 36,
         "type": "artist",
         "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_male_bar.jpeg",
     },
-    40: {
-        "id": 40,
+    37: {
+        "id": 37,
         "type": "artist",
         "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai-selfie-3.jpeg",
     },
-    44: {
-        "id": 44,
+    41: {
+        "id": 41,
         "type": "artist",
         "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/samurai.jpeg",
-    },
-    46: {
-        "id": 46,
-        "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_singers_female.jpeg",
-    },
-    70: {
-        "id": 70,
-        "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_female.jpeg",
-    },
-    71: {
-        "id": 71,
-        "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_keys_female.jpeg",
-    },
-    72: {
-        "id": 72,
-        "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_drummer_female2.jpeg",
-    },
-    73: {
-        "id": 73,
-        "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/cellistf.jpeg",
-    },
-    74: {
-        "id": 74,
-        "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/trumpetm.jpeg",
-    },
-    75: {
-        "id": 75,
-        "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/melodyMaker-flute2.jpeg",
-    },
-    76: {
-        "id": 76,
-        "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/saxf.jpeg",
-    },
-    77: {
-        "id": 77,
-        "type": "artist",
-        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/violinm.jpeg",
     },
 }
 
@@ -217,19 +157,26 @@ urls = [
     "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/pexels-alipazani-2613260.jpg",
     "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/pexels-pixabay-413959.jpg",
     "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/pexels-wendywei-1190297.jpg",
+    "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai-6.jpg",
+    "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai-3.jpg",
+    "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_singers_female.jpeg",
+    "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_female.jpeg",
+    "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_keys_female.jpeg",
+    "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/violinm.jpeg",
+    "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/saxf.jpeg",
+    "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/melodyMaker-flute2.jpeg",
+    "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/trumpetm.jpeg",
+    "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/cellistf.jpeg",
+    "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_drummer_female2.jpeg",
+    "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/Web-Chord-Speaker.jpg",
 ]
 
 
-def images_creator():
-    images = []
-
-    for i in range(len(users)):
-        images.append({
-            "id": i+1,
+for i in range(len(artists)):
+    artist_id = artists[i]["id"]
+    if artist_id not in artist_imgs:
+        artist_imgs[artist_id] = {
+            "id": artist_id,
             "type": "artist",
             "url": choice(urls)
-        })
-    return images
-
-
-images = images_creator()
+        }

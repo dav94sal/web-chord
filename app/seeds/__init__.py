@@ -57,8 +57,9 @@ def undo():
     undo_comments()
     undo_votes()
 
-# Creates the `flask seed imgs` command
+# Creates custom dev commands
 @seed_commands.command('imgs')
 def seed_merch():
     undo_images()
     seed_images()
+
