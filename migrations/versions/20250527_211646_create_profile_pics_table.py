@@ -1,7 +1,7 @@
 """create profile_pics table
 
 Revision ID: 99f0977e3e9e
-Revises: 565c89c1f1a5
+Revises: c41dd1b50892
 Create Date: 2025-05-27 21:16:46.475967
 
 """
@@ -11,7 +11,7 @@ import sqlalchemy as sa
 
 # revision identifiers, used by Alembic.
 revision = '99f0977e3e9e'
-down_revision = '565c89c1f1a5'
+down_revision = 'c41dd1b50892'
 branch_labels = None
 depends_on = None
 

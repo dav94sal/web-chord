@@ -14,7 +14,6 @@ def seed_artists():
             youtube_url="https://www.youtube.com/",
             spotify_url="https://open.spotify.com/",
             pandora_url="https://www.pandora.com/",
-            ticket_url="https://www.ticketmaster.com/",
             user_id=artist['user_id'],
             created_at=artist['created_at'],
             updated_at=artist['updated_at'],))
