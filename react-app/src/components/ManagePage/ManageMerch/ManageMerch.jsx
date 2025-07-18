@@ -21,7 +21,7 @@ function ManageMerch({ artistId }) {
         <>
             {!isLoading && <div className="content-layout">
                 <img
-                    src='https://i.ibb.co/RjqPZyf/pexels-thibault-trillet-44912-167636.jpg'
+                    src='https://web-chord.s3.us-east-1.amazonaws.com/seed-images/pexels-thibault-trillet-44912-167636.jpg'
                     className='back-image'
                 />
                 <div className='content'>

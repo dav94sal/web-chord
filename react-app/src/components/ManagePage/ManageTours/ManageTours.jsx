@@ -11,7 +11,7 @@ function ManageTours({ isLoading }) {
     return (
         <div className="content-layout">
             <img
-                src='https://i.ibb.co/qYTNFMY/pexels-sebastian-ervi-866902-1763075.jpg'
+                src='https://web-chord.s3.us-east-1.amazonaws.com/seed-images/pexels-sebastian-ervi-866902-1763075.jpg'
                 className='back-image'
             />
             <div className='content'>

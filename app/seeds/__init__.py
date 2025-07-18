@@ -58,8 +58,9 @@ def undo():
     undo_votes()
 
 # Creates the `flask seed merch` command
-@seed_commands.command('profile_pics')
+@seed_commands.command('merchimg')
 def seed_merch():
-    undo_profile_pics()
+    undo_images()
     undo_profile_pics()
     seed_profile_pics()
+    seed_images()

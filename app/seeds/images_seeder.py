@@ -1,12 +1,11 @@
 from app.models import db, Image, environment, SCHEMA
 from sqlalchemy.sql import text
-from .data.img_data import ArtistImages
-from .data.merch_img_data import MerchImages
+from .data.artist_img_data import ArtistImages
+from .data.merch_img_data import merch_images
 
 
 def seed_images():
     artist_imgs = ArtistImages()
-    merch_images = MerchImages()
     # print("---------Image: ", user_imgs.images, "------------")
     for img in artist_imgs.images:
         db.session.add(Image(
@@ -15,7 +14,7 @@ def seed_images():
             url=img["url"])
         )
 
-    for img in merch_images.images:
+    for img in merch_images:
         db.session.add(Image(
             imageable_id=img["id"],
             imageable_type=img["type"],

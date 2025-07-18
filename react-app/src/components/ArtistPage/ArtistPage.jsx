@@ -38,9 +38,9 @@ function ArtistPage() {
             <div className="band-pic">
                 <img
                     className="band-pic pic"
-                    src="https://i.ibb.co/18WsrpZ/Pngtree-audiences-in-club-musical-8485712.png"
-                    alt="band picture"
-                    />
+                    src="https://web-chord.s3.us-east-1.amazonaws.com/seed-images/Pngtree-audiences-in-club-musical-8485712.png"
+                    alt="audiences-in-club-musical"
+                />
             </div>
             <div className="artist-buttons">
                 <SocialMediaButtons artist={artist}/>

@@ -21,6 +21,14 @@ class ArtistImages:
             "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/Mangled-Digits-Portrait.jpg",
             "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/Silhouetted-Woman-black-white.jpg",
             "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/Web-Chord-Speaker.jpg",
+            "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/pexels-alipazani-2829375.jpg",
+            "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/pexels-sunpreet-singh-dhanjal-1415777-2775417.jpg",
+            "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/pexels-bertellifotografia-573299.jpg",
+            "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/pexels-alipazani-2613260.jpg",
+            "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/pexels-pixabay-413959.jpg",
+            "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/pexels-wendywei-1190297.jpg",
+            "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/David-Desaturated.jpg",
+            
         ]
 
         self.images = self.images_creator()

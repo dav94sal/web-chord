@@ -4,72 +4,72 @@ from .user_data import users
 profile_pics = {
     1: {
         "id": 1,
-        "url": "https://i.ibb.co/QCpy2j4/5316e773-22be-4d88-90c2-802354423ca7.jpg",
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/web-chord-guitars.jpg",
         "user_id": 1,
     },
     2: {
         "id": 2,
-        "url": "https://i.ibb.co/yCgNy92/Gemini-Generated-Image-rsfaubrsfaubrsfa.png",
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/Gemini-Generated-Image-rsfaubrsfaubrsfa.png",
         "user_id": 2,
     },
     3: {
         "id": 3,
-        "url": "https://i.ibb.co/hxQH8J8n/raphael-ai-4.jpg",
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai-4.jpg",
         "user_id": 3,
     },
     4: {
         "id": 4,
-        "url": "https://i.ibb.co/b8yzNKp/raphael-ai-6.jpg",
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai-6.jpg",
         "user_id": 4,
     },
     5: {
         "id": 5,
-        "url": "https://i.ibb.co/sdD2pdBN/raphael-ai-3.jpg",
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai-3.jpg",
         "user_id": 5,
     },
     6: {
         "id": 6,
-        "url": "https://i.ibb.co/5CHXhHn/Gemini-Generated-Image-uob3bluob3bluob3.png",
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/Gemini-Generated-Image-uob3bluob3bluob3.png",
         "user_id": 6,
     },
     7: {
         "id": 7,
-        "url": "https://i.ibb.co/sVBFDBy/8b4580a5-7d42-4e1d-a68a-ef1875d48cb4.jpg",
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/8b4580a5-7d42-4e1d-a68a-ef1875d48cb4.jpg",
         "user_id": 7,
     },
     8: {
         "id": 8,
-        "url": "https://i.ibb.co/yPLxrwM/f5b9421f-8a5e-4f44-939d-33980c3e217c.jpg",
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/Web-Chord-Speaker.jpg",
         "user_id": 8,
     },
     9: {
         "id": 9,
-        "url": "https://i.ibb.co/R47HhPXb/Gemini-Generated-Image-22ih8022ih8022ih.png",
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/Gemini-Generated-Image-22ih8022ih8022ih.png",
         "user_id": 9,
     },
     10: {
         "id": 10,
-        "url": "https://i.ibb.co/B1jQ0wY/Gemini-Generated-Image-c5mve5c5mve5c5mv.png",
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/Gemini-Generated-Image-c5mve5c5mve5c5mv.png",
         "user_id": 10,
     },
     11: {
         "id": 11,
-        "url": "https://i.ibb.co/WN6HwzwW/Gemini-Generated-Image-k61adgk61adgk61a.png",
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/Gemini-Generated-Image-k61adgk61adgk61a.png",
         "user_id": 11,
     },
     12: {
         "id": 12,
-        "url": "https://i.ibb.co/TWH5cQJ/e1059868-19a2-4ca2-90d5-ad1085679df9.jpg",
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/e1059868-19a2-4ca2-90d5-ad1085679df9.jpg",
         "user_id": 12,
     },
     13: {
         "id": 13,
-        "url": "https://i.ibb.co/m81FPrZ/David-Desaturated-edited.jpg",
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/David-Desaturated-edited.jpg",
         "user_id": 13,
     },
     14: {
         "id": 14,
-        "url": "https://i.ibb.co/6HNB1b2/Mangled-Digits-Portrait.jpg",
+        "url": "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/Mangled-Digits-Portrait.jpg",
         "user_id": 14,
     },
     15: {
@@ -233,6 +233,14 @@ pool = [
     "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_bassist_male.jpeg",
     "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_singer_male.jpeg",
     "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/raphael-ai_singers_male.jpeg",
+    "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/pexels-alipazani-2829375.jpg",
+    "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/pexels-danxavier-1239288.jpg",
+    "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/pexels-muribotelho-1865131.jpg",
+    "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/pexels-alipazani-2613260.jpg",
+    "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/pexels-pixabay-413959.jpg",
+    "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/pexels-linkedin-2182970.jpg",
+    "https://web-chord.s3.us-east-1.amazonaws.com/seed-images/pexels-wendywei-1190297.jpg",
+
 ]
 
 
