@@ -1,5 +1,6 @@
 import boto3
-import botocore
+import urllib3
+# import botocore
 import os
 import uuid
 

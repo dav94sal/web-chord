@@ -59,17 +59,19 @@ export const addArtistById = (id) => async dispatch => {
 
 export const getArtistById = (id) => async dispatch => {
     const response = await fetch(`/api/artists/${id}`);
-    // console.log("Fetch response: ", await response.json())
 
     if(response.ok) {
-      const data = await response.json();
-      dispatch(addArtist(data));
+        const data = await response.json();
+        // console.log("Fetch response: ", data)
+        dispatch(addArtist(data));
+        return data;
     } else if (response.status < 500) {
         const errorMessages = await response.json();
         return {
             errors: errorMessages
         }
     } else {
+        // console.log(response)
         return {
             errors: { server: "Something went wrong. Please try again" }
         }

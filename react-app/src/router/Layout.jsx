@@ -19,7 +19,7 @@ export default function Layout() {
         <Navigation />
         <main>
           {isLoaded && <Outlet />}
-          <Footer />
+          {isLoaded && <Footer isLoaded={isLoaded} />}
         </main>
         <Modal />
       </ModalProvider>

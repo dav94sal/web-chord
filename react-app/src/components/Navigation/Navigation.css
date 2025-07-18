@@ -1,12 +1,13 @@
 .navigation {
-  background-color: rgba(0, 0, 0, 0.712);
+  background-color: rgba(0, 0, 0, 0.801);
+  border-bottom: 1px solid rgba(113, 113, 119, 0.76);
   display: flex;
   justify-content: space-between;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 90px;
+  height: 56px;
   z-index: 1;
 }
 
@@ -16,28 +17,92 @@
 }
 
 .profile-dropdown {
-  background-color: #aa401dc5;
+  background-color: #181e22;
   border-radius: 10px;
   position: absolute;
-  right: 20px;
-  top: 105px;
+  right: 10px;
+  top: 56px;
   height: auto;
-  width: 290px;
-  padding: 20px;
+  width: 220px;
+  padding: 5px 20px;
+  margin: 1px;
 }
 
 .profile-dropdown li {
   color: white;
   font-size: 20px;
   list-style-type: none;
-  margin: 7px 5px;
+  margin: 15px 5px;
 }
 
 .nav-buttons {
-  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 57px;
+}
+
+.margin-lr-10 {
+  margin: 0 6px;
+}
+
+.logo {
+  height: 33px;
 }
 
 .nav-but {
   background-color: unset;
   border: unset;
+}
+
+.searchbar-container {
+  display: flex;
+  align-items: center;
+}
+.search-border {
+  background-color: #181e22;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 600px;
+}
+
+.mag-glass {
+  color: white;
+  font-size: 19px;
+  margin-left: 20px;
+}
+
+.input-search {
+  background-color: unset;
+  font-size: 15px;
+  width: 85%;
+}
+
+.post-button {
+  background-color: unset;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  height: 40px;
+  margin: 0 3px;
+  padding: 0 15px;
+  transition-duration: 250ms;
+}
+
+.post-button p {
+  margin: 5px;
+}
+
+.icon-plus {
+  font-size: 19px;
+}
+
+.post-button:hover {
+    background-color: rgba(48, 48, 51, 0.76);
+    transition-duration: 250ms;
 }

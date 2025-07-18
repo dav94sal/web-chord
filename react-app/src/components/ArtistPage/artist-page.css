@@ -1,10 +1,20 @@
+.artist-page-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
 .band-pic {
     position: fixed;
+    height: 100vh;
     width: 100%;
     z-index: -1;
 }
 
 .artist-content {
+    display: flex;
+    flex-direction: column;
     z-index: 1;
 }
 
@@ -43,10 +53,12 @@
 .tour-container {
     display: grid;
     grid-template-rows: 100px auto;
-    position: relative;
-    /* top: 135px; */
-    height: 900px;
-    width: 100%;
+    margin-bottom: 50px;
+}
+
+.merch-container {
+    display: flex;
+    flex-direction: column;
 }
 
 .artist-headers {

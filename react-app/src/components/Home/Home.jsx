@@ -1,35 +1,63 @@
-import { useEffect } from "react";
-import { Link } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
-import { getAllArtists } from "../../redux/artist";
-import { useLoading } from "../../context/LoadingContext";
-import ArtistTile from "./ArtistTile";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { AiFillHome } from "react-icons/ai";
+import { FaWpexplorer } from "react-icons/fa6";
+// import { BsArrowUpRightCircle } from "react-icons/bs";
+import { HiChartBar } from "react-icons/hi";
+import ExploreArtists from "./pages/ExploreArtists";
+import Feed from "./pages/Feed";
+import MenuItem from "./tiles/MenuItem";
 import "./Home.css"
 
 function Home() {
-    // isLoading context necessary for navigation header
-    const { isLoading, setIsLoading } = useLoading()
-    const artistsObj = useSelector(state => state.artists)
-    const artists = Object.values(artistsObj).reverse()
-    const dispatch = useDispatch()
+    const [render, setRender] = useState(<Feed query='fltr=null' />)
+    const location = useLocation();
 
     useEffect(() => {
-        dispatch(getAllArtists())
-            .then(() => setIsLoading(false))
-    }, [dispatch, setIsLoading])
+        if (location.pathname.includes('explore')) {
+            setRender(<ExploreArtists />)
+        } else if (location.pathname.includes('popular')) {
+            setRender(<Feed query='fltr=popular' />)
+        } else if (location.pathname.includes('feed')) {
+            setRender(<Feed query='fltr=null' />)
+        }
+    }, [location.pathname])
+
+    const sidebarMenus = [
+        { icon: FaWpexplorer, primaryText: 'Explore', destination: '/explore'},
+        { icon: AiFillHome, primaryText: 'Home', destination: '/feed'},
+        { icon: HiChartBar, primaryText: 'Popular', destination: '/popular'},
+        // { icon: BsArrowUpRightCircle, primaryText: 'New', destination: '/newest-posts'},
+        // { icon: HiChartBar, primaryText: 'All', destination: '/all-posts'},
+    ]
 
     return (
         <>
-            {!isLoading && <div className="tiling-container">
-                {artists.map((artist) => (
-                    <Link to={`/artists/${artist.id}` } key={`artists${artist.id}`}>
-                        <ArtistTile
-                            artist={artist}
-                        />
-                    </Link>
-                ))}
-            </div>}
-            {/* add a footer with about section */}
+            {/* sidebar */}
+            <div className="home-sidebar">
+                <ul className="menu">
+                    {sidebarMenus.map((item, i) => {
+                        return (<MenuItem
+                            icon={item.icon}
+                            primaryText={item.primaryText}
+                            destination={item.destination}
+                            key={`${item.primaryText}${i}`}
+                        />)
+                    })}
+                </ul>
+                <div className="side-border"></div>
+            </div>
+
+
+            {/* main section */}
+            <div className="home-main-content">
+                {render}
+            </div>
+
+            {/* chat */}
+            {/* <div className="home-chat">
+                <p>Chat</p>
+            </div> */}
         </>
     )
 }

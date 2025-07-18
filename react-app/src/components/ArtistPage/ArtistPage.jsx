@@ -4,9 +4,9 @@ import { useParams } from "react-router-dom";
 import { getLatestTour } from "../../redux/tour";
 import { getArtistById } from "../../redux/artist";
 import { getArtistMerch } from "../../redux/merch";
-import MerchTile from "./MerchTile";
-import ShowTile from "./ShowTile";
-import SocialMediaButtons from "./SocialMediaButtons";
+import MerchTile from "./tiles/MerchTile";
+import ShowTile from "./tiles/ShowTile";
+import SocialMediaButtons from "./tiles/SocialMediaButtons";
 import "./artist-page.css"
 
 function ArtistPage() {
@@ -18,7 +18,6 @@ function ArtistPage() {
     const merchObj = useSelector(state => state.merch);
     const merchandise = Object.values(merchObj).reverse();
     let shows;
-
 
     if (tour?.shows) {
         shows = Object.values(tour.shows)
@@ -35,14 +34,17 @@ function ArtistPage() {
 
     return (
         <div className="artist-page-layout">
+            {!isLoading && <>
             <div className="band-pic">
                 <img
                     className="band-pic pic"
-                    src="https://i.ibb.co/18WsrpZ/Pngtree-audiences-in-club-musical-8485712.png"
-                    alt="band picture"
+                    src="https://web-chord.s3.us-east-1.amazonaws.com/seed-images/Pngtree-audiences-in-club-musical-8485712.png"
+                    alt="audiences-in-club-musical"
                 />
             </div>
-            {!isLoading &&
+            <div className="artist-buttons">
+                <SocialMediaButtons artist={artist}/>
+            </div>
             <div className="artist-content">
                 <div className="artist-buttons">
                     <SocialMediaButtons artist={artist}/>
@@ -55,14 +57,13 @@ function ArtistPage() {
                     <div className="shows-container">
                         {tour && shows?.length ? shows.map(show => (
                             <div className="show-tile" key={`show${show.id}`}>
-                                <ShowTile show={show} />
+                                <ShowTile show={show} artist={artist}/>
                             </div>
                         )) : <p>No shows available yet</p>}
                     </div>
                 </div>
-                <>
+                <div className="merch-container">
                     <h3 className="artist-headers">Merch</h3>
-                    {!isLoading &&
                     <div className="tiling-container">
                         {merchandise.length?
                             merchandise.map((merch) => (
@@ -78,10 +79,10 @@ function ArtistPage() {
                                 </a>
                             )) : <p>No merchandise yet</p>
                         }
-                    </div>}
-                </>
+                    </div>
+                </div>
             </div>
-            }
+            </>}
         </div>
     )
 }

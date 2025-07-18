@@ -1,15 +1,14 @@
 import { useState, useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { thunkLogout, thunkLogin } from "../../redux/session";
-import OpenModalMenuItem from "./OpenModalMenuItem";
-import LoginFormModal from "../LoginFormModal";
-import SignupFormModal from "../SignupFormModal";
+import { useDispatch } from "react-redux";
+import { NavLink, useNavigate } from "react-router-dom";
+// import { CgProfile } from "react-icons/cg";
+import { CiSettings } from "react-icons/ci";
+import { MdExitToApp } from "react-icons/md";
+import { thunkLogout } from "../../redux/session";
 
 function ProfileButton() {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
-  const user = useSelector((store) => store.session.user);
   const navigate = useNavigate()
   const ulRef = useRef();
 
@@ -38,23 +37,9 @@ function ProfileButton() {
     e.preventDefault();
     dispatch(thunkLogout());
     navigate('/')
+    alert('Successfully logged out')
     closeMenu();
   };
-
-  const redirect = (e) => {
-    e.preventDefault();
-    navigate('/manage-tours');
-    closeMenu();
-  }
-
-  const demoSignIn = (e) => {
-    e.preventDefault()
-    dispatch(thunkLogin({
-      email: 'demo@aa.io',
-      password: 'password'
-    }))
-    closeMenu();
-  }
 
   return (
     <>
@@ -66,39 +51,38 @@ function ProfileButton() {
       </button>
       {showMenu && (
         <ul className={"profile-dropdown"} ref={ulRef}>
-          {user ? (
-            <>
-              <li>Welcome to WebChord!</li>
-              <li>{user.username}</li>
-              <li>
-                <button
-                  onClick={redirect}
-                  className="buttons">Manage Site</button>
-                <button
-                  onClick={logout}
-                  className="buttons">Log Out</button>
-              </li>
-            </>
-          ) : (
-            <>
-              <li><h3>Welcome to Web Chord</h3></li>
-              <OpenModalMenuItem
-                itemText="Log In"
-                onItemClick={closeMenu}
-                modalComponent={<LoginFormModal />}
-                setClassName="buttons"
-              />
-              <OpenModalMenuItem
-                itemText="Sign Up"
-                onItemClick={closeMenu}
-                modalComponent={<SignupFormModal />}
-                setClassName="buttons"
-              />
-              <button
-                onClick={demoSignIn}
-                className="buttons">Demo Log In</button>
-            </>
-          )}
+          {/* <NavLink to={`/`}>
+            <li className="drop-menu-item">
+              <div className="menu-icon-container">
+                <CgProfile className="menu-icon"/>
+              </div>
+              <div className="menu-text">
+                <p>View Profile</p>
+                <p>username</p>
+              </div>
+            </li>
+          </NavLink> */}
+          <NavLink to='/manage-tours' onClick={closeMenu}>
+            <li className="drop-menu-item">
+              <div className="menu-icon-container">
+                <CiSettings className="menu-icon"/>
+              </div>
+              <div className="menu-text">
+                <p>Manage Site</p>
+              </div>
+            </li>
+          </NavLink>
+          <div className="border"></div>
+          <div onClick={logout}>
+            <li className="drop-menu-item">
+              <div className="menu-icon-container">
+                <MdExitToApp className="menu-icon"/>
+              </div>
+              <div className="menu-text">
+                <p>Log Out</p>
+              </div>
+            </li>
+          </div>
         </ul>
       )}
     </>
