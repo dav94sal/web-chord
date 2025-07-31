@@ -1,4 +1,4 @@
-from .user_data import users
+from .artist_data import artists
 
 merchandise = []
 templates = [
@@ -59,9 +59,8 @@ templates = [
 ]
 
 
-for i in range(len(users)):
+for i in range(len(artists)):
     for j in range(len(templates)):
         merch = templates[j].copy()
-        merch["artist_id"] = users[i]["id"]
+        merch["artist_id"] = artists[i]["id"]
         merchandise.append(merch)
-

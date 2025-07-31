@@ -152,8 +152,8 @@ form {
     padding: 0 10px;
 }
 
-.white-text {
-    color: white;
+.fill-color-black {
+    background-color: black;
 }
 
 .nav-link {

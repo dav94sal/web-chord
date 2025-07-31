@@ -54,7 +54,7 @@ function ArtistPage() {
                     <div className="shows-container">
                         {tour && shows?.length ? shows.map(show => (
                             <div className="show-tile" key={`show${show.id}`}>
-                                <ShowTile show={show} artist={artist}/>
+                                <ShowTile show={show} />
                             </div>
                         )) : <p>No shows available yet</p>}
                     </div>

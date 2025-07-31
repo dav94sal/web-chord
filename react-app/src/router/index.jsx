@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Layout from './Layout';
 import Home from '../components/Home';
 import ArtistPage from '../components/ArtistPage';
+import ArtistForm from '../components/ArtistForm';
 import ManagePage from '../components/ManagePage';
 import NotFound from '../components/handlers/NotFound';
 import Error from '../components/handlers/Error';
@@ -38,8 +39,17 @@ export const routes = [
         ]
       },
       {
-        path: "/artists/:artistId",
-        element: <ArtistPage />
+        path: "/artists/",
+        children: [
+          {
+            path: ":artistId",
+            element: <ArtistPage />,
+          },
+          {
+            path: "new",
+            element: <ArtistForm />,
+          },
+        ]
       },
       {
         path: "/manage-tours",

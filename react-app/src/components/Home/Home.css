@@ -4,6 +4,10 @@
     justify-content: center;
 }
 
+.white-text {
+    color: white;
+}
+
 .home-main-content {
     display: flex;
     flex-direction: column;

@@ -22,20 +22,19 @@ def username_exists(form, field):
         raise ValidationError('Username is already in use.')
 
 
-def artist_name_required(form, field):
-    artist_name = form.data
-    if not artist_name:
-        raise ValidationError("Artist name is required")
+# def artist_name_required(form, field):
+#     artist_name = form.data
+#     if not artist_name:
+#         raise ValidationError("Artist name is required")
 
 
 class SignUpForm(FlaskForm):
-    username = StringField(
-        'username', validators=[DataRequired(), username_exists])
+    username = StringField('username', validators=[DataRequired(), username_exists])
     email = StringField('Email', validators=[DataRequired(), user_exists])
     password = StringField('Password', validators=[DataRequired()])
     is_artist = BooleanField('Artist')
-    artist_name = StringField('Artist Name')
-    file = FileField('Upload Song', validators=[
+    # artist_name = StringField('Artist Name')
+    file = FileField('Upload Image', validators=[
         FileAllowed(["pdf", "png", "jpg", "jpeg", "gif"], 'Image files only!')
     ])
     submit = SubmitField('Sign Up')

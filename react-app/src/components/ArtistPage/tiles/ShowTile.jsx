@@ -1,4 +1,4 @@
-function ShowTile({ show, artist }) {
+function ShowTile({ show }) {
     const date = () => {
         const datetime = show.datetime.split(' ')
         const day = datetime[1]
@@ -27,7 +27,7 @@ function ShowTile({ show, artist }) {
                 </p>
             </div>
             <div className="tickets">
-                <a href={artist.ticket_url} rel="noreferrer" target='_blank'>
+                <a href={show.ticket_url} rel="noreferrer" target='_blank'>
                     <button className="show-button">
                         Tickets
                     </button>

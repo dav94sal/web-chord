@@ -38,8 +38,11 @@ export const getAllArtists = () => async dispatch => {
     }
 }
 
-export const addArtistById = (id) => async dispatch => {
-    const response = await fetch(`/api/artists/${id}`);
+export const addArtistById = (artist) => async dispatch => {
+    const response = await fetch(`/api/artists/new`, {
+        method: "POST",
+        body: artist
+    });
     // console.log("Fetch response: ", await response.json())
 
     if(response.ok) {

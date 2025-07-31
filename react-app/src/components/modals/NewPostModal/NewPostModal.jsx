@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux"
 import { createPost } from "../../../redux/post";
-import { useModal } from "../../../context/Modal"
+import { useModal } from "../../../context/Modal";
 
 function NewPostModal() {
     const [post, setPost] = useState('');
@@ -26,7 +26,7 @@ function NewPostModal() {
                     onChange={e => setPost(e.target.value)}
                     required
                 />
-                <button type="submit" className="buttons">Submit Post</button>
+                <button type="submit" className="buttons fill-color-black">Submit Post</button>
             </form>
         </>
     )

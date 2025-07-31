@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Navigate } from "react-router-dom";
 import { FaPlus } from "react-icons/fa6";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkLogin } from "../../redux/session";
@@ -57,6 +57,7 @@ function Navigation() {
           <OpenModalMenuItem
             itemText="Sign Up"
             modalComponent={<SignupFormModal />}
+            onModalClose={() => <Navigate to="/artists/new" />}
             setClassName="post-button"
           />
           <button
