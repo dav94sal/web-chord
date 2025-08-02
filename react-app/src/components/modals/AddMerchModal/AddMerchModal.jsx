@@ -99,7 +99,7 @@ function AddMerchModal() {
 
                 <button
                     type="submit"
-                    className="buttons"
+                    className="buttons fill-color-black"
                     disabled={isLoading}>Create Merch</button>
             </form>
         </>

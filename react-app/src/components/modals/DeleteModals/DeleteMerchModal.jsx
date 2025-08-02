@@ -28,11 +28,11 @@ function DeleteMerchModal({ merchId  }) {
             <p className="delete-prompt">
                 Are you sure you want to remove this merch item?</p>
             <button
-                className="buttons"
+                className="buttons fill-color-black"
                 onClick={handleClick}
             >Yes</button>
             <button
-                className="buttons"
+                className="buttons fill-color-black"
                 onClick={() => closeModal()}
             >No</button>
         </>

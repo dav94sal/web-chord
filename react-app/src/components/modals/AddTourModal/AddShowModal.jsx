@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../../context/Modal";
 import { newShow } from "../../../redux/tour";
@@ -11,9 +11,14 @@ function AddShowModal({ tourId }) {
     const [openers, setOpeners] = useState('')
     const [date, setDate] = useState('')
     const [time, setTime] = useState('')
+    const [tickets, setTickets] = useState('')
     const [errors, setErrors] = useState({})
     const { closeModal } = useModal();
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        console.log("Tickets: ", tickets)
+    }, [tickets])
 
     const handleSubmit = async e => {
         e.preventDefault()
@@ -28,6 +33,7 @@ function AddShowModal({ tourId }) {
             state,
             venue,
             openers,
+            tickets,
             tour_id: tourId
         }
         const response = await dispatch(newShow(show))
@@ -108,13 +114,23 @@ function AddShowModal({ tourId }) {
                 {errors.time &&
                     <p className="errors">{errors.time}</p>}
 
+                <input
+                    type="text"
+                    value={tickets}
+                    placeholder={"Ticket url..."}
+                    onChange={(e) => setTickets(e.target.value)}
+                    required
+                />
+                {errors.tickets &&
+                    <p className="errors">{errors.tickets}</p>}
+
                 <button
                     type="submit"
-                    className="buttons"
+                    className="buttons fill-color-black"
                 >Submit</button>
                 <button
                     type="click"
-                    className="buttons"
+                    className="buttons fill-color-black"
                     onClick={() => closeModal()}
                 >Cancel</button>
             </form>

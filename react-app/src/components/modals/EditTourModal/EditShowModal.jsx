@@ -9,6 +9,7 @@ function EditShowModal({ show }) {
     const [city, setCity] = useState(show.city)
     const [state, setState] = useState(show.state)
     const [openers, setOpeners] = useState(show.openers)
+    const [tickets, setTickets] = useState(show.ticket_url)
     const [date, setDate] = useState(constructDate(show))
     const [time, setTime] = useState(constructTime(show))
     const [errors, setErrors] = useState({})
@@ -30,9 +31,11 @@ function EditShowModal({ show }) {
             state,
             venue,
             openers,
+            tickets,
             tour_id: show.tour_id
         }
         const response = await dispatch(editShow(newShow))
+        // console.log("Edit show response: ", response)
 
         if (response.errors) setErrors(response.errors)
         else closeModal()
@@ -72,12 +75,24 @@ function EditShowModal({ show }) {
                 </select>
                 {errors.state &&
                     <p className="errors">{errors.state}</p>}
+
                 <input
                     type="text"
                     value={openers}
                     placeholder="Openers"
                     onChange={(e) => setOpeners(e.target.value)}
                 />
+
+                <input
+                    type="text"
+                    value={tickets}
+                    placeholder={"Ticket url..."}
+                    onChange={(e) => setTickets(e.target.value)}
+                    required
+                />
+                {errors.tickets &&
+                    <p className="errors">{errors.tickets}</p>}
+
                 <input
                     type="date"
                     value={date}
@@ -88,10 +103,10 @@ function EditShowModal({ show }) {
                     value={time}
                     onChange={(e) => setTime(e.target.value)}
                 />
-                <button type="submit" className="buttons">Submit</button>
+                <button type="submit" className="buttons fill-color-black">Submit</button>
                 <button
                     type="click"
-                    className="buttons"
+                    className="buttons fill-color-black"
                     onClick={() => closeModal()}
                 >Cancel</button>
             </form>

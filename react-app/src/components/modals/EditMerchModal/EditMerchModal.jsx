@@ -57,10 +57,10 @@ function EditMerchModal({ merch }) {
                     required
                 />
                 {errors.url && <p>{errors.url}</p>}
-                <button type="submit" className="buttons">Save</button>
+                <button type="submit" className="buttons fill-color-black">Save</button>
                 <button
                     type="click"
-                    className="buttons"
+                    className="buttons fill-color-black"
                     onClick={() => closeModal()}
                 >Cancel</button>
             </form>

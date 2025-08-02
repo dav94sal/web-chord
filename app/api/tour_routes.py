@@ -50,6 +50,7 @@ def addShow(tour_id):
                     state = data['state'],
                     venue = data['venue'],
                     openers = data['openers'],
+                    ticket_url = data['tickets'],
                     tour_id = tour_id,
                     artist_id = current_user.id,)
 
@@ -100,6 +101,7 @@ def edit_show(tour_id, show_id):
         show.state = data['state']
         show.venue = data['venue']
         show.openers = data['openers']
+        show.ticket_url = data['tickets']
         db.session.commit()
         return show.to_dict()
 

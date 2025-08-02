@@ -26,7 +26,7 @@ function AddTourModal() {
                     onChange={e => setName(e.target.value)}
                     required
                 />
-                <button type="submit" className="buttons">Create Tour</button>
+                <button type="submit" className="buttons fill-color-black">Create Tour</button>
             </form>
         </>
     )

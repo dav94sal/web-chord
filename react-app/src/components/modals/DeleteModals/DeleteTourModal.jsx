@@ -28,11 +28,11 @@ function DeleteTourModal({ tourId  }) {
             <p className="delete-prompt">
                 Are you sure you want to remove this tour and all of its shows?</p>
             <button
-                className="buttons"
+                className="buttons fill-color-black"
                 onClick={handleClick}
             >Yes</button>
             <button
-                className="buttons"
+                className="buttons fill-color-black"
                 onClick={() => closeModal()}
             >No</button>
         </>

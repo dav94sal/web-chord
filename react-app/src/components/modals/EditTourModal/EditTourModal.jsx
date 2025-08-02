@@ -26,10 +26,10 @@ function EditTourModal({ tour }) {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
-                <button type="submit" className="buttons">Submit</button>
+                <button type="submit" className="buttons fill-color-black">Submit</button>
                 <button
                     type="click"
-                    className="buttons"
+                    className="buttons fill-color-black"
                     onClick={() => closeModal()}
                 >Cancel</button>
             </form>
