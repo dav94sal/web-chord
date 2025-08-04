@@ -33,10 +33,9 @@ function Footer({ isLoaded }) {
                     <FaGithub className="footer-icon"/>
                 </a>
                 <a
-                    href="https://docs.google.com/document/d/1VITxa2On_M1Keqnx5sKTq8aCFyVx_EugJnJYi_Sad9w/edit?usp=sharing"
+                    href="/David Salas Resume.pdf"
+                    download="David_Salas_Resume"
                     className="center-content-flex"
-                    target="_blank"
-                    rel="noreferrer"
                 >
                     <p>&lt; - Resume - &gt;</p>
                 </a>

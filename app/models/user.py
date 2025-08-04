@@ -32,11 +32,10 @@ class User(db.Model, UserMixin):
     def check_password(self, password):
         return check_password_hash(self.password, password)
 
-    def to_dict(self):
+    def safe_to_dict(self):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email,
-            'profile_pic': self.profile_pic.to_dict() if self.profile_pic else None,
-            'is_artist': self.is_artist,
+            'profile_pic_url': self.profile_pic.to_dict()["url"] if self.profile_pic else None,
+            'artist_id': self.artist[0].to_dict()["id"] if self.artist else None,
         }

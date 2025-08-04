@@ -52,7 +52,7 @@ function Post({post}) {
         <div className="post-tile">
             <div className="post-head">
                 <div className="centered">
-                    <img src={post.author.profile_pic?.url} alt="profile picture" className="profile-pic" />
+                    <img src={post.author.profile_pic_url} alt="profile picture" className="profile-pic" />
                     <p>{post.author.username}</p>
                     <BsDot className="white-text"/>
                     <p className="grey-text">

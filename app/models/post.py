@@ -48,6 +48,6 @@ class Post(db.Model):
             "user_id": self.user_id,
             "created_at": self.created_at,
             "updated_at": self.updated_at,
-            "author": self.author.to_dict() if self.author else None,
+            "author": self.author.safe_to_dict() if self.author else None,
             # "comments": {comment.id:comment.to_dict() for comment in self.comments},
         }

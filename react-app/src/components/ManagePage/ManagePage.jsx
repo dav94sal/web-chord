@@ -12,7 +12,7 @@ import "./manage-page.css";
 
 function ManagePage() {
     const [isLoading, setIsLoading] = useState(true);
-    const artistId = useSelector(state => state.session.user.id);
+    const artistId = useSelector(state => state.session.user.artist_id);
     const location = useLocation();
     const dispatch = useDispatch();
 
