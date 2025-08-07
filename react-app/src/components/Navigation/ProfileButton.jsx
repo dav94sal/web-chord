@@ -1,12 +1,18 @@
 import { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, Navigate } from "react-router-dom";
+// import { FaPlus } from "react-icons/fa6";
 // import { CgProfile } from "react-icons/cg";
 import { CiSettings } from "react-icons/ci";
 import { MdExitToApp } from "react-icons/md";
+import OpenModalMenuItem from "./OpenModalMenuItem";
+import LoginFormModal from "../modals/LoginFormModal";
+import SignupFormModal from "../modals/SignupFormModal";
+// import NewPostModal from "../modals/NewPostModal/NewPostModal";
+import { thunkLogin } from "../../redux/session";
 import { thunkLogout } from "../../redux/session";
 
-function ProfileButton() {
+function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const navigate = useNavigate()
@@ -41,6 +47,16 @@ function ProfileButton() {
     closeMenu();
   };
 
+    const demoSignIn = (e) => {
+    e.preventDefault()
+    dispatch(thunkLogin({
+      email: 'demo@aa.io',
+      password: 'password'
+    }))
+    alert("You are logged in as Demo!")
+    closeMenu();
+  }
+
   return (
     <>
       <button onClick={toggleMenu} className="nav-but">
@@ -49,7 +65,7 @@ function ProfileButton() {
           className="nav-buttons"
         />
       </button>
-      {showMenu && (
+      {showMenu && (user ?
         <ul className={"profile-dropdown"} ref={ulRef}>
           {/* <NavLink to={`/`}>
             <li className="drop-menu-item">
@@ -72,7 +88,9 @@ function ProfileButton() {
               </div>
             </li>
           </NavLink>
+
           <div className="border"></div>
+
           <div onClick={logout}>
             <li className="drop-menu-item">
               <div className="menu-icon-container">
@@ -83,6 +101,22 @@ function ProfileButton() {
               </div>
             </li>
           </div>
+        </ul>
+        : <ul className={"profile-dropdown"} ref={ulRef}>
+            <OpenModalMenuItem
+              itemText="Log In"
+              modalComponent={<LoginFormModal />}
+              setClassName="post-button"
+            />
+            <OpenModalMenuItem
+              itemText="Sign Up"
+              modalComponent={<SignupFormModal />}
+              onModalClose={() => <Navigate to="/artists/new" />}
+              setClassName="post-button"
+            />
+            <button
+              onClick={demoSignIn}
+              className="post-button">Demo Log In</button>
         </ul>
       )}
     </>

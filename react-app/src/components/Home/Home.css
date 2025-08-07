@@ -18,6 +18,7 @@
 .tiling-container {
     display: grid;
     padding-top: 20px;
+    width: fit-content;
 }
 
 .artist-tile-container {
