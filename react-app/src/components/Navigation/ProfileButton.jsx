@@ -66,7 +66,7 @@ function ProfileButton({ user }) {
         />
       </button>
       {showMenu && (user ?
-        <ul className={"profile-dropdown"} ref={ulRef}>
+        <ul className={"profile-dropdown drop-position-right"} ref={ulRef}>
           {/* <NavLink to={`/`}>
             <li className="drop-menu-item">
               <div className="menu-icon-container">

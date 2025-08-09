@@ -20,12 +20,19 @@
   background-color: #181e22;
   border-radius: 10px;
   position: absolute;
-  right: 10px;
   top: 56px;
   height: auto;
   width: 220px;
   padding: 5px 20px;
   margin: 1px;
+}
+
+.drop-position-right {
+  right: 10px;
+}
+
+.drop-position-left {
+  left: 10px;
 }
 
 .profile-dropdown li {

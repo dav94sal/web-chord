@@ -7,7 +7,7 @@ import { getArtistById } from "../../redux/artist";
 import { getAllTours } from "../../redux/tour";
 import ManageTours from "./ManageTours";
 import ManageMerch from "./ManageMerch";
-import MenuItem from "../Home/tiles/MenuItem";
+import MenuItem from "../Menu/tiles/MenuItem";
 import "./manage-page.css";
 
 function ManagePage() {
