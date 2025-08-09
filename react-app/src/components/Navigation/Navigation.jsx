@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { FaPlus } from "react-icons/fa6";
 import OpenModalMenuItem from "./OpenModalMenuItem";
@@ -12,13 +12,19 @@ import "./Navigation.css";
 
 function Navigation() {
   const [showMenu, setShowMenu] = useState(false);
+  const [menuType, setMenuType] = useState("home");
   const user = useSelector((store) => store.session.user);
   const { isMobile } = useWindowDimensions();
   const ulRef = useRef();
+  const location = useLocation();
 
   useEffect(() => {
-    console.log("showMenu state changed:", showMenu);
-  }, [showMenu]);
+    if (location.pathname.includes('manage')) {
+        setMenuType("manageArtists");
+    } else {
+        setMenuType("home");
+    }
+  }, [location.pathname])
 
   useEffect(() => {
     if (!showMenu) return;
@@ -52,7 +58,7 @@ function Navigation() {
         </div>
         {showMenu &&
           <div ref={ulRef} onClick={closeMenu} >
-            <Menu type="home" />
+            <Menu type={menuType} />
           </div>}
       </>
       : <NavLink to="/" >

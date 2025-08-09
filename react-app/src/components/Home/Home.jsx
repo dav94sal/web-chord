@@ -8,8 +8,8 @@ import "./Home.css";
 
 function Home() {
     const [render, setRender] = useState(<Feed query='fltr=null' />)
-    const location = useLocation();
     const { isMobile } = useWindowDimensions();
+    const location = useLocation();
 
     useEffect(() => {
         if (location.pathname.includes('explore')) {

@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { FaShop } from "react-icons/fa6";
-import { FaBus } from "react-icons/fa";
 import { getArtistById } from "../../redux/artist";
 import { getAllTours } from "../../redux/tour";
 import ManageTours from "./ManageTours";
 import ManageMerch from "./ManageMerch";
-import MenuItem from "../Menu/tiles/MenuItem";
+import Menu from "../Menu/Menu";
+import useWindowDimensions from "../../context/useWindowDimensions";
 import "./manage-page.css";
 
 function ManagePage() {
     const [isLoading, setIsLoading] = useState(true);
+    const { isMobile } = useWindowDimensions()
     const artistId = useSelector(state => state.session.user.artist_id);
     const location = useLocation();
     const dispatch = useDispatch();
@@ -35,27 +35,13 @@ function ManagePage() {
         border = "background-blue"
     }
 
-    const sidebarMenus = [
-        { icon: FaBus, primaryText: 'Tours', destination: '/manage-tours'},
-        { icon: FaShop, primaryText: 'Merch', destination: '/manage-merch'},
-        // { icon: FaWpexplorer, primaryText: 'Explore', destination: '/explore'},
-        // { icon: HiChartBar, primaryText: 'All', destination: '/all-posts'},
-    ]
-
     return (
         <div className="manage-layout">
-            <ul className='menu'>
-
-                {sidebarMenus.map((item, i) => {
-                    return (<MenuItem
-                        icon={item.icon}
-                        primaryText={item.primaryText}
-                        destination={item.destination}
-                        key={`${item.primaryText}${i}`}
-                    />)
-                })}
-            </ul>
-            <div className={`side-border ${border}`}></div>
+            {isMobile ? null :
+                <div className="sidebar-menu">
+                    <Menu type="manageArtists" border={border}/>
+                </div>
+            }
             {!isLoading && render}
         </div>
     )
