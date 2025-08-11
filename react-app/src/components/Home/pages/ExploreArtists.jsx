@@ -41,7 +41,8 @@ function ExploreArtists() {
                 {artists.map((artist) => (
                     <Link
                         to={`/artists/${artist.id}`}
-                        key={`artists${artist.id}`}>
+                        key={`artists${artist.id}`}
+                        className="centered">
                         <ArtistTile
                             artist={artist}
                         />

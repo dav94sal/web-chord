@@ -2,8 +2,8 @@ import "../Home.css"
 
 function ArtistTile({ artist }) {
     return (
-        <div className="artist-tile-container">
-            <div className="artist-tile">
+        <div className="artist-tile-container centered">
+            <div className="artist-tile centered">
                 <img
                     src={artist.imgUrl}
                     className="artist-img"
