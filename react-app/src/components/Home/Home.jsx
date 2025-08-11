@@ -8,18 +8,22 @@ import "./Home.css";
 
 function Home() {
     const [render, setRender] = useState(<Feed query='fltr=null' />)
+    const [homeWidth, setHomeWidth] = useState("width-65");
     const { isMobile } = useWindowDimensions();
     const location = useLocation();
 
     useEffect(() => {
         if (location.pathname.includes('explore')) {
             setRender(<ExploreArtists />)
+            setHomeWidth("width-65");
         } else if (location.pathname.includes('popular')) {
             setRender(<Feed query='fltr=popular' />)
+            setHomeWidth(isMobile ? "width-95" : "width-65");
         } else if (location.pathname.includes('feed')) {
             setRender(<Feed query='fltr=null' />)
+            setHomeWidth(isMobile ? "width-95" : "width-65");
         }
-    }, [location.pathname])
+    }, [location.pathname, isMobile])
 
     return (
         <>
@@ -34,7 +38,7 @@ function Home() {
 
 
             {/* main section */}
-            <div className="home-main-content">
+            <div className={`home-main-content ${homeWidth}`}>
                 {render}
             </div>
 

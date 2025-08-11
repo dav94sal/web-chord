@@ -8,11 +8,18 @@
     color: white;
 }
 
+.width-65 {
+    width: 65%;
+}
+
+.width-95 {
+    width: 95%;
+}
+
 .home-main-content {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    width: 65%;
 }
 
 .tiling-container {
@@ -28,6 +35,8 @@
     margin: 20px 0;
     box-sizing: border-box;
     transition-duration: 250ms;
+    height: 337px;
+    width: 100%;
 }
 
 .artist-tile-container:hover {
@@ -38,8 +47,8 @@
 
 .artist-tile {
     border-radius: 10px;
-    height: 300px;
-    width: 250px;
+    max-height: 300px;
+    max-width: 250px;
     margin: 0 auto;
 }
 
@@ -52,8 +61,8 @@
 .artist-img {
     border-radius: 10px;
     object-fit: cover;
-    max-height: 300px;
-    max-width: 250px;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 .home-sidebar, .home-chat {
@@ -79,16 +88,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+}
+
+.tile-container {
+    height: 100%;
+    width: 100%;
 }
 
 .post-tile, .border {
-    width: 600px;
+    width: 100%;
 }
 
 .post-tile {
     border-radius: 15px;
     box-sizing: border-box;
-    padding: 8px 19px;
+    padding: 8px 10px;
     transition-duration: 250ms;
 }
 
@@ -107,7 +122,7 @@
 
 .post-head p {
     margin: unset;
-    font-size: small;
+    font-size: 12px;
 }
 
 .post-dropdown-menu {
@@ -170,6 +185,12 @@
     align-items: center;
     height: 400px;
     margin: 20px;
+}
+
+@media (max-width: 425px) {
+    .artist-tile-container {
+        height: unset;
+    }
 }
 
 @media (max-width: 767px) {

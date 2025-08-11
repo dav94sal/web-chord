@@ -61,7 +61,7 @@ function Feed({ query }) {
             {!isLoading && <div className="posts-container" >
                 {postArr.map(post => {
                     return (
-                        <div key={`post${post.id}`}>
+                        <div key={`post${post.id}`} className="tile-container">
                             <div className="border"></div>
                             <Post post={post}  />
                         </div>
