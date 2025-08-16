@@ -1,19 +1,21 @@
 import { useSelector } from 'react-redux';
 import { PiPlusCircleFill } from "react-icons/pi";
+import useWindowDimensions from "../../../context/useWindowDimensions";
 import TourTile from './TourTile';
 import OpenModalButton from '../../modals/OpenModalButton';
 import AddTourModal from '../../modals/AddTourModal/AddTourModal';
 
 function ManageTours({ isLoading }) {
     let tours = useSelector(state => state.tours)
+    let { isMobile } = useWindowDimensions()
     tours = Object.values(tours).reverse()
 
     return (
         <div className="content-layout">
-            <img
+            {!isMobile && <img
                 src='https://web-chord.s3.us-east-1.amazonaws.com/seed-images/pexels-sebastian-ervi-866902-1763075.jpg'
                 className='back-image'
-            />
+            />}
             <div className='content'>
 
                 <OpenModalButton

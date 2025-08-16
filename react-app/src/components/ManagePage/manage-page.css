@@ -26,41 +26,45 @@
 .content-layout {
     display: flex;
     flex-direction: column;
-    grid-column-start: 2;
-    width: 1000px;
     margin: 30px;
-    /* overflow: auto; */
+    /* height: 80%; */
+    /* width: 80%; */
+    align-items: center;
 }
 
 .back-image {
     border-radius: 10px;
     box-shadow: 0 0 20px 10px;
     position: fixed;
-    width: 1000px;
+    width: 70%;
 }
 
 .content {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    position: absolute;
-    padding-bottom: 110px;
+    padding: 10px;
+    width: 100%;
+    z-index: 2;
 }
 
 .tour-tile {
     background-color: rgba(103, 99, 96, 0.764);
     border-radius: 10px;
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 5px;
+    margin: 5px 0;
     padding: 0 20px;
-    height: 60px;
-    width: 950px;
+    min-height: 60px;
+    width: 100%;
 }
 
 .tour-show {
     background-color: rgba(103, 99, 96, 0.764);
     border-radius: 10px;
+    box-sizing: border-box;
     display: grid;
     grid-template-columns: 35% 25% 20% 10% 10%;
     position: relative;
@@ -68,9 +72,9 @@
     /* align-items: center; */
     margin: 5px;
     margin-left: 55px;
-    padding: 0 20px;
-    height: 40px;
-    width: 900px;
+    padding: 0 15px;
+    height: fit-content;
+    width: 92%;
 }
 
 .tour-show p,
@@ -136,7 +140,49 @@
     height: fit-content;
 }
 
-@media (min-width: 2300px) {
+@media (max-width: 768px) {
+    .manage-layout {
+        display: flex;
+    }
+
+    .content-layout {
+        margin: 0;
+        width: 100%;
+    }
+
+    .tour-show {
+        display: flex;
+        flex-direction: column;
+        margin: 6px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* .tour-show {
+        height: fit-content;
+    } */
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+    .content-layout {
+        width: 1000px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .content-layout {
+        width: 1400px;
+        box-sizing: border-box;
+        padding: 0 10px;
+        margin: 60px;
+    }
+
+    .back-image {
+        width: 65%;
+    }
+}
+
+/* @media (min-width: 2300px) {
     .manage-layout {
         grid-template-columns: 30% 70%;
     }
@@ -154,7 +200,7 @@
     }
 }
 
-@media (max-width: 1380px) {
+@media (max-width: 1360px) {
     .manage-layout {
         grid-template-columns: 30% 70%;
     }
@@ -220,4 +266,4 @@
     .tour-tile {
         width: 85%;
     }
-}
+} */

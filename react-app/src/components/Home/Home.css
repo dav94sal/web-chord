@@ -168,7 +168,6 @@
     position: fixed;
     top: 56px;
     bottom: 0;
-    left: 262px;
 }
 
 .darkgrey-background {
@@ -216,6 +215,9 @@
     .home-sidebar, .home-chat {
         width: 150px;
     }
+    .side-border {
+        left: 150px;
+    }
 }
 
 @media (min-width: 1440px) and (max-width: 1919px) {
@@ -224,6 +226,9 @@
     }
     .home-sidebar, .home-chat {
         width: 200px;
+    }
+    .side-border {
+        left: 200px;
     }
 }
 
@@ -235,6 +240,10 @@
     .home-sidebar, .home-chat {
         width: 250px;
     }
+
+    .side-border {
+        left: 250px;
+    }
 }
 
 @media (min-width: 2080px) {
@@ -244,5 +253,8 @@
 
     .home-sidebar, .home-chat {
         width: 300px;
+    }
+    .side-border {
+        left: 300px;
     }
 }

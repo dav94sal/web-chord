@@ -3,8 +3,10 @@ import { GiTrashCan } from "react-icons/gi";
 import OpenModalButton from "../../modals/OpenModalButton";
 import EditShowModal from "../../modals/EditTourModal/EditShowModal";
 import DeleteShowModal from "../../modals/DeleteModals/DeleteShowModal";
+import useWindowDimensions from "../../../context/useWindowDimensions";
 
 function ShowTile({ show }) {
+    let isMobile = useWindowDimensions()
     const showDate = new Date(show.datetime).toUTCString().split(' ');
     showDate.shift()
     let [month, date, year, time] = showDate
@@ -25,7 +27,7 @@ function ShowTile({ show }) {
                 : `${hours}${minutes ? `:${minutes}` : ''}am`}
             </p>
 
-            <div>
+            <div className={isMobile ? "centered" : ""}>
                 <OpenModalButton
                     modalComponent={<EditShowModal show={show} />}
                     buttonText={<MdOutlineEdit />}
