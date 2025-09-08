@@ -14,13 +14,12 @@ class Post(db.Model):
     created_at = db.Column(db.DateTime, default=db.func.now(), nullable=False)
     updated_at = db.Column(db.DateTime, default=db.func.now(), onupdate=db.func.now(), nullable=False)
 
-    comments = db.relationship("Comment", backref='post', lazy=True, cascade="all, delete-orphan")
-    # votes = db.relationship("Vote", backref='post', lazy=True, cascade="all, delete-orphan")
-    votes = db.relationship(
-        "Vote",
-        primaryjoin="and_(Vote.votable_type=='post', foreign(Vote.votable_id)==Post.id)",
-        lazy="dynamic",
-    )
+    # comments = db.relationship("Comment", backref='post', lazy=True, cascade="all, delete-orphan")
+    # votes = db.relationship(
+    #     "Vote",
+    #     primaryjoin="and_(Vote.votable_type=='post', foreign(Vote.votable_id)==Post.id)",
+    #     lazy="dynamic",
+    # )
 
     def get_vote_count(self):
         # print("self.votes: ", list(self.votes))
