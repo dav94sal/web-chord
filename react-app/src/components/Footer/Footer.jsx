@@ -1,12 +1,14 @@
+import { useLocation } from "react-router-dom";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { FaRegCopyright } from "react-icons/fa6";
 import "./footer.css"
 
 function Footer({ isLoaded }) {
+    const location = useLocation();
 
     return (
-        <div className={`footer-container `}>
+        <div className={`footer-container ${location.pathname.includes("manage") ? "fixed-position":""}`}>
             {isLoaded && <><div className="contact-container center-content-flex">
                 <a
                     href="https://dav94sal.github.io/"
