@@ -4,11 +4,12 @@ import { FaGithub } from "react-icons/fa";
 import { FaRegCopyright } from "react-icons/fa6";
 import "./footer.css"
 
-function Footer() {
+function Footer({ isLoaded }) {
     const location = useLocation();
+
     return (
-        <div className={`footer-container ${location.pathname.includes("manage") ? 'manage-footer-container' : ''}`}>
-            <div className="contact-container center-content-flex">
+        <div className={`footer-container ${location.pathname.includes("manage") ? "fixed-position":""}`}>
+            {isLoaded && <><div className="contact-container center-content-flex">
                 <a
                     href="https://dav94sal.github.io/"
                     className="center-content-flex"
@@ -34,10 +35,9 @@ function Footer() {
                     <FaGithub className="footer-icon"/>
                 </a>
                 <a
-                    href="https://docs.google.com/document/d/1VITxa2On_M1Keqnx5sKTq8aCFyVx_EugJnJYi_Sad9w/edit?usp=sharing"
+                    href="/David Salas Resume.pdf"
+                    download="David_Salas_Resume"
                     className="center-content-flex"
-                    target="_blank"
-                    rel="noreferrer"
                 >
                     <p>&lt; - Resume - &gt;</p>
                 </a>
@@ -45,7 +45,7 @@ function Footer() {
             <div className="copyright-container center-content-flex">
                 <FaRegCopyright className="copyright-icon"/>
                 <p>David Salas. All rights Reserved</p>
-            </div>
+            </div></>}
         </div>
     )
 }

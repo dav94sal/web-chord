@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from app.models import User, Image, db
+from app.models import User, ProfilePic, db
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
@@ -14,7 +14,7 @@ def authenticate():
     Authenticates a user.
     """
     if current_user.is_authenticated:
-        return current_user.to_dict()
+        return current_user.safe_to_dict()
     return {'errors': {'message': 'Unauthorized'}}, 401
 
 
@@ -31,7 +31,7 @@ def login():
         # Add the user to the session, we are logged in!
         user = User.query.filter(User.email == form.data['email']).first()
         login_user(user)
-        return user.to_dict()
+        return user.safe_to_dict()
     return form.errors, 401
 
 
@@ -54,50 +54,38 @@ def sign_up():
     image = None
 
     if form.validate_on_submit():
-        # print(form.file.data)
         if form.file.data:
             file = form.file.data
             #does the file exist and is it allowed?
             if not allowed_file(file.filename):
-                # print("Invalid file type")
                 return {"errors": "Invalid file type"}, 400
-
-            # title = data.get("title")
-            # genre = data.get("genre")
 
             file.filename = get_unique_filename(file.filename)
             upload_response = upload_file_to_s3(file)
 
             # Handle errors during upload
             if "errors" in upload_response:
-                # print(upload_response.errors)
                 return jsonify(upload_response), 400
 
-            image = Image(
-                imageable_type = "artist",
-                # imageable_id = current_user.id,
+            image = ProfilePic(
                 url = upload_response["url"],
             )
             db.session.add(image)
-
-        # print(form.data["is_artist"])
 
         user = User(
             username=form.data['username'],
             email=form.data['email'],
             password=form.data['password'],
             is_artist=form.data["is_artist"],
-            artist_name=form.data["artist_name"],
         )
 
         if image:
-            user.img.append(image)
+            user.profile_pic = image
 
         db.session.add(user)
         db.session.commit()
         login_user(user)
-        return user.to_dict()
-    # print(form.errors)
+        return user.safe_to_dict()
     return form.errors, 401
 
 

@@ -1,63 +1,91 @@
-import { useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { NavLink, useLocation, useParams } from "react-router-dom";
+import { FaPlus } from "react-icons/fa6";
+import OpenModalMenuItem from "./OpenModalMenuItem";
+import NewPostModal from "../modals/NewPostModal/NewPostModal";
+import useWindowDimensions from "../../context/useWindowDimensions";
 import ProfileButton from "./ProfileButton";
-import { useLoading } from "../../context/LoadingContext";
+import Menu from "../Menu/Menu";
+// import SearchBar from "./SearchBar";
 import "./Navigation.css";
 
-function Header() {
-  const { isLoading, setIsLoading } = useLoading()
-  const { artistId } = useParams()
-  const artists = useSelector(state => state.artists)
-  const artist = artistId ? artists[artistId] : null
-  const location = useLocation()
-  const locations = {
-    "manage-tours": "Manage Tours",
-    "manage-merch": "Manage Merch",
-    "artists": artist?.artistName || null,
-  }
+function Navigation() {
+  const [showMenu, setShowMenu] = useState(false);
+  const [menuType, setMenuType] = useState("home");
+  const user = useSelector((store) => store.session.user);
+  const { isMobile } = useWindowDimensions();
+  const ulRef = useRef();
+  const location = useLocation();
 
   useEffect(() => {
-    if (artist) {
-      setIsLoading(false)
+    if (location.pathname.includes('manage')) {
+        setMenuType("manageArtists");
+    } else {
+        setMenuType("home");
     }
-  }, [setIsLoading, artist])
+  }, [location.pathname])
 
-  let header;
+  useEffect(() => {
+    if (!showMenu) return;
 
-  for (let path in locations) {
-    if (location.pathname.includes(path)) {
-      header = locations[path]
-      break
-    }
-  }
+    const closeMenu = (e) => {
+      if (ulRef.current && !ulRef.current.contains(e.target)) {
+        setShowMenu(false);
+      }
+    };
 
-  if (!header) header = "Web Chord";
+    document.addEventListener("click", closeMenu);
 
-  return (
-    <>
-      {!isLoading && <h1>{ header }</h1>}
-    </>
-  )
-}
+    return () => document.removeEventListener("click", closeMenu);
+  }, [showMenu]);
 
-function Navigation() {
+    const toggleMenu = (e) => {
+      e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu
+      setShowMenu(!showMenu);
+    };
+
+  const closeMenu = () => setShowMenu(false);
+
   return (
     <nav className="navigation">
-      <div className="nav-buttons">
-        <NavLink to="/">
+      {isMobile ? <>
+        <div onClick={toggleMenu} className="nav-buttons margin-lr-10">
           <img
             src="https://i.ibb.co/v33L2FJ/Design-3-1.png"
             className="nav-buttons"
           />
-        </NavLink>
-      </div>
+        </div>
+        {showMenu &&
+          <div ref={ulRef} onClick={closeMenu} >
+            <Menu type={menuType} />
+          </div>}
+      </>
+      : <NavLink to="/" >
+        <div className="nav-buttons margin-lr-10">
+          <img
+            src="https://i.ibb.co/v33L2FJ/Design-3-1.png"
+            className="nav-buttons"
+          />
+          {!isMobile && <img
+            src="/web-chord-retro-logo1-cropped.png"
+            className="logo"
+          />}
+        </div>
+      </NavLink>}
 
-      <div className="header">
-        <Header />
-      </div>
+      {/* <SearchBar /> */}
 
-      <ProfileButton />
+      <div className="nav-buttons margin-lr-10">
+        {user && <OpenModalMenuItem
+          itemText={isMobile ? `` : `Create Post`}
+          modalComponent={<NewPostModal />}
+          setClassName="post-button"
+          textIcon={<FaPlus className="icon-plus" />}
+        />}
+
+        <ProfileButton user={user} />
+      </div>
     </nav>
   );
 }

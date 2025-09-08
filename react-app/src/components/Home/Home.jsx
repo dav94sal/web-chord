@@ -1,35 +1,51 @@
-import { useEffect } from "react";
-import { Link } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
-import { getAllArtists } from "../../redux/artist";
-import { useLoading } from "../../context/LoadingContext";
-import ArtistTile from "./ArtistTile";
-import "./Home.css"
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import ExploreArtists from "./pages/ExploreArtists";
+import Feed from "./pages/Feed";
+import Menu from "../Menu/Menu";
+import useWindowDimensions from "../../context/useWindowDimensions";
+import "./Home.css";
 
 function Home() {
-    // isLoading context necessary for navigation header
-    const { isLoading, setIsLoading } = useLoading()
-    const artistsObj = useSelector(state => state.artists)
-    const artists = Object.values(artistsObj).reverse()
-    const dispatch = useDispatch()
+    const [render, setRender] = useState(<Feed query='fltr=null' />)
+    const [homeWidth, setHomeWidth] = useState("width-65");
+    const { isMobile } = useWindowDimensions();
+    const location = useLocation();
 
     useEffect(() => {
-        dispatch(getAllArtists())
-            .then(() => setIsLoading(false))
-    }, [dispatch, setIsLoading])
+        if (location.pathname.includes('explore')) {
+            setRender(<ExploreArtists />)
+            setHomeWidth("width-65");
+        } else if (location.pathname.includes('popular')) {
+            setRender(<Feed query='fltr=popular' />)
+            setHomeWidth(isMobile ? "width-95" : "width-65");
+        } else if (location.pathname.includes('feed')) {
+            setRender(<Feed query='fltr=null' />)
+            setHomeWidth(isMobile ? "width-95" : "width-65");
+        }
+    }, [location.pathname, isMobile])
 
     return (
         <>
-            {!isLoading && <div className="tiling-container">
-                {artists.map((artist) => (
-                    <Link to={`/artists/${artist.id}` } key={`artists${artist.id}`}>
-                        <ArtistTile
-                            artist={artist}
-                        />
-                    </Link>
-                ))}
-            </div>}
-            {/* add a footer with about section */}
+            {/* sidebar */}
+            {isMobile ? null :
+                <div className="home-sidebar">
+                    <Menu type="home" />
+                </div>
+            }
+
+            {/* header */}
+
+
+            {/* main section */}
+            <div className={`home-main-content ${homeWidth}`}>
+                {render}
+            </div>
+
+            {/* chat */}
+            {/* <div className="home-chat">
+                <p>Chat</p>
+            </div> */}
         </>
     )
 }

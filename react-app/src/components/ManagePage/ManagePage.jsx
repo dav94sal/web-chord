@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, NavLink } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { getArtistById } from "../../redux/artist";
 import { getAllTours } from "../../redux/tour";
-import ManageTours from "../ManageTours";
-import ManageMerch from "../ManageMerch";
+import ManageTours from "./ManageTours";
+import ManageMerch from "./ManageMerch";
+import Menu from "../Menu/Menu";
+import useWindowDimensions from "../../context/useWindowDimensions";
 import "./manage-page.css";
 
 function ManagePage() {
     const [isLoading, setIsLoading] = useState(true);
-    const artistId = useSelector(state => state.session.user.id);
+    const { isMobile } = useWindowDimensions()
+    const artistId = useSelector(state => state.session.user.artist_id);
     const location = useLocation();
     const dispatch = useDispatch();
 
@@ -19,36 +22,26 @@ function ManagePage() {
             .then(() => setIsLoading(false))
     })
 
-    let render
+    let render;
+    let border;
 
     if (location.pathname.includes('manage-tours')) {
         render = <ManageTours isLoading={isLoading}/>
+        border = "background-red"
     }
 
     if (location.pathname.includes('manage-merch')) {
         render = <ManageMerch artistId={artistId} />
+        border = "background-blue"
     }
 
     return (
         <div className="manage-layout">
-            <ul className="manage-menu">
-                <li>
-                    <NavLink
-                        to='/manage-tours'
-                        className='nav-link'
-                    >
-                        Tours
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                        to='/manage-merch'
-                        className='nav-link'
-                    >
-                        Merch
-                    </NavLink>
-                </li>
-            </ul>
+            {isMobile ? null :
+                <div className="sidebar-menu">
+                    <Menu type="manageArtists" border={border}/>
+                </div>
+            }
             {!isLoading && render}
         </div>
     )

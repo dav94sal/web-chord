@@ -1,10 +1,14 @@
 from flask.cli import AppGroup
 from .users import seed_users, undo_users
-from .artists import seed_artists, undo_artists
-from .images import seed_images, undo_images
-from .tours import seed_tours, undo_tours
+from .artists_seeders import seed_artists, undo_artists
+from .images_seeder import seed_images, undo_images
+from .tours_seeder import seed_tours, undo_tours
 from .shows import seed_shows, undo_shows
 from .merchandise import seed_merchandise, undo_merchandise
+from .profile_pics import seed_profile_pics, undo_profile_pics
+from .posts_seeder import seed_posts, undo_posts
+# from .comments_seeder import seed_comments, undo_comments
+# from .vote_seeder import seed_votes, undo_votes
 
 from app.models.db import db, environment, SCHEMA
 
@@ -17,16 +21,16 @@ seed_commands = AppGroup('seed')
 @seed_commands.command('all')
 def seed():
     if environment == 'production':
-        # Before seeding in production, you want to run the seed undo
-        # command, which will  truncate all tables prefixed with
-        # the schema name (see comment in users.py undo_users function).
-        # Make sure to add all your other model's undo functions below
         undo_users()
         undo_artists()
         undo_images()
         undo_tours()
         undo_shows()
         undo_merchandise()
+        undo_profile_pics()
+        undo_posts()
+        # undo_comments()
+        # undo_votes()
 
     seed_users()
     seed_artists()
@@ -34,7 +38,10 @@ def seed():
     seed_tours()
     seed_shows()
     seed_merchandise()
-
+    seed_profile_pics()
+    seed_posts()
+    # seed_comments()
+    # seed_votes()
 
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')
@@ -45,4 +52,13 @@ def undo():
     undo_tours()
     undo_shows()
     undo_merchandise()
-    # Add other undo functions here
+    undo_profile_pics()
+    undo_posts()
+    # undo_comments()
+    # undo_votes()
+
+# Creates custom dev commands
+# @seed_commands.command('imgs')
+# def seed_merch():
+#     undo_images()
+#     seed_images()

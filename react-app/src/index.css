@@ -3,23 +3,27 @@
     rgb: 170, 64, 29 */
 
 body, #root {
-    background-color: #1e151898;
+    background-color: #0e1114;
     font-family: 'Nunito';
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 }
 
 main {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     position: absolute;
-    top: 90px;
+    top: 0;
     bottom: 0;
-    width: 100%;
-    /* height: 79%; */
+    width: 100vw;
+    min-height: 100vh;
+    padding-top: 56px;
     overflow: auto;
     scrollbar-width: thin;
     scrollbar-color: rgba(0, 0, 0, 0.822) rgba(0, 0, 0, 0);
@@ -51,12 +55,18 @@ h3 {
 }
 
 a {
+    color: white;
     text-decoration: none;
+    /* text-shadow: none; */
 }
 
 p {
     color: white;
     font-weight: 500;
+}
+
+li {
+    list-style-type: none;
 }
 
 input,
@@ -67,15 +77,15 @@ select {
     margin: 10px 6px;
 }
 
-#artist-label {
-    color: white;
-    margin-left: 10px;
-}
-
 form {
     width: 100%;
     display: flex;
     flex-direction: column;
+}
+
+#artist-label {
+    color: white;
+    margin-left: 10px;
 }
 
 #modal {
@@ -88,17 +98,73 @@ form {
     border-radius: 10px;
     height: auto;
     padding: 20px;
-    width: 300px;
+    min-width: 260px;
+    max-width: 320px;
 }
 
+.menu {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: fixed;
+    margin: 1px 0;
+    padding: 0;
+}
+
+.drop-menu-item {
+  display: flex;
+  align-items: center;
+  height: 41px;
+}
+
+.menu-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+}
+
+.menu-icon {
+  font-size: 22px;
+}
+
+.menu-text {
+  margin: 0 2px;
+}
+
+.menu-text p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.menu-text p + p {
+  color: #7e868b;
+  font-size: 13px;
+  margin: 0;
+}
 
 .buttons {
-    background-color: #3e3e3e;
-    border: unset;
-    border-radius: 10px;
+    border-radius: 15px;
+    border: none;
     color: white;
-    height: 25px;
-    margin: 10px 5px;
-    /* margin-bottom: 20px; */
-    width: 100px;
-  }
+    font-size: 12px;
+    height: 30px;
+    margin: 0 3px;
+    padding: 0 10px;
+}
+
+.fill-color-black {
+    background-color: black;
+}
+
+.nav-link {
+    padding: 10px;
+    text-decoration: unset;
+    margin: 10px;
+}
+
+.active {
+    color: #aa401dc5;
+    font-weight: 900;
+    text-shadow: 0 0 20px;
+}

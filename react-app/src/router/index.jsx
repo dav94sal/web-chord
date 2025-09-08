@@ -1,30 +1,55 @@
 import { createBrowserRouter } from 'react-router-dom';
-import LoginFormPage from '../components/LoginFormPage';
-import SignupFormPage from '../components/SignupFormPage';
 import Layout from './Layout';
 import Home from '../components/Home';
 import ArtistPage from '../components/ArtistPage';
+import ArtistForm from '../components/ArtistForm';
 import ManagePage from '../components/ManagePage';
+import NotFound from '../components/handlers/NotFound';
+import Error from '../components/handlers/Error';
+import Redirect from '../components/handlers/Redirect';
 
-export const router = createBrowserRouter([
+export const routes = [
   {
     element: <Layout />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
-        element: <Home />,
+        children: [
+          {
+            index: true,
+            element: <Redirect />
+          },
+          {
+            path: "feed",
+            element: <Home />
+          },
+          {
+            path: "popular",
+            element: <Home />
+          },
+          {
+            path: "explore",
+            element: <Home />
+          },
+          {
+            path: "*",
+            element: <Redirect />
+          },
+        ]
       },
       {
-        path: "login",
-        element: <LoginFormPage />,
-      },
-      {
-        path: "signup",
-        element: <SignupFormPage />,
-      },
-      {
-        path: "/artists/:artistId",
-        element: <ArtistPage />
+        path: "/artists/",
+        children: [
+          {
+            path: ":artistId",
+            element: <ArtistPage />,
+          },
+          {
+            path: "new",
+            element: <ArtistForm />,
+          },
+        ]
       },
       {
         path: "/manage-tours",
@@ -33,7 +58,13 @@ export const router = createBrowserRouter([
       {
         path: "/manage-merch",
         element: <ManagePage />,
+      },
+      {
+        path: "/*",
+        element: <NotFound />
       }
     ],
   },
-]);
+];
+
+export const router = createBrowserRouter(routes);

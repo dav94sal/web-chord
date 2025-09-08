@@ -9,12 +9,14 @@ import sessionReducer from "./session";
 import artistReducer from "./artist";
 import tourReducer from "./tour";
 import merchReducer from "./merch";
+import postReducer from "./post";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   artists: artistReducer,
   tours: tourReducer,
   merch: merchReducer,
+  posts: postReducer,
 });
 
 let enhancer;

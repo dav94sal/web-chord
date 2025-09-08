@@ -10,5 +10,6 @@ class AddShowForm(FlaskForm):
     state = StringField("State", validators=[DataRequired()])
     venue = StringField("Venue", validators=[DataRequired()])
     openers = StringField("Openers")
+    tickets = StringField("Ticket URL", validators=[DataRequired()])
     tour_id = IntegerField("Tour Id", validators=[DataRequired()])
     submit = SubmitField('Create Show')

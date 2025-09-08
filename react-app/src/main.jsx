@@ -6,6 +6,7 @@ import configureStore from "./redux/store";
 import { router } from "./router";
 import * as sessionActions from "./redux/session";
 import * as merchActions from "./redux/merch";
+import * as postActions from "./redux/post";
 import LoadingProvider from "./context/LoadingContext";
 import "./index.css";
 
@@ -15,6 +16,7 @@ if (import.meta.env.MODE !== "production") {
   window.store = store;
   window.sessionActions = sessionActions;
   window.merchActions = merchActions;
+  window.postActions = postActions;
 }
 
 ReactDOM.createRoot(document.getElementById("root")).render(

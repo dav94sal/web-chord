@@ -14,15 +14,16 @@ class Artist(db.Model):
     youtube_url = db.Column(db.String)
     spotify_url = db.Column(db.String)
     pandora_url = db.Column(db.String)
-    ticket_url = db.Column(db.String)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
+    created_at = db.Column(db.DateTime, default=db.func.now(), nullable=False)
+    updated_at = db.Column(db.DateTime, default=db.func.now(), onupdate=db.func.now(), nullable=False)
 
     img = db.relationship(
         "Image",
         primaryjoin="and_(Image.imageable_type=='artist', foreign(Image.imageable_id)==Artist.id)",
         lazy="dynamic",
     )
-    user = db.relationship("User")
+    user = db.relationship("User", overlaps="artist")
     tour = db.relationship("Tour", cascade="all, delete-orphan")
     merch = db.relationship("Merch", cascade="all, delete-orphan")
 
@@ -41,6 +42,5 @@ class Artist(db.Model):
             'youtube_url': self.youtube_url or "",
             'spotify_url': self.spotify_url or "",
             'pandora_url': self.pandora_url or "",
-            'ticket_url': self.ticket_url or "",
             'user_id': self.user_id,
         }
