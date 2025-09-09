@@ -24,10 +24,10 @@ export const routes = [
             path: "feed",
             element: <Home />
           },
-          {
-            path: "popular",
-            element: <Home />
-          },
+          // {
+          //   path: "popular",
+          //   element: <Home />
+          // },
           {
             path: "explore",
             element: <Home />
