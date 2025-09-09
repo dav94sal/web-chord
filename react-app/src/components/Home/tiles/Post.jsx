@@ -13,6 +13,7 @@ function Post({post}) {
     const user = useSelector((state) => state.session.user);
     const dispatch = useDispatch();
     const today = new Date;
+    const proPicUrl = post.author.profile_pic_url
 
     const timeElapsed = () => {
         const minute = 60 * 1000;
@@ -52,7 +53,7 @@ function Post({post}) {
         <div className="post-tile">
             <div className="post-head">
                 <div className="centered">
-                    <img src={post.author.profile_pic_url} alt="profile picture" className="profile-pic" />
+                    <img src={proPicUrl ? proPicUrl : ""} alt="profile picture" className="profile-pic" />
                     <p>{post.author.username}</p>
                     <BsDot className="white-text"/>
                     <p className="grey-text">
