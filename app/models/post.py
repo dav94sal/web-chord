@@ -30,20 +30,20 @@ class Post(db.Model):
         return {"upvotes": upvotes, "downvotes": downvotes, "total": upvotes - downvotes}
 
     def to_dict(self, calculated_upvotes=None, calculated_downvotes=None, calculated_total_votes=None):
-        if calculated_upvotes is not None and calculated_downvotes is not None and calculated_total_votes is not None:
-            # Use the calculated values from the main query if provided
-            upvotes = calculated_upvotes
-            downvotes = calculated_downvotes
-            total = calculated_total_votes
-        else:
-            upvotes, downvotes, total = self.get_vote_count().values()
+        # if calculated_upvotes is not None and calculated_downvotes is not None and calculated_total_votes is not None:
+        #     # Use the calculated values from the main query if provided
+        #     upvotes = calculated_upvotes
+        #     downvotes = calculated_downvotes
+        #     total = calculated_total_votes
+        # else:
+        #     upvotes, downvotes, total = self.get_vote_count().values()
 
         return {
             "id": self.id,
             "post": self.post,
-            "upvotes": upvotes,
-            "downvotes": downvotes,
-            "totalvotes": total,
+            # "upvotes": upvotes,
+            # "downvotes": downvotes,
+            # "totalvotes": total,
             "user_id": self.user_id,
             "created_at": self.created_at,
             "updated_at": self.updated_at,
