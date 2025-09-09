@@ -347,7 +347,7 @@ users = [
         'username': 'ConcertGoer',
         'email': 'concert.goer@crowd.io',
         'password': 'password',
-        'is_artist': False,
+        'is_artist': True,
     },
     {
         'id': 51,
@@ -396,7 +396,7 @@ users = [
         'username': 'BeatBuddy',
         'email': 'beat.buddy@friend.io',
         'password': 'password',
-        'is_artist': False,
+        'is_artist': True,
     },
     {
         'id': 58,
@@ -431,7 +431,7 @@ users = [
         'username': 'VibeVoyager',
         'email': 'vibe.voyage@flow.io',
         'password': 'password',
-        'is_artist': False,
+        'is_artist': True,
     },
     {
         'id': 63,
@@ -466,7 +466,7 @@ users = [
         'username': 'PodcastPatron',
         'email': 'podcast.patron@talk.io',
         'password': 'password',
-        'is_artist': False,
+        'is_artist': True,
     },
     {
         'id': 68,
@@ -480,7 +480,7 @@ users = [
         'username': 'LyricListener',
         'email': 'lyric.listen@story.io',
         'password': 'password',
-        'is_artist': False,
+        'is_artist': True,
     },
     {
         'id': 70,
@@ -494,7 +494,7 @@ users = [
         'username': 'PianoPonderer',
         'email': 'piano.pond@keys.io',
         'password': 'password',
-        'is_artist': False,
+        'is_artist': True,
     },
     {
         'id': 72,
@@ -613,7 +613,7 @@ users = [
         'username': 'ChimeChaser',
         'email': 'chime.chase@ring.io',
         'password': 'password',
-        'is_artist': False,
+        'is_artist': True,
     },
     {
         'id': 89,
