@@ -48,8 +48,8 @@ artists = [
     {'id': 45, 'artist_name': 'Symphonic Souls', 'user_id': 62},
     {'id': 46, 'artist_name': 'Soundwave Sorcerers', 'user_id': 67},
     {'id': 47, 'artist_name': 'Sonic Sculptors', 'user_id': 69},
-    {'id': 48, 'artist_name': 'Resonance Rebels', 'user_id': 91},
-    {'id': 49, 'artist_name': 'The Soundscape Architects', 'user_id': 98},
+    {'id': 48, 'artist_name': 'Resonance Rebels', 'user_id': 71},
+    {'id': 49, 'artist_name': 'The Soundscape Architects', 'user_id': 88},
 ]
 
 
