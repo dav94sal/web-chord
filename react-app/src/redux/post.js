@@ -21,7 +21,9 @@ export const removePost = (postId) => ({
 
 // Thunks
 export const getAllPosts = (query) => async dispatch => {
-    const response = await fetch(`/api/posts/all?${query}`);
+    let route = `/api/posts/all`
+    if (query !== "fltr=null") route = route + `?${query}`
+    const response = await fetch(route);
     // console.log("Fetch response: ", await response.json())
 
     if(response.ok) {

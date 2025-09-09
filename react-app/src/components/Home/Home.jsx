@@ -7,7 +7,7 @@ import useWindowDimensions from "../../context/useWindowDimensions";
 import "./Home.css";
 
 function Home() {
-    const [render, setRender] = useState(<Feed query='fltr=null' />)
+    const [render, setRender] = useState(null)
     const [homeWidth, setHomeWidth] = useState("width-65");
     const { isMobile } = useWindowDimensions();
     const location = useLocation();
