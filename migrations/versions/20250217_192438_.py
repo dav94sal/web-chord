@@ -1,7 +1,7 @@
 """empty message
 
 Revision ID: c41dd1b50892
-Revises: 
+Revises:
 Create Date: 2025-02-17 19:24:38.559657
 
 """
@@ -59,7 +59,7 @@ def upgrade():
     )
     op.create_table('tours',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('name', sa.String(length=40), nullable=False),
+    sa.Column('name', sa.String(length=50), nullable=False),
     sa.Column('artist_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['artist_id'], ['artists.id'], ),
     sa.PrimaryKeyConstraint('id')
